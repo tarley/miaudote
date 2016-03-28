@@ -1,0 +1,54 @@
+$(function(){
+	jQuery(document).ready(function(){
+		var acao;
+		var galery = $("#galery");
+		var lista = galery.find("#galery-image");
+		var itens="";
+		
+		$.getJSON('assets/php/util.php?acao=getDestaque',function(data){
+			$.each(data,function(k,v){
+				itens += "<figure id ='perfil' class='effect-oscar wowload fadeIn 'value='"+v.CDANIMAL+"'>";
+				itens +="<img src='images/profile/"+v.NMFOTO+".jpg' />";
+				itens += "<figcaption>";
+				itens += "<h2>"+v.NMANIMAL+"</h2>";
+				itens += "<p>"+v.TXTDESCRICAO+"</br>";
+				itens += "<a href='#search' class='a'>Ver perfil</a></p>";
+				itens += "<input id='teste' type='hidden' name='oi''>";
+				itens += "</figcaption>";
+				itens += "</figure>";			
+			});
+			lista.html(itens);
+		});
+	})
+	
+	
+	$(document).on('click', '#perfil', function(){
+		var a = $( "#perfil").val();
+		alert(a)
+		/*var acao;
+		var galery = $("#search");
+		var lista = galery.find("#result");
+		var itens="";
+		
+		$.getJSON('assets/php/util2.php?acao=getPerfil',function(data){
+			$.each(data,function(k,v){
+				itens += v.NMANIMAL;
+				
+			});
+			lista.html(itens);
+		});*/
+		
+		 
+	});
+
+});
+
+
+
+	$acao = isset($_GET['acao']);
+	//if(isset($acao)){
+		//if($acao = 'getDestaque'){
+		$listar =$pdo->query('SELECT A.CDANIMAL,A.NMANIMAL,F.CDFOTO,F.NMFOTO,TXTDESCRICAO FROM ANIMAL A, FOTO F  WHERE A.CDANIMAL = F.CDANIMAL');
+		echo $acao ;//son_encode($listar->fetchAll(PDO::FETCH_OBJ));
+			
+		//}			

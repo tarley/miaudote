@@ -1,0 +1,39 @@
+$(function(){
+	
+	jQuery(document).ready(function(){
+		
+		var galery = $("#galery");
+		var lista = galery.find("#galery-image");
+		var itens="";
+
+		$.ajax({
+		  url: "assets/php/util.php?acao=getDestaque", // url da logica que você irá executar
+		  type:"POST", // metodo de envio dos dados (recomendo POST)
+		  //data:{id:24, nome:"Joao", aniversario: "14/10/92"} // aqui recebe um objeto com quantos parametros voce quiser assim você pode enviar dados dinamicamente
+		}).success(function(resultado) { // se tudo ocorrer bem entra aqui
+			//$.each(resultado,function(k,v){
+			for(var i = 0; i< resultado.length;i++){	
+				itens += "<figure id ='perfil' class='effect-oscar wowload fadeIn 'value='"+resultado[0].CDANIMAL+"'>";
+				itens +="<img src='images/profile/"+resultado[i].NMFOTO+".jpg' />";
+				itens += "<figcaption>";
+				itens += "<h2>"+resultado[i].NMANIMAL+"</h2>";
+				itens += "<p>"+resultado[i].TXTDESCRICAO+"</br>";
+				itens += "<a href='#search' class='a'>Ver perfil</a></p>";
+				itens += "<input id='teste' type='hidden' name='oi''>";
+				itens += "</figcaption>";
+				itens += "</figure>";
+
+			}
+			//});
+			lista.html(itens);
+			
+		
+		}).error(function(){ // se der erro entra aqui
+			alert("Desculpe, algum erro aconteceu");
+		});		
+	})
+
+
+});
+
+
