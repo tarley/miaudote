@@ -1,11 +1,11 @@
 <?php
-	
 	require_once 'conexao.php';
 	$pdo = conectar();
 	
 	error_reporting(E_ALL);
 	
 	$acao = $_GET['acao'];
+	
 	if(isset($acao)){		
 		if($acao == 'getDestaque'){
 			$listar =$pdo->query("SELECT 	A.COD_ANIMAL,
@@ -18,12 +18,17 @@
 								FROM 		TB_ANIMAL A , TB_FOTO F
 								WHERE 		A.COD_ANIMAL = F.COD_ANIMAL
 								AND   		F.ID_FOTO_PRI = 'S'");
-									
-			echo json_encode($listar->fetchAll(PDO::FETCH_OBJ));	
+								
+			
+			if ($listar ==""){
+				echo 0;
+			}else{	
+				echo json_encode($listar->fetchAll(PDO::FETCH_OBJ));
+			}
 		}
 
 		if($acao == 'getPerfil'){
-			
+			sleep(2);			
 			$codAnimal = $_GET['cod_animal'];	
 
 			$sql = "SELECT 	A.COD_ANIMAL,
@@ -64,6 +69,5 @@
 	
 		}
 	}
-	
-	
+
 ?>
