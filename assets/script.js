@@ -1,20 +1,13 @@
- jQuery(document).ready(function($) {
- 
-    $(".scroll a, .navbar-brand, .gototop").click(function(event){   
-    event.preventDefault();
-    $('html,body').animate({scrollTop:$(this.hash).offset().top}, 600,'swing');
-    $(".scroll li").removeClass('active');
-    $(this).parents('li').toggleClass('active');
-    });
-});
-
-
-$(document).on('click','#perfil', function(){//Para atributos adicionados dinamicamente pelo JS
+ jQuery(document).ready(function($) {	 
+	$(document).on('click','.scroll a, .navbar-brand, .gototop', function(event){ 
+		/*Colocar um if verificando o valor do ID da tag <a ,se for o ID para criar a janela, deve se evitar o codigo abaixo, senao, pode executar */
 	
-	$(".scrollDinamic").click(function(event){   
 		event.preventDefault();
 		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 600,'swing');
-    });	 
+		$(".scroll li").removeClass('active');
+		$(this).parents('li').toggleClass('active');
+    });
+	
 });
 
 
@@ -30,8 +23,6 @@ var wow = new WOW(
 wow.init();
 
 
-
-
 $('.carousel').swipe( {
      swipeLeft: function() {
          $(this).carousel('next');
@@ -41,6 +32,8 @@ $('.carousel').swipe( {
      },
      allowPageScroll: 'vertical'
  });
+
+
 
 
 
