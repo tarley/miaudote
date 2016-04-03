@@ -153,25 +153,6 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
     transform:rotate(3deg);
 }
 
-/*Fim ... foto perfil/slide */
-
-/*
-#details-img {
-    max-width: 100%;
-    -webkit-filter: contrast(1);
-    filter: contrast(1);
-}
-/*
-#details-img:hover {
-    -webkit-filter: blur(1px);
-    filter: blur(1px);
-}
-*/
-
-
-
-
-
 /*dev*/
 #dev{margin-top:200px;}
 .team figure{width: 100%;}
@@ -192,7 +173,7 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 #contact{background-color: #f5f5f5;}
 #opt-contact{min-height:80px;max-width:100%;min-width: 10%;top: 0;right: 0;bottom: 0; left:0;position:relative;margin:0 auto;margin-bottom: 15px;}
 .img-contact{/*border:1px solid black;*/padding:0px 10px 0px 10px;}
-.img-contact span{/*border:1px solid red;*/padding:0px 0px 0px 10px;font-size: 18px} /*opÃ§Ãµes e imagens contidas acima do formulario de contato*/
+.img-contact span{/*border:1px solid red;*/padding:0px 0px 0px 10px;font-size: 18px} /*opções e imagens contidas acima do formulario de contato*/
 .contactform textarea,.contactform input{width: 100%;padding:1em;border:1px solid #ccc;margin-bottom: 1em;border-radius: 0;outline: none;}
 /*contact*/
 
@@ -264,16 +245,6 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 
 /*################*/
 
-/*jssor inicio*/
-/* jssor slider arrow navigator skin 05 css */
-/*
-.jssora05l                  (normal)
-.jssora05r                  (normal)
-.jssora05l:hover            (normal mouseover)
-.jssora05r:hover            (normal mouseover)
-.jssora05l.jssora05ldn      (mousedown)
-.jssora05r.jssora05rdn      (mousedown)
-*/
 .jssora05l, .jssora05r {
     display: block;
     position: absolute;
@@ -291,13 +262,6 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 .jssora05l.jssora05ldn { background-position: -250px -40px; }
 .jssora05r.jssora05rdn { background-position: -310px -40px; }
 
-/* jssor slider thumbnail navigator skin 01 css */
-/*
-.jssort01 .p            (normal)
-.jssort01 .p:hover      (normal mouseover)
-.jssort01 .p.pav        (active)
-.jssort01 .p.pdn        (mousedown)
-*/
 .jssorbody {
     .padding:0px; 
     .margin:0px; 
@@ -313,10 +277,7 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 }
 
 .jssordiv1{
-	/*position: relative;    
-    margin: 0 auto; 
-    top: 0px; 
-    left: 0px; */
+
     width: 100%; 
     height: 600px; 
     overflow: hidden; 
@@ -456,7 +417,9 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 
 /*jssor fim*/
 
-.ReturnUser{ /*Div fixa que irÃ¡ receber dinamicamente mensagens de interaÃ§Ãµes com o usuario*/
+/*Menu retratil*/
+
+.ReturnUser{ /*Div fixa que irá receber dinamicamente mensagens de interações com o usuario*/
 	height:100px;
 	padding:5px;
 }
@@ -512,4 +475,31 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 	box-shadow: 5px 5px 0px rgba(0,0,0,.2);
 	padding: 5px 10px 5px 10px
 
+}
+
+/*Carregamento de imagem*/
+
+.loading-result{
+		position:absolute;
+		top:50%;
+		left:50%;
+		margin-top:-50px;
+		margin-left:-50px;
+	
+}
+
+/*Fim carregamento imagem*/
+
+/*resposta do getDestaque*/
+
+
+.empty-destaque img {
+
+	text-align:center;
+	color: white;
+	top: 0;
+	right:0;
+	bottom:0;
+	left:0;
+	margin: auto;
 }
