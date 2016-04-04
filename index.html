@@ -1,340 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Cyrus Studio</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Cyrus Studio</title>
 
-<!-- Google fonts -->
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+		<!-- Google fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
 
-<!-- font awesome -->
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<!-- font awesome -->
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-<!-- bootstrap -->
-<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
 
-<!-- animate.css -->
-<link rel="stylesheet" href="assets/animate/animate.css" />
-<link rel="stylesheet" href="assets/animate/set.css" />
+		<!-- animate.css -->
+		<link rel="stylesheet" href="assets/animate/animate.css" />
+		<link rel="stylesheet" href="assets/animate/normalize.min.css" />
+		<link rel="stylesheet" href="assets/animate/set.css" />
 
-<!-- gallery --->
-<!--<link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">
+		<!-- gallery --->
+		<!--<link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">
 
-<!-- favicon -->
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="assets/style.css">
+		<!-- favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="assets/style.css">
 
-</head>
+	</head>
 
-<body>
-<div class="topbar animated fadeInLeftBig"></div>
+	<body>
+		<div class="topbar animated fadeInLeftBig"></div>
 
-<!-- Header Starts -Header e menus de inicialização-->
-<div class="navbar-wrapper">
-      <div class="container">
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
-          <div class="container">
-            <div class="navbar-header">
-              <!-- Logo Starts -->
-              <a class="navbar-brand" href="#home"><img src="images/logo2.png" alt="logo"></a>
-              <!-- #Logo Ends -->
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
+		<!-- Header Starts -Header e menus de inicialização-->
+		<div class="navbar-wrapper">
+			  <div class="container">
+				<div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
+				  <div class="container">
+					<div class="navbar-header">
+					  <!-- Logo Starts -->
+					  <a class="navbar-brand" href="#home"><img src="images/logo2.png" alt="logo"></a>
+					  <!-- #Logo Ends -->
+					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					  </button>
+					</div>
 
-            <!-- Nav Starts -->
-            <div class="navbar-collapse  collapse">
-              <ul class="nav navbar-nav navbar-right scroll">
-                 <li class="active"><a href="#galery">Inicio</a></li>
-                 <li ><a href="#search">Busca </a></li>
-				 <!--<li ><a href="#about">Quem Somos</a></li>-->
-                 <li ><a href="#contact">Fale Conosco</a></li>
-				 <!--<li ><a href="#dev">Desenvolvedores</a></li>-->
-              </ul>
-			  
-            </div>
-            <!-- #Nav Ends -->
-          </div>
-        </div>
-      </div>
-    </div>
-<!-- #Header Starts -->
-
-
-<!-- Galeria de destaques-->
-	<div id="galery"  class=" clearfix grid row"> 
-
-		<div id="galery-image" class="scroll col-md-8 col-md-offset-2">
-
+					<!-- Nav Starts -->
+					<div class="navbar-collapse  collapse">
+					  <ul class="nav navbar-nav navbar-right scroll">
+						 <li class="active"><a href="#galery">Inicio</a></li>
+						 <li><a href="#search">Busca</a></li>
+						 <!--<li ><a href="#about">Quem Somos</a></li>-->
+						 <li><a href="#contact">Fale Conosco</a></li>
+						 <!--<li ><a href="#dev">Desenvolvedores</a></li>-->
+					  </ul>			  
+					</div>
+					<!-- #Nav Ends -->
+				  </div>
+				</div>
+			  </div>
 		</div>
-	</div>
-	<div id="separator"> </div>
+		<!-- #Header Starts -->
 
-<!-- Local de Pesquina dos animais. Contem menu de busca e painel(galeria) de resultado -->
-<div id="search"  class="clearfix grid row">
-	<div id="menu-search" class="col-md-2" > <!--style="border:1px solid black; height:800px"      
-		menu procura -->
-	</div>
 
-	<div id="resultSearch" class="col-md-8 scrollDinamic" style="min-height:800px;padding:0px"> 
+		<!-- Galeria de destaques-->
+		<div id="galery"  class=" clearfix grid row"> 
+			<div id="galery-image" class="scroll col-md-8 col-md-offset-2">
+				
+			</div>
+		</div>
+		<hr>
+		<div id="search"  class="clearfix grid row scroll">
 
-		<div id="details"  class="jssorbody row"> 
+			<div id="menu-search" class="col-md-2"> <!--style="border:1px solid black; height:800px" -->     
+				
+			</div>
+
+			<div id="result-search" class="col-md-8 class" style="min-height:800px;padding:0px">
+
+			</div>
+		</div>
+		<hr>
+		<div id="partners" class="container spacer ">
 			
-			<!--<div class="col-md-12 divesquerda" style="border:1px solid green">
-					<!--<div id="jssor_1" class= "jssordiv1 col-md-12">
-						<!-- Loading Screen -
-						<div data-u="loading" class="jssorloading">
-							<div class="jssorloading1"></div>
-							<div class="jssorloading2"></div>
-						</div>
-						<div data-u="slides" class="jssorslides col-md-12" style ="border: 1px solid red">
-						
-						
-							<div data-p="144.50" style="display: none;" >
-								<img data-u="image" src="images/profile/user_1/pet_DICAPRIO/book/FOTO1.jpg" />
-								<img data-u="thumb" src="images/profile/user_1/pet_DICAPRIO/thumb/thumb_FOTO1.jpg" />
-							</div>
-							
-							<div data-p="144.50" style="display: none;" >
-								<img data-u="image" src="images/profile/user_1/pet_DICAPRIO/book/FOTO2.jpg" />
-								<img data-u="thumb" src="images/profile/user_1/pet_DICAPRIO/thumb/thumb_FOTO2.jpg" />
-							</div>
-							
-							<div data-p="144.50" style="display: none;" >
-								<img data-u="image" src="images/profile/user_1/pet_DICAPRIO/book/FOTO3.jpg" />
-								<img data-u="thumb" src="images/profile/user_1/pet_DICAPRIO/thumb/thumb_FOTO3.jpg" />
-							</div>
-							
-							<div data-p="144.50" style="display: none;" >
-								<img data-u="image" src="images/profile/user_1/pet_DICAPRIO/book/FOTO4.jpg" />
-								<img data-u="thumb" src="images/profile/user_1/pet_DICAPRIO/thumb/thumb_FOTO4.jpg" />
-							</div>
-							
-							<div data-p="144.50" style="display: none;" >
-								<img data-u="image" src="images/profile/user_1/pet_DICAPRIO/book/FOTO5.jpg" />
-								<img data-u="thumb" src="images/profile/user_1/pet_DICAPRIO/thumb/thumb_FOTO5.jpg" />
-							</div>
-						
-							<div data-p="144.50" style="display: none;" >
-								<img data-u="image" src="images/profile/user_1/pet_DICAPRIO/book/FOTO6.jpg" />
-								<img data-u="thumb" src="images/profile/user_1/pet_DICAPRIO/thumb/thumb_FOTO6.jpg" />
-							</div>
-							
-							<div data-p="144.50" style="display: none;" >
-								<img data-u="image" src="images/profile/user_1/pet_DICAPRIO/book/FOTO7.jpg" />
-								<img data-u="thumb" src="images/profile/user_1/pet_DICAPRIO/thumb/thumb_FOTO7.jpg" />
-							</div>
-							
-							<div data-p="144.50" style="display: none;" >
-								<img data-u="image" src="images/profile/user_1/pet_DICAPRIO/book/FOTO8.jpg" />
-								<img data-u="thumb" src="images/profile/user_1/pet_DICAPRIO/thumb/thumb_FOTO8.jpg" />
-							</div>
-							
-							<div data-p="144.50" style="display: none;" >
-								<img data-u="image" src="images/profile/user_1/pet_DICAPRIO/book/FOTO9.jpg" />
-								<img data-u="thumb" src="images/profile/user_1/pet_DICAPRIO/thumb/thumb_FOTO9.jpg" />
-							</div>
-							
-							<div data-p="144.50" style="display: none;" >
-								<img data-u="image" src="images/profile/user_1/pet_DICAPRIO/book/FOTO10.jpg" />
-								<img data-u="thumb" src="images/profile/user_1/pet_DICAPRIO/thumb/thumb_FOTO10.jpg" />
-							</div>		
-						</div>
+		</div>
 
-						<div data-u="thumbnavigator" class="jssort01 jssort01div" data-autocenter="1">
-							<!-- Thumbnail Item Skin Begin --
-							<div data-u="slides" class="jssorslidesdiv1">
-								<div data-u="prototype" class="p">
-									<div class="w">
-										<div data-u="thumbnailtemplate" class="t"></div>
-									</div>
-									<div class="c"></div>
-								</div>
-							</div>
-
-						</div>
-						<!-- Arrow Navigator --
-						<span data-u="arrowleft" class="jssora05l jssort01div2"></span>
-						<span data-u="arrowright" class="jssora05r jssort01div3"></span>
-				   </div>
-				</div> 
-				<div id="details-profile" class="col-md-12 divdireita">		
-					<div id="tabs">
-						<ul>
-							<li><a href="#tabs-1">Perfil</a></li>
-							<li><a href="#tabs-2">Características</a></li>
-							<li><a href="#tabs-3">Contato</a></li>
-						</ul>
-						<div id="tabs-1">
-							<p>“Não importa que sejam poucas as suas posses e o seu dinheiro. Ter um cão torna-o rico.” (Louis Sabin)
-								</br>Esse filhote fofo será doado castrado e com vacinação iniciada. </p>
-						</div>
-						<div id="tabs-2">
-							<p>Idade: Filhote </br>
-								Sexo: Macho </br>
-								Pelagem: Curta </br>
-								Porte: Médio </p>
-						</div>
-						<div id="tabs-3">
-							Para adotar esse caozinho entre em contato com:
-							<p>ENDEREÇO:
-								</br>Rua Primeiro de Maio, 165 - Braúnas. CEP: 32.186-429 - Contagem /MG. Localização
-								</br>HORÁRIO:
-								</br>• 3ª, 5ª e 6ª, das 13h às 16h
-								</br>• aos sábados, das 13h às 17h
-								</br>NOSSOS CONTATOS:
-								</br>Telefone (31) 98658-9685
-								</br>Facebook www.facebook.com/caoviver
-								</br>Twitter www.twitter.com/caoviverbh</p>
+		<!--Contato-->
+		<div id="contact" class="spacer">
+			<div class="container contactform center">
+			<h2 class="text-center  wowload fadeInUp">Fale conosco</h2>
+				<div class="col-sm-offset-4"> 
+					<div id="opt-contact">	
+						<div class="img-contact" style="float:left">
+							<img src="images/icon-phone.png"><span>(31)2516-2305</span>
+						</div>		
+						<div class="img-contact" style="float:left">
+							<img src="images/icon-whats.png"><span>(31)99358-6958</span>
 						</div>
 					</div>
-				</div> -
-			</div>-->
-		</div>
-
-	</div>
-</div>
-<div id="separator"> </div>
-
-<div id="partners" class="container spacer ">
-	<!-- Desenvolvedores -
-	<div id="dev" class="spacer" >
-		<h3 class="text-center  wowload fadeInUp">Desenvolvedores</h3>
+				</div>
+				<div class="row wowload fadeInLeftBig">
+					<form id="contactForm" action="" method="Post">
+						<div class="col-sm-6 col-sm-offset-3 col-xs-12">      
+							<input type="text" name="name" placeholder="Nome" required>
+							<input type="text" name="email"placeholder="E-mail" required>
+							<textarea rows="5" name="comment" placeholder="Mensagem" required></textarea>
+							<button id="enviarEmail" class="btn btn-primary"><i class="fa fa-paper-plane"></i> Enviar </button>
+						</div>
+					</form>
+				</div>
 				
-		<div class="row grid team  wowload fadeInUpBig">	
-			<div class=" col-sm-3 col-xs-6">
-			<figure class="effect-chico">
-				<img src="images/team/8.jpg" alt="img01" class="img-responsive" />
-				<figcaption>
-					<p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>            
-				</figcaption>
-			</figure>
-			</div>
-
-			<div class=" col-sm-3 col-xs-6">
-			<figure class="effect-chico">
-				<img src="images/team/10.jpg" alt="img01"/>
-				<figcaption>            
-					<p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>            
-				</figcaption>
-			</figure>
-			</div>
-
-			<div class=" col-sm-3 col-xs-6">
-			<figure class="effect-chico">
-				<img src="images/team/12.jpg" alt="img01"/>
-				<figcaption>
-					<p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>          
-				</figcaption>
-			</figure>
-			</div>
-
-			<div class=" col-sm-3 col-xs-6">
-			<figure class="effect-chico">
-				<img src="images/team/17.jpg" alt="img01"/>
-				<figcaption>
-					<p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
-				</figcaption>
-			</figure>
-			</div> 
-		</div>
-	</div>-->
-</div>
-
-<div id="separator"> </div>
-<!--Contato-->
-<div id="contact" class="spacer">
-	<div class="container contactform center">
-	<h2 class="text-center  wowload fadeInUp">Fale conosco</h2>
-		<div class="col-sm-offset-4"> 
-			<div id="opt-contact">	
-				<div class="img-contact" style="float:left">
-					<img src="images/icon-phone.png"><span>(31)2516-2305</span>
-				</div>		
-				<div class="img-contact" style="float:left">
-					<img src="images/icon-whats.png"><span>(31)99358-6958</span>
+				<div class="ReturnUser col-sm-6 col-sm-offset-3 col-xs-12">
+				<!-- Exibe mensagens ao usuario em tempo de execução -->
+																	
 				</div>
+				
 			</div>
 		</div>
-		<div class="row wowload fadeInLeftBig">
-			<form id="contactForm" action="" method="Post">
-				<div class="col-sm-6 col-sm-offset-3 col-xs-12">      
-					<input type="text" name="name" placeholder="Nome" required>
-	                <input type="text" name="email"placeholder="E-mail" required>
-	                <textarea rows="5" name="comment" placeholder="Mensagem" required></textarea>
-					<button id="enviarEmail" class="btn btn-primary"><i class="fa fa-paper-plane"></i> Enviar </button>
-				</div>
-			</form>
+		<!--Contact Ends-->
+
+
+	<!-- Footer Starts -->
+		<div class="footer text-center spacer">
+		<p class="wowload flipInX"><a href="#"><i class="fa fa-facebook fa-2x"></i></a> <a href="#"><i class="fa fa-instagram fa-2x"></i></a> <a href="#"><i class="fa fa-twitter fa-2x"></i></a> <a href="#"><i class="fa fa-flickr fa-2x"></i></a> </p>
+		Copyright 2014 Cyrus Creative Studio. All rights reserved.
 		</div>
-		
-		<div class="ReturnUser col-sm-6 col-sm-offset-3 col-xs-12">
-		<!-- Exibe mensagens ao usuario em tempo de execução -->
-															
-		</div>
-		
-	</div>
-</div>
-<!--Contact Ends-->
+		<!-- # Footer Ends -->
+		<a href="#galery" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
+
+	<!-- jquery -->
+		<script src="assets/jquery-1.12.0.js"></script> 
+
+		<script src="assets/util.js"></script>
+
+		<!-- wow script -->
+		<script src="assets/wow/wow.min.js"></script>
 
 
-<!-- Footer Starts -->
-<div class="footer text-center spacer">
-<p class="wowload flipInX"><a href="#"><i class="fa fa-facebook fa-2x"></i></a> <a href="#"><i class="fa fa-instagram fa-2x"></i></a> <a href="#"><i class="fa fa-twitter fa-2x"></i></a> <a href="#"><i class="fa fa-flickr fa-2x"></i></a> </p>
-Copyright 2014 Cyrus Creative Studio. All rights reserved.
-</div>
-<!-- # Footer Ends -->
-<a href="#galery" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
+		<!-- boostrap -->
+		<script src="assets/bootstrap/js/bootstrap.js" type="text/javascript" ></script>
 
-<!-- jquery -->
-<script src="assets/jquery-1.12.0.js"></script> 
-
-<script src="assets/util.js"></script>
-
-<!-- wow script -->
-<script src="assets/wow/wow.min.js"></script>
+		<!-- jquery mobile -->
+		<script src="assets/mobile/touchSwipe.min.js"></script>
 
 
-<!-- boostrap -->
-<script src="assets/bootstrap/js/bootstrap.js" type="text/javascript" ></script>
+		<!-- custom script -->
+		<script src="assets/script.js"></script>
+		<script src="assets/email.js"></script>
 
-<!-- jquery mobile -->
-<script src="assets/mobile/touchSwipe.min.js"></script>
+		<script src="assets/script.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script src="assets/respond/respond.js"></script>
+		<script type="text/javascript" src="assets/slider/js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="assets/slider/js/jssor.slider.mini.js"></script>
+		<!-- use jssor.slider.debug.js instead for debug -->
 
+		<!-- extrai o script e coloquei separado nesse jssor.js -->
+		<script src="assets/slider/js/jssor.js"></script>
 
-
-<!-- custom script -->
-<script src="assets/script.js"></script>
-<script src="assets/email.js"></script>
-
-
-<!--#########################################-->
-
-	<script src="assets/script.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-	<script type="text/javascript" src="assets/slider/js/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="assets/slider/js/jssor.slider.mini.js"></script>
-	<!-- use jssor.slider.debug.js instead for debug -->
-
-	<!-- extrai o script e coloquei separado nesse jssor.js -->
-	<script src="assets/slider/js/jssor.js"></script>
-
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<link rel="stylesheet" href="/resources/demos/style.css">
-	<script src="assets/jqueryTabs.js"></script>
-
-<!--#########################################-->
-
-</body>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<script src="assets/jqueryTabs.js"></script>
+	</body>
 </html>
