@@ -63,7 +63,9 @@ $(function(){
 				itens +="</ul>";
 				itens +="<h4>Contato</h4>";
 				itens +="<ul>";	
-				itens +="<li>Telefone fixo:"+v.TELEFONE+"</li>";
+				itens +="<li>ONG: "+v.NOM_USUARIO+" </li>";
+				itens +="<li>Telefone fixo: "+v.TELEFONE+" </li>";
+				itens +="<li>E-mail: "+v.EMAIL+" </li>";
 				itens +="</ul>";
 				itens +="<hr>"
 				itens +="</div>";
