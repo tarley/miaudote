@@ -1,16 +1,29 @@
 <?php
+
+function validaEmail($email) {
+	$conta = "^[a-zA-Z0-9\._-]+@";
+	$domino = "[a-zA-Z0-9\._-]+.";
+	$extensao = "([a-zA-Z]{2,4})$";
+	$pattern = $conta.$domino.$extensao;
+	if(@ereg($pattern, $email))
+		return true;
+	else
+		return false;
+}
+
+
 function enviaEmail($nomeRemetente,$emailRemetente,$msg){
 	$mail = new PHPMailer;
 	$mail->isSMTP();
 	$mail->SMTPDebug = 0;
 	$mail->Debugoutput = 'html';
 	$mail->Host = 'smtp.gmail.com';
-	$mail->Port = 587;
-	$mail->SMTPSecure = 'tls';
+	$mail->Port = 465;
+	$mail->SMTPSecure = 'ssl';
 	$mail->SMTPAuth = true;
 	$mail->CharSet = "UTF-8";
-	$mail->Username = "jheffbhz@gmail.com";
-	$mail->Password = "jeff21041984";
+	$mail->Username = "ipotec.ipotec@gmail.com";
+	$mail->Password = "senhaaqui";
 	$mail->setFrom($emailRemetente,'Projeto SIVET');
 	$mail->addAddress($emailRemetente, $nomeRemetente);
 	$mail->Subject = 'Projeto SIVET';
@@ -78,7 +91,50 @@ function enviaEmail($nomeRemetente,$emailRemetente,$msg){
 	$mail->msgHTML($body);
 	$mail->AltBody = $msg;
 	if (!$mail->send()) {
-		echo "Mailer Error: " . $mail->ErrorInfo;
+		
+		// Controla erros
+		$err	=	0;
+		
+		// Trata erros
+		// Nome vazio
+		if(empty($nomeRemetente)){
+			echo "nome_vazio";
+			$err=1;
+		}
+			
+		// Nome deve ter mais de 3 caracteres
+		if($err==0 && strlen($nomeRemetente)<3){
+			echo "nome_curto";
+			$err=1;
+		}
+		
+		// Email vazio
+		if($err==0 && empty($emailRemetente)){
+			echo "email_vazio";
+			$err=1;
+		}
+				
+		// Email válido
+		if($err==0 && validaEmail($emailRemetente)==false){ 
+			echo "email_invalido";
+			$err=1;
+		}
+		
+		// Mensagem vazia
+		if($err==0 && empty($msg)){
+			echo "msg_Vazia";
+			$err=1;
+		}
+		
+		// mensagem pequena
+		if($err==0 && strlen($msg)<10){
+			echo "msg_pequena";
+			$err=1;
+		}
+		
+		if($err==0)
+			echo "Mailer Error: " . $mail->ErrorInfo;
+			
 	}else{
 		echo"OK";
 	};	
