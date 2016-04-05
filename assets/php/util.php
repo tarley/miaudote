@@ -38,6 +38,8 @@
 							F.COD_FOTO,
 							F.NOM_FOTO,
 							U.TELEFONE,
+							U.EMAIL,
+							U.NOM_USUARIO,
 							
 							case 
 							  when IND_PORTE = 1 then 'Pequeno'
