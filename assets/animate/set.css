@@ -10,10 +10,16 @@
 	position: relative;
 	float: left;
 	overflow: hidden;
-	margin: 0;	/*change here for spacing*/	
-	width: 33.333333333%;
+	margin: 3px;	/*change here for spacing*/	
+	width: calc(33.33% - 6px);
 	text-align: center;
 	cursor: pointer;
+}
+
+.nav-pagination {
+	text-align: center;
+    padding: 10px;
+    font-family: monospace;
 }
 
 .grid figure img {
