@@ -55,26 +55,33 @@ $(function(){
 				itens +="<div class='drop-shadow lifted' style='position:relative;margin:0 auto;width:800px;height:500px;border:0px solid;background-image: url(images/fundo-pata.jpg');>";
 				itens +="<img id='details-img'src='images/profile/user_1/pet_"+v.COD_ANIMAL+"/book/"+v.NOM_FOTO+".jpg'/>";
 				itens +="</div>";
-				itens +="<div style='text-align:left;position:relative;margin:0 auto;width:800px;height:500px;border:0px solid;'>";
+				itens +="<div class='container' style='text-align:left;position:relative;margin:0 auto;width:800px;height:500px;border:0px solid;'>";				
 				itens +="<hr>";
-				itens +="<h4>Sobre mim</h4>"
-				itens +="<p>"+v.NOM_ANIMAL+"</p>";
-				itens +="<p>";
-				itens +=v.DESC_PERFIL;
-				itens +="</p>";
-				itens +="<h4>Caracteristicas</h4>";
-				itens +="<ul>";
-				itens +="<li>Idade: "+v.IDADE+" ano(s) </li>";
-				itens +="<li>Sexo : "+v.IND_SEXO+"  </li>";
-				itens +="<li>Porte: "+v.IND_PORTE+"</li>";
+				itens +="<br \>";
+				itens +="<ul class='nav nav-tabs'>";
+				itens +="<li class='active'><a href='#tda1'>Sobre mim</a>";
+				itens +="<li><a href='#tda2'>Características</a>";
+				itens +="<li><a href='#tda3'>Contato</a>";
 				itens +="</ul>";
-				itens +="<h4>Contato</h4>";
-				itens +="<ul>";	
-				itens +="<li>ONG: "+v.NOM_USUARIO+" </li>";
-				itens +="<li>Telefone fixo: "+v.TELEFONE+" </li>";
-				itens +="<li>E-mail: "+v.EMAIL+" </li>";
-				itens +="</ul>";
-				itens +="<hr>"
+				itens +="<div class='tab-content'>";				
+				itens +="<div id='tda1' class='tab-pane fade in active'>";								
+				itens +="<br />";				
+				itens +="<p>Meu nome: "+v.NOM_ANIMAL+"</p>";				
+				itens +="<p>Perfil: "+v.DESC_PERFIL+"</p>";				
+				itens +="</div>";				
+				itens +="<div id='tda2' class='tab-pane fade'>";							
+				itens +="<br />";				
+				itens +="<p>Idade: "+v.IDADE+" ano(s)</p>";				
+				itens +="<p>Sexo : "+v.IND_SEXO+"</p>";								
+				itens +="<p>Porte: "+v.IND_PORTE+"</p>";								
+				itens +="</div>";								
+				itens +="<div id='tda3' class='tab-pane fade'>";							
+				itens +="<br />";				
+				itens +="<p>ONG: "+v.NOM_USUARIO+"</p>";				
+				itens +="<p>Telefone fixo: "+v.TELEFONE+"</p>";								
+				itens +="<p>E-mail: "+v.EMAIL+"</p>";								
+				itens +="</div>";								
+				itens +="</div>";				
 				itens +="</div>";
 			});
 			$(".loading-result").fadeOut(300).remove();;
@@ -83,6 +90,13 @@ $(function(){
 				
 	   
 	});	
+	
+	$(document).ready(function(){
+	    $(".nav-tabs a").click(function(){
+	        $(this).tab('show');
+	    });
+	});
+	
 });
 
 function previous(){  
