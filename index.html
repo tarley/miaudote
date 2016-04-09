@@ -1,178 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="assets/css/jquery-ui.css">
-		<title>Miaudote</title>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="assets/css/jquery-ui.css">
+	<title>Miaudote</title>
+	
+	<!-- Google fonts -->
+	<link rel="stylesheet" href="assets/css/fontGoogle.css">
+	
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+	
+	<!-- animate.css -->
+	<link rel="stylesheet" href="assets/animate/animate.css" />
+	<link rel="stylesheet" href="assets/animate/normalize.min.css" />
+	<link rel="stylesheet" href="assets/animate/set.css" />
+	
+	<!-- gallery --->
+	<!--<link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">
+	
+	<!-- favicon -->
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="assets/style.css">
+	
+	<!-- Filtro -->
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<!-- CSS reset -->
+	<link rel="stylesheet" href="assets/css/styleFiltro.css">
+	<!-- Resource style -->
+	<script src="assets/js/modernizr.js"></script>
+	<!-- Modernizr -->
 
-		<!-- Google fonts -->
-		<link rel="stylesheet" href="assets/css/fontGoogle.css">
-		
-		<!-- bootstrap -->
-		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+</head>
 
-		<!-- animate.css -->
-		<link rel="stylesheet" href="assets/animate/animate.css" />
-		<link rel="stylesheet" href="assets/animate/normalize.min.css" />
-		<link rel="stylesheet" href="assets/animate/set.css" />
+<body>
+	<div class="topbar animated fadeInLeftBig"></div>
 
-		<!-- gallery --->
-		<!--<link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">
-
-		<!-- favicon -->
-		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-		<link rel="stylesheet" href="assets/style.css">
-		
-		<!-- Filtro -->
-		<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-		<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-		<script src="js/modernizr.js"></script> <!-- Modernizr -->
-
-	</head>
-
-	<body>	
-		<div class="topbar animated fadeInLeftBig"></div>
-
-		<!-- Header Starts -Header e menus de inicialização-->
-		<div class="navbar-wrapper">
-			  <div class="container">
-				<div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
-				  <div class="container">
+	<!-- Header Starts -Header e menus de inicialização-->
+	<div class="navbar-wrapper">
+		<div class="container">
+			<div class="navbar navbar-default navbar-fixed-top" role="navigation"
+				id="top-nav">
+				<div class="container">
 					<div class="navbar-header">
-					  <!-- Logo Starts -->
-					  <a class="navbar-brand" href="#home"><img src="images/logo2.png" alt="logo"></a>
-					  <!-- #Logo Ends -->
-					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					  </button>
+						<!-- Logo Starts -->
+						<a class="navbar-brand" href="#home"><img
+							src="images/logo2.png" alt="logo"></a>
+						<!-- #Logo Ends -->
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
 					</div>
 
 					<!-- Nav Starts -->
 					<div class="navbar-collapse  collapse">
-					  <ul class="nav navbar-nav navbar-right scroll">
-						 <li class="active"><a href="#galery">Inicio</a></li>
-						 <li><a href="#search">Busca</a></li>
-						 <!--<li ><a href="#about">Quem Somos</a></li>-->
-						 <li><a href="#contact">Fale Conosco</a></li>
-						 <!--<li ><a href="#dev">Desenvolvedores</a></li>-->
-					  </ul>			  
+						<ul class="nav navbar-nav navbar-right scroll">
+							<li class="active"><a href="#galery">Inicio</a></li>
+							<li><a href="#filtro">Busca</a></li>
+							<!--<li ><a href="#about">Quem Somos</a></li>-->
+							<li><a href="#contact">Fale Conosco</a></li>
+							<!--<li ><a href="#dev">Desenvolvedores</a></li>-->
+						</ul>
 					</div>
 					<!-- #Nav Ends -->
-				  </div>
 				</div>
-			  </div>
-		</div>
-		<!-- #Header Starts -->
-
-		<input type='hidden' id='current_page' />  
-		<input type='hidden' id='show_per_page' />
-		<!-- Galeria de destaques-->
-		<div id="galery"  class=" clearfix grid row"> 
-			<div id="galery-image" class="scroll col-md-8 col-md-offset-2">
-				
 			</div>
 		</div>
-		<div id='page_navigation' class="nav-pagination"></div>  
-		<hr>
-		<div id="search"  class="clearfix grid row scroll">
+	</div>
+	<!-- #Header Starts -->
 
-			<div id="menu-search" class="col-md-2"> <!--style="border:1px solid black; height:800px" -->     
-				
-			</div>
+	<input type='hidden' id='current_page' />
+	<input type='hidden' id='show_per_page' />
+	<!-- Galeria de destaques-->
+	<div id="galery" class=" clearfix grid row">
+		<div id="galery-image" class="scroll col-md-8 col-md-offset-2">
 
-			<div id="result-search" class="col-md-8 class" style="min-height:800px;padding:0px">
-
-			</div>
 		</div>
-		<hr>
-		<div id="partners" class="container spacer ">
-			
+	</div>
+	<div id='page_navigation' class="nav-pagination"></div>
+	<hr>
+	<div id="filtro" class="clearfix grid row scroll">
+		<main class="cd-main-content">
+		<div class="cd-tab-filter-wrapper">
+			<div class="cd-tab-filter">
+				<ul class="cd-filters">
+					<li class="placeholder"><a data-type="todos" href="#0">Todos</a>
+						<!-- selected option on mobile --></li>
+					<li class="filter"><a class="selected" href="#0"
+						data-type="todos">Todos</a></li>
+					<li class="filter" data-filter=".cao"><a href="#0"
+						data-type="cao">Cães</a></li>
+					<li class="filter" data-filter=".gato"><a href="#0"
+						data-type="gato">Gatos</a></li>
+				</ul>
+				<!-- cd-filters -->
+			</div>
+			<!-- cd-tab-filter -->
 		</div>
+		<!-- cd-tab-filter-wrapper -->
 
-		<!--Contato-->
-		<div id="contact" class="spacer">
-			<div class="container contactform center">
-			<h2 class="text-center  wowload fadeInUp">Fale conosco</h2>
-				<div class="col-sm-offset-4"> 
-					<div id="opt-contact">	
-						<div class="img-contact" style="float:left">
-							<img src="images/icon-phone.png"><span>(31)2516-2305</span>
-						</div>		
-						<div class="img-contact" style="float:left">
-							<img src="images/icon-whats.png"><span>(31)99358-6958</span>
+		<section class="cd-gallery">
+			<ul>
+				<li class="mix cao toto pequeno yorkshire macho filhote 0-5kg mg bh"><img
+					src="images/toto.jpg" alt=""></li>
+				<li class="mix cao rex pequeno bulldog macho jovem 0-5kg mg bh"><img
+					src="images/rex.jpg" alt=""></li>
+				<li class="mix gato miauzin pequeno srd macho jovem 0-5kg mg nl"><img
+					src="images/miauzin.jpg" alt=""></li>
+				<li class="mix gato xanin medio bobtail macho jovem 0-5kg mg nl"><img
+					src="images/xanin.jpg" alt=""></li>
+				<li class="mix cao til grande boxer femea adulto 99kg sp sampa"><img
+					src="images/til.jpg" alt=""></li>
+				<li class="mix cao lady medio srd femea jovem 99kg mg nl"><img
+					src="images/lady.jpg" alt=""></li>
+				<li class="mix gato felix pequeno fold femea filhote 0-5kg mg bh"><img
+					src="images/felix.jpg" alt=""></li>
+				<li class="mix gato garfield grande srd macho jovem 0-5kg mg bh"><img
+					src="images/garfield.jpg" alt=""></li>
+				<li class="mix cao furia pequeno labrador femea filhote 0-5kg mg bh"><img
+					src="images/furia.jpg" alt=""></li>
+				<li class="mix gato espinho medio fold macho filhote 0-5kg mg bh"><img
+					src="images/espinho.jpg" alt=""></li>
+				<li class="mix cao zunado grande rotweiller macho jovem 99kg mg bh"><img
+					src="images/zunado.jpg" alt=""></li>
+				<li class="mix gato tromba pequeno srd macho filhote 0-5kg mg bh"><img
+					src="images/tromba.jpg" alt=""></li>
+				<li class="gap"></li>
+				<li class="gap"></li>
+				<li class="gap"></li>
+			</ul>
+			<div class="cd-fail-message">Desculpe-nos, mas não encontramos
+				nenhum animalzinho com este perfil...</div>
+		</section>
+		<!-- cd-gallery -->
+
+		<div class="cd-filter">
+			<form>
+				<div class="cd-filter-block">
+					<h4>Filtrar</h4>
+
+					<div class="cd-filter-content">
+						<input type="search" placeholder="Buscar por...">
+					</div>
+					<!-- cd-filter-content -->
+				</div>
+				<!-- cd-filter-block -->
+
+				<div class="cd-filter-block">
+					<h4>Espécie</h4>
+
+					<ul class="cd-filter-content cd-filters list">
+						<li><input class="filter" data-filter="" type="radio"
+							name="radioButton" id="radio1" checked> <label
+							class="radio-label" for="radio1">Todos</label></li>
+
+						<li><input class="filter" data-filter=".cao" type="radio"
+							name="radioButton" id="radio2"> <label
+							class="radio-label" for="radio2">Cães</label></li>
+
+						<li><input class="filter" data-filter=".gato" type="radio"
+							name="radioButton" id="radio3"> <label
+							class="radio-label" for="radio3">Gatos</label></li>
+					</ul>
+					<!-- cd-filter-content -->
+				</div>
+				<!-- cd-filter-block -->
+
+				<div class="cd-filter-block">
+					<h4>Estado</h4>
+
+					<div class="cd-filter-content">
+						<div class="cd-select cd-filters">
+							<select class="filter" name="selectThis" id="selectThis">
+								<option value="">Escolha um estado</option>
+								<option value=".mg">Minas Gerais</option>
+								<option value=".sp">São Paulo</option>
+								<option value=".rj">Rio de Janeiro</option>
+							</select>
 						</div>
+						<!-- cd-select -->
+					</div>
+					<!-- cd-filter-content -->
+				</div>
+				<!-- cd-filter-block -->
+				<div class="cd-filter-block">
+					<h4>Cidade</h4>
+
+					<div class="cd-filter-content">
+						<div class="cd-select cd-filters">
+							<select class="filter" name="selectThis" id="selectThis">
+								<option value="">Escolha uma cidade</option>
+								<option value=".bh">Belo Horizonte</option>
+								<option value="sampa">São Paulo</option>
+								<option value=".nl">Nova Lima</option>
+							</select>
+						</div>
+						<!-- cd-select -->
+					</div>
+					<!-- cd-filter-content -->
+				</div>
+				<!-- cd-filter-block -->
+
+				<div class="cd-filter-block">
+					<h4>Porte</h4>
+
+					<ul class="cd-filter-content cd-filters list">
+						<li><input class="filter" data-filter=".pequeno"
+							type="checkbox" id="cbpequeno"> <label
+							class="checkbox-label" for="checkbox1">Pequeno</label></li>
+
+						<li><input class="filter" data-filter=".medio"
+							type="checkbox" id="cbmedio"> <label
+							class="checkbox-label" for="checkbox2">Medio</label></li>
+
+						<li><input class="filter" data-filter=".grande"
+							type="checkbox" id="cbgrande"> <label
+							class="checkbox-label" for="checkbox3">Grande</label></li>
+					</ul>
+					<!-- cd-filter-content -->
+				</div>
+				<!-- cd-filter-block -->
+
+				<div class="cd-filter-block">
+					<h4>Raça</h4>
+
+					<div class="cd-filter-content">
+						<div class="cd-select cd-filters">
+							<select class="filter" name="selectThis" id="selectThis">
+								<option value="">Escolha uma raça</option>
+								<option value=".srd">Tomba-lata</option>
+								<option value=".bulldog">Bulldog</option>
+								<option value=".boxer">Boxer</option>
+								<option value=".rotweiller">Rotweiller</option>
+								<option value=".labrador">Labrador</option>
+								<option value=".yorkshire">Yorkshire</option>
+								<option value=".fold">Scottish Fold</option>
+								<option value=".bobtail">Bob Tail</option>
+							</select>
+						</div>
+						<!-- cd-select -->
+					</div>
+					<!-- cd-filter-content -->
+				</div>
+				<!-- cd-filter-block -->
+
+				<div class="cd-filter-block">
+					<h4>Sexo</h4>
+
+					<ul class="cd-filter-content cd-filters list">
+						<li><input class="filter" data-filter="" type="radio"
+							name="radioButton" id="radio1" checked> <label
+							class="radio-label" for="radio1">Todos</label></li>
+
+						<li><input class="filter" data-filter=".macho" type="radio"
+							name="radioButton" id="radio2"> <label
+							class="radio-label" for="radio2">Macho</label></li>
+
+						<li><input class="filter" data-filter=".femea" type="radio"
+							name="radioButton" id="radio3"> <label
+							class="radio-label" for="radio3">Fêmea</label></li>
+					</ul>
+					<!-- cd-filter-content -->
+				</div>
+				<!-- cd-filter-block -->
+
+
+				<div class="cd-filter-block">
+					<h4>Idade</h4>
+
+					<div class="cd-filter-content">
+						<div class="cd-select cd-filters">
+							<select class="filter" name="selectThis" id="selectThis">
+								<option value="">Idade</option>
+								<option value="filhote">Filhote</option>
+								<option value="jovem">Jovem</option>
+								<option value="adulto">Adulto</option>
+							</select>
+						</div>
+						<!-- cd-select -->
+					</div>
+					<!-- cd-filter-content -->
+				</div>
+				<!-- cd-filter-block -->
+
+				<div class="cd-filter-block">
+					<h4>Peso</h4>
+
+					<div class="cd-filter-content">
+						<div class="cd-select cd-filters">
+							<select class="filter" name="selectThis" id="selectThis">
+								<option value="">Peso</option>
+								<option value=".0-5kg">1 a 5kg</option>
+								<option value=".6-10kg">6 a 10kg</option>
+								<option value=".10-20kg">10 a 20 kg</option>
+								<option value=".99kg">mais de 20kg</option>
+							</select>
+						</div>
+						<!-- cd-select -->
+					</div>
+					<!-- cd-filter-content -->
+				</div>
+				<!-- cd-filter-block -->
+			</form>
+
+			<a href="#0" class="cd-close">Fechar</a>
+		</div>
+		<!-- cd-filter --> <a href="#0" class="cd-filter-trigger">Filtros</a>
+		</main>
+		<!-- cd-main-content -->
+	</div>
+	<hr>
+	<div id="search" class="clearfix grid row scroll">
+
+		<div id="menu-search" class="col-md-2">
+			<!--style="border:1px solid black; height:800px" -->
+
+		</div>
+
+		<div id="result-search" class="col-md-8 class"
+			style="min-height: 800px; padding: 0px"></div>
+	</div>
+	<hr>
+	
+	<div id="partners" class="container spacer "></div>
+
+	<!--Contato-->
+	<div id="contact" class="spacer">
+		<div class="container contactform center">
+			<h2 class="text-center  wowload fadeInUp">Fale conosco</h2>
+			<div class="col-sm-offset-4">
+				<div id="opt-contact">
+					<div class="img-contact" style="float: left">
+						<img src="images/icon-phone.png"><span>(31)2516-2305</span>
+					</div>
+					<div class="img-contact" style="float: left">
+						<img src="images/icon-whats.png"><span>(31)99358-6958</span>
 					</div>
 				</div>
-				<div class="row wowload fadeInLeftBig">
-					<form id="contactForm" action="" method="Post">
-						<div class="col-sm-6 col-sm-offset-3 col-xs-12">      
-							<input type="text" name="name" placeholder="Nome" required>
-							<input type="text" name="email"placeholder="E-mail" required>
-							<textarea rows="5" name="comment" placeholder="Mensagem" required></textarea>
-							<button id="enviarEmail" class="btn btn-primary"><i class="fa fa-paper-plane"></i> Enviar </button>
-						</div>
-					</form>
-				</div>
-				
-				<div class="ReturnUser col-sm-6 col-sm-offset-3 col-xs-12">
-				<!-- Exibe mensagens ao usuario em tempo de execução -->
-																	
-				</div>
-				
 			</div>
+			<div class="row wowload fadeInLeftBig">
+				<form id="contactForm" action="" method="Post">
+					<div class="col-sm-6 col-sm-offset-3 col-xs-12">
+						<input type="text" name="name" placeholder="Nome" required>
+						<input type="text" name="email" placeholder="E-mail" required>
+						<textarea rows="5" name="comment" placeholder="Mensagem" required></textarea>
+						<button id="enviarEmail" class="btn btn-primary">
+							<i class="fa fa-paper-plane"></i> Enviar
+						</button>
+					</div>
+				</form>
+			</div>
+
+			<div class="ReturnUser col-sm-6 col-sm-offset-3 col-xs-12">
+				<!-- Exibe mensagens ao usuario em tempo de execução -->
+
+			</div>
+
 		</div>
-		<!--Contact Ends-->
+	</div>
+	<!--Contact Ends-->
 
 
 	<!-- Footer Starts -->
-		<div class="footer text-center spacer">
-		<p class="wowload flipInX"><a href="#"><i class="fa fa-facebook fa-2x"></i></a> <a href="#"><i class="fa fa-instagram fa-2x"></i></a> <a href="#"><i class="fa fa-twitter fa-2x"></i></a> <a href="#"><i class="fa fa-flickr fa-2x"></i></a> </p>
+	<div class="footer text-center spacer">
+		<p class="wowload flipInX">
+			<a href="#"><i class="fa fa-facebook fa-2x"></i></a> <a href="#"><i
+				class="fa fa-instagram fa-2x"></i></a> <a href="#"><i
+				class="fa fa-twitter fa-2x"></i></a> <a href="#"><i
+				class="fa fa-flickr fa-2x"></i></a>
+		</p>
 		Copyright 2016 Miaudote. All rights reserved.
-		</div>
-		<!-- # Footer Ends -->
-		<a href="#galery" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
+	</div>
+	<!-- # Footer Ends -->
+	<a href="#galery" class="gototop"><i class="fa fa-angle-up  fa-3x"></i></a>
 
-		<!-- jquery -->
-		<script src="assets/jquery-1.12.0.js"></script> 
+	<!-- jquery -->
+	<script src="assets/jquery-1.12.0.js"></script>
 
-		<script src="assets/util.js"></script>
+	<script src="assets/util.js"></script>
 
-		<!-- wow script -->
-		<script src="assets/wow/wow.min.js"></script>
-
-
-		<!-- boostrap -->
-		<script src="assets/bootstrap/js/bootstrap.js" type="text/javascript" ></script>
-
-		<!-- jquery mobile -->
-		<script src="assets/mobile/touchSwipe.min.js"></script>
+	<!-- wow script -->
+	<script src="assets/wow/wow.min.js"></script>
 
 
-		<!-- custom script -->
-		<script src="assets/script.js"></script>
-		<script src="assets/email.js"></script>
+	<!-- boostrap -->
+	<script src="assets/bootstrap/js/bootstrap.js" type="text/javascript"></script>
 
-		<script src="assets/script.js"></script>
-		<script src="assets/js/jquery-1.13.3.js"></script>
+	<!-- jquery mobile -->
+	<script src="assets/mobile/touchSwipe.min.js"></script>
 
-		<script type="text/javascript" src="assets/slider/js/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="assets/slider/js/jssor.slider.mini.js"></script>
-		<!-- use jssor.slider.debug.js instead for debug -->
 
-		<!-- extrai o script e coloquei separado nesse jssor.js -->
-		<script src="assets/slider/js/jssor.js"></script>
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-		<script src="assets/jqueryTabs.js"></script>
-		
-		<script src="js/jquery-2.1.1.js"></script>
-		<script src="js/jquery.mixitup.min.js"></script>
-		<script src="js/main.js"></script> <!-- Resource jQuery -->
-	</body>
+	<!-- custom script -->
+	<script src="assets/script.js"></script>
+	<script src="assets/email.js"></script>
+
+	<script src="assets/script.js"></script>
+	
+
+	<script type="text/javascript" src="assets/slider/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="assets/slider/js/jssor.slider.mini.js"></script>
+	
+	<!-- use jssor.slider.debug.js instead for debug -->
+
+	<!-- extrai o script e coloquei separado nesse jssor.js -->
+	<script src="assets/slider/js/jssor.js"></script>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="assets/jqueryTabs.js"></script>
+
+	<!-- Filtro -->
+	<script src="assets/js/jquery-2.1.1.js"></script>
+	<script src="assets/js/jquery.mixitup.min.js"></script>
+	<script src="assets/js/main.js"></script>
+	<!-- Resource jQuery -->
+</body>
 </html>
