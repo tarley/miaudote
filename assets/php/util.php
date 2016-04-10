@@ -15,7 +15,7 @@
 											F.NOM_FOTO,
 											F.ID_FOTO_PRI
 											
-								FROM 		TB_ANIMAL A , TB_FOTO F
+								FROM 		tb_animal A , tb_foto F
 								WHERE 		A.COD_ANIMAL = F.COD_ANIMAL
 								AND   		F.ID_FOTO_PRI = 'S'");
 								
@@ -58,7 +58,7 @@
 							end as IND_SEXO							
 
 							
-					FROM 	TB_ANIMAL A, TB_FOTO F,TB_USUARIO U
+					FROM 	tb_animal A, tb_foto F,tb_usuario U
 					WHERE 	A.COD_ANIMAL = ?
 					AND     A.COD_USUARIO = U.COD_USUARIO
 					AND     A.COD_ANIMAL = F.COD_ANIMAL AND
