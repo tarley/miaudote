@@ -29,7 +29,7 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 .btn-primary{color: #fff;background:#00a9c6;width: 100%;outline: none;}
 .btn-primary:hover,.btn-primary:active,.btn-primary:focus{background:#1BC0DC;box-shadow: none;}
 
-.topbar {background:url(../images/lines.png);	height:5px;position: fixed;top: 0;width: 100%;z-index: 1000;}
+.topbar {background:url(../../images/lines.png);	height:5px;position: fixed;top: 0;width: 100%;z-index: 1000;}
 .navbar-nav > li > a{font-size: 1em;line-height: 3.6em;}
 .navbar-fixed-top{top: 5px;}
 .navbar-inverse{background: #111;}
@@ -95,13 +95,9 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 
 .drop-shadow {
     position:relative;
-    .float:left;
-    .width:600px;
-    .height:300px;
     margin:2em 4em;
     background:#fff;
 }
-
 
 .drop-shadow img{
     position:absolute;
@@ -112,9 +108,10 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 	bottom: 0;
 	left:0;
 	margin:0 auto;
-	border:7px solid rgba(50,153,204,.8);
+	border:1px solid ;
   
 }
+
 .drop-shadow:before, .drop-shadow:after {
     content:"";
     position:absolute;
@@ -124,6 +121,47 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
     font-size:16px;
     font-weight:bold;
 }
+
+/*Este estilo atua sobre os resultados da busca de animais*/
+.filter-shadow {
+    position:relative;
+    margin:2em 4em;
+    background:#fff;
+}
+
+.filter-shadow img{
+	top: 50px;
+	right: 0;
+	bottom: 0;
+	left:0;
+	margin:0 auto;
+	cursor:pointer;
+}
+
+.filter-shadow p{
+	padding:5px 5px 5px 5px;	
+}
+
+
+.filter-shadow:before, .filter-shadow:after {
+    content:"";
+    position:absolute;
+    z-index:-2;
+}
+.filter-shadow p {
+    font-size:16px;
+    font-weight:bold;
+}
+
+.filter-shadow a {
+    border: 1px solid #fff;
+    margin-top: 1em;
+    display: inline-block;
+    color: #fff;
+    padding: 0 2em;
+}
+
+
 /* Lifted corners */
  .lifted:before, .lifted:after {
     bottom:15px;
