@@ -158,13 +158,13 @@
 										<a href='#search'><img id='animal-filtro' data-value='".$row['cod_animal']."'  src='images/profile/user_".$row['cod_usuario']."/pet_".$row['cod_animal']."/book/".$row['nom_foto'].".jpg' ></a>
 										<hr>
 										<p>
-											Nome :".$row['nom_animal']." 
+											Nome: " .$row['nom_animal']." 
 										</p>
 										<p>
 											Localização: " .utf8_encode($row['nom_cidade'])." - ".$row['sg_uf']."
 										</p>
 										<p>
-											Responsável:" .$row['nom_usuario']."
+											Responsável: " .$row['nom_usuario']."
 										</p>
 									</div>
 								</li>";		
