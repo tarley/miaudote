@@ -9,7 +9,7 @@ $(function(){
 				
 		$.getJSON('assets/php/util.php?acao=getDestaque',function(data){
 			if(data== 0){
-				itens+="<div class='empty-destaque'><img  src='images/cao-triste.png' class='img-responsive'></div>";	
+				itens+="<div class='empty-destaque'></p> Desculpe!,não há destaques para exibir.</p></div>";	
 			}else{
 				$.each(data,function(k,v){
 					itens += "<figure id ='perfil' class='effect-oscar wowload fadeIn'>";
@@ -22,10 +22,6 @@ $(function(){
 					itens += "</figure>";
 				});	
 			}
-			
-//			itens = itens + itens;
-//			itens = itens + itens;
-//			itens = itens + itens;
 			itens += "<script type='text/javascript'>aplicarPainacao();</script>";
 			
 			lista.html(itens);
@@ -35,7 +31,6 @@ $(function(){
 	
 	
 	$(document).on('click','#getPerfil', function(){		
-				
 		var cod_animal = $(this).data("value");
 		var galery = $("#search");
 		var lista = galery.find("#result-search");
@@ -48,55 +43,128 @@ $(function(){
 		
 		$("#result-search").append("<div class='loading-result'><img src='images/a1-cao-correndo.gif'><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<img src='images/a2-aguarde.gif'> </div>");
 		
+		$.getJSON('assets/php/util.php?acao=getPerfil&cod_animal='+cod_animal,function(data){
+			$.each(data,function(k,v){
+				itens+="<div id='perfilAnimal'>"
+				itens +="<div class='drop-shadow lifted' style='position:relative;margin:0 auto;width:800px;min-height:500px;border:0px solid;background-image: url(images/fundo-pata.jpg');>";
+				itens +="<div id='closePerfil'style='margin-top:20px;float:right;height:30px;width:10%;cursor:pointer'>";
+				itens +="<a href='#filtro-menu'><span>Ir a Busca</span></div></a>";
+				itens +="<img class='img-responsive' alt='' id='details-img'src='images/profile/user_1/pet_"+v.COD_ANIMAL+"/book/"+v.NOM_FOTO+".jpg'/>";
+				itens +="</div>";
+				itens +="<div style='text-align:left;position:relative;margin:0 auto;width:800px;margin-top:20px;height:350px;border:0px solid;'>";
+				itens +="<hr>";
+				itens +="<br>";
+				itens +="<h4>Sobre mim</h4>"
+				itens +="<p>"+v.NOM_ANIMAL+"</p>";
+				itens +="<p>";
+				itens +=v.DESC_PERFIL;
+				itens +="</p>";
+				itens +="<br>";
+				itens +="<h4>Caracteristicas</h4>";
+				itens +="<br>";
+				itens +="<ul>";
+				itens +="<li>Idade: "+v.IDADE+" ano(s) </li>";
+				itens +="<li>Sexo : "+v.IND_SEXO+"  </li>";
+				itens +="<li>Porte: "+v.IND_PORTE+"</li>";
+				itens +="</ul>";
+				itens +="<br>";
+				itens +="<h4>Contato</h4>";
+				itens +="<ul>";	
+				itens +="<li>ONG: "+v.NOM_USUARIO+" </li>";
+				itens +="<li>Telefone fixo: "+v.TELEFONE+" </li>";
+				itens +="<li>E-mail: "+v.EMAIL+" </li>";
+				itens +="</ul>";
+				itens +="<hr>"
+				itens +="</div>";
+				itens +="</div>";
+			});
+			$(".loading-result").fadeOut(300).remove();
+			lista.html(itens);
+		});
+	});	
+	
+	
+	
+	$(document).on('click','#animal-filtro', function(){			
+		var cod_animal = $(this).data("value");
+		var galery = $("#search");
+		var lista = galery.find("#result-search");
+		var itens="";
+		
+		
+		if ($("#result-search").length ) { /*Verifica se existe algum perfil ou informação exibida na div de resultado, se houver ele remove para que digamos, se reinicie o processo a partir do click*/
+			$("#result-search").empty();
+		}
+		
+		$("#result-search").append("<div class='loading-result'><img src='images/a1-cao-correndo.gif'><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<img src='images/a2-aguarde.gif'> </div>");		
 				
 		$.getJSON('assets/php/util.php?acao=getPerfil&cod_animal='+cod_animal,function(data){
 			$.each(data,function(k,v){
-
-				itens +="<div class='drop-shadow lifted' style='position:relative;margin:0 auto;width:800px;height:500px;border:0px solid;background-image: url(images/fundo-pata.jpg');>";
-				itens +="<img id='details-img'src='images/profile/user_1/pet_"+v.COD_ANIMAL+"/book/"+v.NOM_FOTO+".jpg'/>";
+				itens+="<div id='perfilAnimal'>"
+				itens +="<div class='drop-shadow lifted' style='position:relative;margin:0 auto;width:800px;min-height:500px;border:0px solid;background-image: url(images/fundo-pata.jpg');>";
+				itens +="<div id='closePerfil'style='margin-top:20px;float:right;height:30px;width:10%;cursor:pointer'>";
+				itens +="<a href='#filtro-menu'><span>Ir a Busca</span></div></a>";
+				itens +="<img class='img-responsive' alt='' id='details-img'src='images/profile/user_1/pet_"+v.COD_ANIMAL+"/book/"+v.NOM_FOTO+".jpg'/>";
 				itens +="</div>";
-				itens +="<div class='container' style='text-align:left;position:relative;margin:0 auto;width:800px;height:500px;border:0px solid;'>";				
+				itens +="<div style='text-align:left;position:relative;margin:0 auto;width:800px;margin-top:20px;height:350px;border:0px solid;'>";
 				itens +="<hr>";
-				itens +="<br \>";
-				itens +="<ul class='nav nav-tabs'>";
-				itens +="<li class='active'><a href='#tda1'>Sobre mim</a>";
-				itens +="<li><a href='#tda2'>Características</a>";
-				itens +="<li><a href='#tda3'>Contato</a>";
+				itens +="<br>";
+				itens +="<h4>Sobre mim</h4>"
+				itens +="<p>"+v.NOM_ANIMAL+"</p>";
+				itens +="<p>";
+				itens +=v.DESC_PERFIL;
+				itens +="</p>";
+				itens +="<br>";
+				itens +="<h4>Caracteristicas</h4>";
+				itens +="<br>";
+				itens +="<ul>";
+				itens +="<li>Idade: "+v.IDADE+" ano(s) </li>";
+				itens +="<li>Sexo : "+v.IND_SEXO+"  </li>";
+				itens +="<li>Porte: "+v.IND_PORTE+"</li>";
 				itens +="</ul>";
-				itens +="<div class='tab-content'>";				
-				itens +="<div id='tda1' class='tab-pane fade in active'>";								
-				itens +="<br />";				
-				itens +="<p>Meu nome: "+v.NOM_ANIMAL+"</p>";				
-				itens +="<p>Perfil: "+v.DESC_PERFIL+"</p>";				
-				itens +="</div>";				
-				itens +="<div id='tda2' class='tab-pane fade'>";							
-				itens +="<br />";				
-				itens +="<p>Idade: "+v.IDADE+" ano(s)</p>";				
-				itens +="<p>Sexo : "+v.IND_SEXO+"</p>";								
-				itens +="<p>Porte: "+v.IND_PORTE+"</p>";								
-				itens +="</div>";								
-				itens +="<div id='tda3' class='tab-pane fade'>";							
-				itens +="<br />";				
-				itens +="<p>ONG: "+v.NOM_USUARIO+"</p>";				
-				itens +="<p>Telefone fixo: "+v.TELEFONE+"</p>";								
-				itens +="<p>E-mail: "+v.EMAIL+"</p>";								
-				itens +="</div>";								
-				itens +="</div>";				
+				itens +="<br>";
+				itens +="<h4>Contato</h4>";
+				itens +="<ul>";	
+				itens +="<li>ONG: "+v.NOM_USUARIO+" </li>";
+				itens +="<li>Telefone fixo: "+v.TELEFONE+" </li>";
+				itens +="<li>E-mail: "+v.EMAIL+" </li>";
+				itens +="</ul>";
+				itens +="<hr>"
+				itens +="</div>";
 				itens +="</div>";
 			});
-			$(".loading-result").fadeOut(300).remove();;
+			$(".loading-result").fadeOut(300).remove();
 			lista.html(itens);
 		});
-				
-	   
 	});	
 	
-	$(document).ready(function(){
-	    $(".nav-tabs a").click(function(){
-	        $(this).tab('show');
-	    });
+	/* 
+	$(document).on('click','#closePerfil', function(){
+	  $("#search").hide(1500, function() {
+		$('#search').hide("slow");
+	  });
 	});
-	
+	*/
+});
+
+
+$(document).on('change','#cod_estado', function(){	
+		
+	var cod_estado = $("#cod_estado option:selected").val();
+	if( cod_estado) {
+		$('.carregando').show();
+		$.getJSON('assets/php/util.php?acao=getCidade&cod_estado='+cod_estado, function(j){
+			var options = '<option value=""></option>';	
+			for (var i = 0; i < j.length; i++) {
+				options += '<option value=".'  + j[i].nom_cidade +  '">' + j[i].nom_cidade + '</option>';
+			}	
+			$('#cod_cidade').html(options).show();
+			$('.carregando').hide();
+		});
+	} else {
+		$('#cod_cidade').html('<option value="">-- Escolha um estado --</option>');
+	}
+		
 });
 
 function previous(){  
@@ -140,7 +208,7 @@ function go_to_page(page_num){
 
 function aplicarPainacao() {
 	//how much items per page to show  
-    var show_per_page = 3;  
+    var show_per_page = 6;  
     //getting the amount of elements inside content div  
     var number_of_items = $('#galery-image').children().size();  
     //calculate the number of pages we are going to have  
@@ -175,6 +243,5 @@ function aplicarPainacao() {
     $('#galery-image').children().css('display', 'none');  
   
     //and show the first n (show_per_page) elements  
-    $('#galery-image').children().slice(0, show_per_page).css('display', 'block');
-	
+    $('#galery-image').children().slice(0, show_per_page).css('display', 'block');	
 }
