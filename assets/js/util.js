@@ -22,6 +22,8 @@ $(function(){
 					itens += "</figure>";
 				});	
 			}
+			itens += itens + itens;
+			itens += itens + itens;
 			itens += "<script type='text/javascript'>aplicarPainacao();</script>";
 			
 			lista.html(itens);
@@ -208,7 +210,7 @@ function go_to_page(page_num){
 
 function aplicarPainacao() {
 	//how much items per page to show  
-    var show_per_page = 6;  
+    var show_per_page = 9;  
     //getting the amount of elements inside content div  
     var number_of_items = $('#galery-image').children().size();  
     //calculate the number of pages we are going to have  
