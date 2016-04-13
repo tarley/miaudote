@@ -2,7 +2,7 @@
 	require_once 'conexao.php';
 	$pdo = conectar();
 	
-	error_reporting(E_ALL);
+	Error_reporting(0);
 	if(isset($_GET['acao'])){
 		$acao = $_GET['acao'];
 		

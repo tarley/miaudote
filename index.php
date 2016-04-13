@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-	error_reporting(E_ALL);
+	Error_reporting(0);
 	
 	include("assets/php/conexao.php");
 	$pdo = conectar();
@@ -40,10 +40,10 @@
 											inner join tb_usuario u   on(a.cod_usuario = u.cod_usuario)
 							where
 								f.id_foto_pri = 's'");
-						
+	/*					
 	if ($listaAnimal == 0){
 			echo "Sem animais listados";
-	};
+	};*/
 						
 	$listaEstado = $pdo->query("select  distinct a.cod_estado,
 										         e.sg_uf,
