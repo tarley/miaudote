@@ -153,6 +153,11 @@ $(function(){
 		//$('#master').fadeOut(500);
 	});
 	
+	// Ação do botão início
+	$('#menu-topo-inicio').click(function(){
+		$('#master').fadeOut(500);
+	});
+	
 	// Ação do botão buscar
 	$('#menu-topo-buscar').click(function(){
 		$('#filtro-menu').click();
