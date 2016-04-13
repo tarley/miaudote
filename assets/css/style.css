@@ -541,3 +541,18 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 	left:0;
 	margin: auto;
 }
+
+
+/***************/
+#master{
+	margin: auto;
+	margin-top:150px;
+	width:65%;
+}
+#master hr{
+	background-color:#000;
+	margin: 30px 0;
+}
+#master p{
+	text-align:justify;
+}

@@ -147,6 +147,28 @@ $(function(){
 	  });
 	});
 	*/
+	
+	// Classe do menu do topo
+	$('.menu-topo').click(function(){		
+		//$('#master').fadeOut(500);
+	});
+	
+	// Ação do botão buscar
+	$('#menu-topo-buscar').click(function(){
+		$('#filtro-menu').click();
+	});
+	
+	// Ação do botão quem somos
+	$('#menu-topo-quem-somos').click(function(){
+		$('#master').fadeIn(500).load('assets/php/util.php?acao=getPagina&pagina=quem-somos');
+	});
+	
+	// Ação do botão adote um animal
+	$('#menu-topo-adote-um-animal').click(function(){
+		$('#master').fadeIn(500).load('assets/php/util.php?acao=getPagina&pagina=adote-um-animal');
+	});
+	
+	
 });
 
 

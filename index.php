@@ -88,7 +88,7 @@
 		<link rel="stylesheet" href="assets/css/style-filtro.css"> <!-- Resource style -->
 	</head>
 
-	<body>	
+	<body id="body">	
 		<div class="topbar animated fadeInLeftBig"></div>
 
 		<!-- Header Starts -Header e menus de inicializaÃ§Ã£o-->
@@ -111,10 +111,21 @@
 					<!-- Nav Starts -->
 					<div class="navbar-collapse  collapse">
 					  <ul class="nav navbar-nav navbar-right scroll">
-						 <li class="active"><a href="#galery">Inicio</a></li>
-						 <li><a href="#filtro">Busca</a></li>
-						 <!--<li ><a href="#about">Quem Somos</a></li>-->
-						 <li><a href="#contact">Fale Conosco</a></li>
+						 <li class="active"	>
+						 	<a href="#body"	class="menu-topo"	id="menu-topo-inicio">Inicio</a>
+						 </li>
+						 <li>
+						 	<a href="#filtro" 	class="menu-topo"	id="menu-topo-buscar">Busca</a>
+						 </li>
+						 <li>
+						 	<a href="#body"	class="menu-topo"	id="menu-topo-quem-somos">Quem Somos</a>
+						 </li>
+						 <li>
+						 	<a href="#body"	class="menu-topo"	id="menu-topo-adote-um-animal">Adote um animal</a>
+						 </li>
+						 <li>
+						 	<a href="#contact"	class="menu-topo"	id="menu-topo-fale-conosco">Fale Conosco</a>
+						 </li>
 						 <!--<li ><a href="#dev">Desenvolvedores</a></li>-->
 					  </ul>			  
 					</div>
@@ -125,6 +136,10 @@
 		</div>
 		<!-- #Header Starts -->
 
+		<!-- Div master mostra conteúdo daspáginas -->
+		<div id="master"></div>
+		
+		
 		<input type='hidden' id='current_page'/>  
 		<input type='hidden' id='show_per_page'/>
 		<!-- Galeria de destaques-->
@@ -136,7 +151,7 @@
 		<div id='page_navigation' class="nav-pagination"></div>  
 		<hr>
 
-		<div id="filtro" class="clearfix grid row scroll">
+		<div id="filtro" class="clearfix grid row scroll" style="padding-top:90px;">
 			<main class="cd-main-content">
 				<div class="cd-tab-filter-wrapper">
 					<div class="cd-tab-filter">
