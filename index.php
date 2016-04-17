@@ -73,7 +73,7 @@
 		<!-- animate.css -->
 		<link rel="stylesheet" href="assets/css/animate.css" />
 		<link rel="stylesheet" href="assets/css/normalize.min.css" />
-		<link rel="stylesheet" href="assets/css/set.css"/>
+		<link rel="stylesheet" href="assets/css/set.css">
 
 		<!-- gallery --->
 		<!--<link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">
@@ -85,7 +85,7 @@
 		
 		<!-- Filtro -->
 		<link rel="stylesheet" href="assets/css/reset.css"> <!-- CSS reset -->
-		<link rel="stylesheet" href="assets/css/style-filtro.css"> <!-- Resource style -->
+		<link rel="stylesheet" href="assets/css/style-filtro.css"> <!-- Resource style -->		
 	</head>
 
 	<body id="body">	
@@ -151,7 +151,7 @@
 		<div id='page_navigation' class="nav-pagination"></div>  
 		<hr>
 
-		<div id="filtro" class="clearfix grid row scroll" style="padding-top:90px;">
+		<div id="filtro" class="clearfix filtros row scroll" style="padding-top:90px;">
 			<main class="cd-main-content">
 				<div class="cd-tab-filter-wrapper">
 					<div class="cd-tab-filter">
@@ -164,30 +164,33 @@
 					</div>
 				</div>				
 				<section id="galery-perfil" class="cd-gallery">		
-					<ul>
+					<ul class="filtros cs-style-3">
 						<?php
 						if($listaAnimal){
 							while ($row = $listaAnimal->fetch(PDO::FETCH_ASSOC)) {
 								echo"<li class='mix ".$row["nom_animal"]. " ".$row["cor"]. " ".$row["cod_especie"]. " ".$row["idade"]. "a ".$row["ind_porte"]." " .$row["ind_sexo"]." ".$row["sg_uf"]." ".ltrim($row["nom_cidade"])."'>
-									<div class='filter-shadow lifted'>
-										<a href='#search'><img id='animal-filtro' data-value='".$row['cod_animal']."'  src='images/profile/user_".$row['cod_usuario']."/pet_".$row['cod_animal']."/book/".$row['nom_foto'].".jpg' ></a>
+									<div class='imgHolder'>
+										<figure>										
+										<img id='animal-filtro' data-value='".$row['cod_animal']."'  src='images/profile/user_".$row['cod_usuario']."/pet_".$row['cod_animal']."/book/".$row['nom_foto'].".jpg' >								
 										<hr>
 										<p>
-											Nome: " .$row['nom_animal']." 
+											" .$row['nom_animal']." 
 										</p>
-										<p>
-											Localização: " .utf8_encode($row['nom_cidade'])." - ".$row['sg_uf']."
-										</p>
-										<p>
-											Responsável: " .$row['nom_usuario']."
-										</p>
-									</div>
+										<figcaption>
+											<h3>" .utf8_encode($row['nom_cidade'])." - ".$row['sg_uf']."</h3>
+											<span>" .$row["ind_sexo"]. ", " .$row["idade"]. " ano(s)</span> 
+											<a href='#search' id='animal-filtro' data-value='" .row['cod_animal']. "'>Perfil</a>
+										</figcaption>	
+										</figure>
+									</div> 
 								</li>";		
 							}
 						}
 						?>
-						
-					</ul>
+				<li class="gap"></li>
+				<li class="gap"></li>
+				<li class="gap"></li>
+			</ul>
 					<div class="cd-fail-message">Desculpe-nos, mas não encontramos
 						nenhum animalzinho com este perfil...</div>
 				</section>
@@ -424,5 +427,8 @@
 		<script src="assets/js/jquery-2.1.1.js"></script>
 		<script src="assets/js/jquery.mixitup.min.js"></script>
 		<script src="assets/js/main.js"></script> <!-- Resource jQuery -->
+		
+		<!-- Filtros -->
+		<script src="assets/js/modernizr.js"></script>
 	</body>
 </html>
