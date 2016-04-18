@@ -91,7 +91,7 @@
 	<body id="body">	
 		<div class="topbar animated fadeInLeftBig"></div>
 
-		<!-- Header Starts -Header e menus de inicialização-->
+		<!-- Header Starts -Header e menus de inicializaÃ§Ã£o-->
 		<div class="navbar-wrapper">
 			  <div class="container">
 				<div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav">
@@ -136,7 +136,7 @@
 		</div>
 		<!-- #Header Starts -->
 
-		<!-- Div master mostra conte�do dasp�ginas -->
+		<!-- Div master mostra conteúdo daspáginas -->
 		<div id="master"></div>
 		
 		
@@ -158,7 +158,7 @@
 						<ul class="cd-filters">
 							<li class="placeholder"><a data-type="todos"  href="#0">Todos</a></li>
 							<li class="filter"><a class="selected"        href="#0" data-type="todos">Todos</a></li>
-							<li class="filter" data-filter=".cao">     <a href="#0" data-type="cao">Cães</a></li>
+							<li class="filter" data-filter=".cao">     <a href="#0" data-type="cao">CÃ£es</a></li>
 							<li class="filter" data-filter=".gato">    <a href="#0" data-type="gato">Gatos</a></li>
 						</ul>
 					</div>
@@ -179,7 +179,7 @@
 										<figcaption>
 											<h3>" .utf8_encode($row['nom_cidade'])." - ".$row['sg_uf']."</h3>
 											<span>" .$row["ind_sexo"]. ", " .$row["idade"]. " ano(s)</span> 
-											<a href='#search' id='animal-filtro' data-value='" .row['cod_animal']. "'>Perfil</a>
+											<a href='#search' id='animal-filtro' data-value='" .$row['cod_animal']. "'>Perfil</a>
 										</figcaption>	
 										</figure>
 									</div> 
@@ -191,7 +191,7 @@
 				<li class="gap"></li>
 				<li class="gap"></li>
 			</ul>
-					<div class="cd-fail-message">Desculpe-nos, mas não encontramos
+					<div class="cd-fail-message">Desculpe-nos, mas nÃ£o encontramos
 						nenhum animalzinho com este perfil...</div>
 				</section>
 
@@ -260,12 +260,12 @@
 
 
 						<div class="cd-filter-block">
-							<h4>Raça</h4>
+							<h4>RaÃ§a</h4>
 
 							<div class="cd-filter-content">
 								<div class="cd-select cd-filters">
 									<select class="filter" name="selectThis" id="selectThis">
-										<option value="">Escolha uma raça</option>
+										<option value="">Escolha uma raÃ§a</option>
 										<option value=".srd">Tomba-lata</option>
 										<option value=".bulldog">Bulldog</option>
 										<option value=".boxer">Boxer</option>
@@ -297,7 +297,7 @@
 
 								<li><input class="filter" data-filter=".femea" type="radio"
 									name="radioButton" id="radio3"> <label
-									class="radio-label" for="radio3">Fêmea</label>
+									class="radio-label" for="radio3">FÃªmea</label>
 								</li>
 							</ul>
 
@@ -383,7 +383,7 @@
 				</div>-->
 				
 				<div class="ReturnUser col-sm-6 col-sm-offset-3 col-xs-12">
-				<!-- Exibe mensagens ao usuario em tempo de execução -->
+				<!-- Exibe mensagens ao usuario em tempo de execuÃ§Ã£o -->
 																	
 				</div>
 			</div>
