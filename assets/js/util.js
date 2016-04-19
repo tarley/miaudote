@@ -16,7 +16,7 @@ $(function(){
 					itens +="<img src='images/profile/user_1/pet_"+v.COD_ANIMAL+"/book/"+v.NOM_FOTO+".jpg' />";
 					itens += "<figcaption>";
 					itens += "<h2>"+v.NOM_ANIMAL+"</h2>";
-					itens += "<p>";
+					itens += "<p>"+v.DESC_ANIMAL+"</br>";
 					itens += "<a href='#search' id='getPerfil' data-value='"+v.COD_ANIMAL+"' class='scroll' >Ver perfil</a></p>";
 					itens += "</figcaption>";
 					itens += "</figure>";
