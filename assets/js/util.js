@@ -16,7 +16,7 @@ $(function(){
 					itens +="<img src='images/profile/user_1/pet_"+v.COD_ANIMAL+"/book/"+v.NOM_FOTO+".jpg' />";
 					itens += "<figcaption>";
 					itens += "<h2>"+v.NOM_ANIMAL+"</h2>";
-					itens += "<p>"+v.DESC_ANIMAL+"</br>";
+					itens += "<p>";
 					itens += "<a href='#search' id='getPerfil' data-value='"+v.COD_ANIMAL+"' class='scroll' >Ver perfil</a></p>";
 					itens += "</figcaption>";
 					itens += "</figure>";
@@ -153,22 +153,22 @@ $(function(){
 		//$('#master').fadeOut(500);
 	});
 	
-	// Ação do botão início
+	// Aï¿½ï¿½o do botï¿½o inï¿½cio
 	$('#menu-topo-inicio').click(function(){
 		$('#master').fadeOut(500);
 	});
 	
-	// Ação do botão buscar
+	// Aï¿½ï¿½o do botï¿½o buscar
 	$('#menu-topo-buscar').click(function(){
 		$('#filtro-menu').click();
 	});
 	
-	// Ação do botão quem somos
+	// Aï¿½ï¿½o do botï¿½o quem somos
 	$('#menu-topo-quem-somos').click(function(){
 		$('#master').fadeIn(500).load('assets/php/util.php?acao=getPagina&pagina=quem-somos');
 	});
 	
-	// Ação do botão adote um animal
+	// Aï¿½ï¿½o do botï¿½o adote um animal
 	$('#menu-topo-adote-um-animal').click(function(){
 		$('#master').fadeIn(500).load('assets/php/util.php?acao=getPagina&pagina=adote-um-animal');
 	});
