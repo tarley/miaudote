@@ -57,7 +57,7 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 
 <html lang="en">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <!--<link rel="stylesheet" href="assets/css/jquery-ui.css">-->
@@ -74,12 +74,11 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 
 
 <!-- animate.css -->
-<link rel="stylesheet" href="assets/css/animate.css" />
-<link rel="stylesheet" href="assets/css/normalize.min.css" />
-<link rel="stylesheet" href="assets/css/set.css">
+<link rel="stylesheet" href="assets/animate/animate.css" />
+<link rel="stylesheet" href="assets/animate/set.css">
 
-<!-- gallery --->
-<!--<link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">
+<link rel="stylesheet" href="assets/css/normalize.min.css" />
+
 
 <!-- favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -349,7 +348,6 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 			style="min-height: 400px;"></div>
 	</div>
 
-	<hr>
 	<!-- Cirlce Starts -->
 	<div id="about" class="container spacer about">
 		<h2 class="text-center wowload fadeInUp">Quem Somos</h2>

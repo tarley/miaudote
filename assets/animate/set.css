@@ -33,7 +33,7 @@
 	padding: 2em;
 	color: #fff;
 	text-transform: uppercase;
-	font-size: 1.25em;
+	font-size: 1em;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
@@ -616,22 +616,23 @@ figure.effect-oscar figcaption {
 }
 
 figure.effect-oscar figcaption::before {
-	position: absolute;
-	top: 30px;
-	right: 30px;
-	bottom: 30px;
-	left: 30px;
+/*	position: absolute;
+	top: 5%;
+	right: 5%;
+	bottom: 5%;
+	left: 5%;
 	border: 1px solid #fff;
-	content: '';
+	content: ''; 
+Arranquei fora o trem, depois vemos 19/04/2016
+*/
 }
 
 figure.effect-oscar h2 {
-	margin: 0;
-	line-height: 1em;
+	margin: 0;	
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
-	-webkit-transform: translate3d(0,100%,0);
-	transform: translate3d(0,100%,0);
+	-webkit-transform: translate3d(0,10%,0);
+	transform: translate3d(0,10%,0);
 }
 
 figure.effect-oscar figcaption::before,
