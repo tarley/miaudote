@@ -1,44 +1,41 @@
 <!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="UTF-8">
-    <title>Miaudote | Login</title>
-    
-    
-    
-    
-        <link rel="stylesheet" href="assets/css/styleLogin.css">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Miaudote | Login</title>
+<link rel="stylesheet" href="assets/css/styleLogin.css">
+<!-- font awesome -->
+<link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.css">
+</head>
+<body>
 
-    
-    
-    
-  </head>
+	<form name="login-form" class="login-form" action="" method="post">
 
-  <body>
-
-    <form name="login-form" class="login-form" action="" method="post">
-	
 		<div class="header">
-		<h1 align="center">Bem vindo ao Miaudote</h1>
-		<span>Para Login, preencha os campos abaixo</span>
-		</div>
-	
-		<div class="content">
-		<input name="username" type="text" class="input username" placeholder="Usuário" required />
-		<div class="user-icon"></div>
-		<input name="password" type="password" class="input password" placeholder="Senha" required />
-		<div class="pass-icon"></div>		
+			<h1 align="center">Bem vindo ao Miaudote</h1>
+			<span>Para Login, preencha os campos abaixo</span>
 		</div>
 
-		<div class="footer">
-		<a href="#" class="button">Entrar</a>
+		<div class="content">
+			<input name="username" type="text" class="input usermail"
+				placeholder="Email" required />
+			<div class="user-icon"></div>
+			<input name="password" type="password" class="input password"
+				placeholder="Senha" required />
+			<div class="pass-icon"></div>
+			<footer class="clearfix">
+				</br>
+				<p align="right">					
+					<i class="fa fa-question-circle-o" aria-hidden="true"><a href="recoveryPassword.html"> Esqueceu sua senha</a></i>
+				</p>
+
+			</footer>
 		</div>
-	
+		<div class="footer">
+			<a href="#" class="button">Entrar</a>
+
+		</div>
+
 	</form>
-    
-    
-    
-    
-    
-  </body>
+</body>
 </html>

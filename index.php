@@ -57,7 +57,7 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="ISO-8859-1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <!--<link rel="stylesheet" href="assets/css/jquery-ui.css">-->
