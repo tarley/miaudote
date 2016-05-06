@@ -17,8 +17,7 @@ $lista = $pdo->query ( "select a.cod_animal,
 						  from 
 							tb_animal a inner join tb_usuario b on (a.cod_usuario = b.cod_usuario)
 										inner join tb_foto c on (a.cod_animal = c.cod_animal)
-						  where a.cod_usuario = '1'
-							and a.dt_cadastro is null
+						  where a.dt_cadastro is null
 							and c.id_foto_pri = 'S'" );
 
 ?>
@@ -160,9 +159,9 @@ $lista = $pdo->query ( "select a.cod_animal,
 												if ($lista) {
 													while ( $row = $lista->fetch ( PDO::FETCH_ASSOC ) ) {
 														echo "<tr class='tbl-item'>													
-															<td class='img'><a href='#'><img
-																src='" .$row["url"]. "'
-																alt='' title='' /></a>
+															<td class='img'>
+																<a href='#'><p class='desc'>Ver Fotos</p></a>
+																<img src='" .$row["url"]. "' alt='' title='' />							   									
 															</td>													
 															<td class='td-block'>
 																<p class='date'></p>
