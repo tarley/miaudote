@@ -83,7 +83,7 @@ $lista = $pdo->query ( "select a.cod_animal,
 								<div class="panel-body">
 									<div id="grid-layout-table-1" class="box jplist">
 										<div class="jplist-ios-button">
-											<i class="fa fa-sort"></i>AÁıes
+											<i class="fa fa-sort"></i>A√ß√µes
 										</div>
 										<div class="jplist-panel box panel-top">
 											<button type="button" data-control-type="reset"
@@ -95,10 +95,10 @@ $lista = $pdo->query ( "select a.cod_animal,
 												data-control-action="paging"
 												class="jplist-drop-down form-control">
 												<ul class="dropdown-menu">
-													<li><span data-number="3"> 3 Por p·gina</span></li>
-													<li><span data-number="5"> 5 Por p·gina</span></li>
+													<li><span data-number="3"> 3 Por p√°gina</span></li>
+													<li><span data-number="5"> 5 Por p√°gina</span></li>
 													<li><span data-number="10" data-default="true"> 10 Por
-															p·gina</span></li>
+															p√°gina</span></li>
 													<li><span data-number="all"> Todos</span></li>
 												</ul>
 											</div>
@@ -109,17 +109,13 @@ $lista = $pdo->query ( "select a.cod_animal,
 												<ul class="dropdown-menu">
 													<li><span data-path="default">Filtrar por</span></li>
 													<li><span data-path=".title" data-order="asc"
-														data-type="text">TÌtulo A-Z</span></li>
+														data-type="text">T√≠tulo A-Z</span></li>
 													<li><span data-path=".title" data-order="desc"
-														data-type="text">TÌtulo Z-A</span></li>
+														data-type="text">T√≠tulo Z-A</span></li>
 													<li><span data-path=".desc" data-order="asc"
-														data-type="text">DescriÁ„o A-Z</span></li>
+														data-type="text">Descri√ß√£o A-Z</span></li>
 													<li><span data-path=".desc" data-order="desc"
-														data-type="text">DescriÁ„o Z-A</span></li>
-													<li><span data-path=".like" data-order="asc"
-														data-type="number" data-default="true">Likes asc</span></li>
-													<li><span data-path=".like" data-order="desc"
-														data-type="number">Likes desc</span></li>
+														data-type="text">Descri√ß√£o Z-A</span></li>
 													<li><span data-path=".date" data-order="asc"
 														data-type="datetime">Data Crescente</span></li>
 													<li><span data-path=".date" data-order="desc"
@@ -139,12 +135,12 @@ $lista = $pdo->query ( "select a.cod_animal,
 												<div class="input-group">
 													<span class="input-group-addon"><i class="fa fa-search"></i></span><input
 														data-path=".desc" type="text" value=""
-														placeholder="filtro DescriÁ„o" data-control-type="textbox"
+														placeholder="filtro Descri√ß√£o" data-control-type="textbox"
 														data-control-name="desc-filter"
 														data-control-action="filter" class="form-control" />
 												</div>
 											</div>
-											<div data-type="p·gina {current} de {pages}"
+											<div data-type="p√°gina {current} de {pages}"
 												data-control-type="pagination-info"
 												data-control-name="paging" data-control-action="paging"
 												class="jplist-label btn btn-default"></div>
@@ -175,11 +171,11 @@ $lista = $pdo->query ( "select a.cod_animal,
 																<p class='desc'>" .$row["telefone"]. "</p>					
 															</td>
 															<td class='td-block'>
-																<p class='title'>AÁ„o</p>
+																<p class='title'>A√ß√£o</p>
 																<div class='btn-group'>
 																	<button type='button' data-toggle='dropdown'
 																		class='btn btn-primary dropdown-toggle'>
-																		AÁ„o &nbsp;<i class='fa fa-angle-down'></i>
+																		A√ß√£o &nbsp;<i class='fa fa-angle-down'></i>
 																	</button>
 		
 																	<ul role='menu' class='dropdown-menu'>
@@ -199,7 +195,7 @@ $lista = $pdo->query ( "select a.cod_animal,
 											<p>Sem resultados</p>
 										</div>
 										<div class="jplist-ios-button">
-											<i class="fa fa-sort"></i>AÁıes
+											<i class="fa fa-sort"></i>A√ß√µes
 										</div>
 										<div class="jplist-panel box panel-bottom">
 											<div data-control-type="drop-down" data-control-name="paging"
@@ -207,10 +203,10 @@ $lista = $pdo->query ( "select a.cod_animal,
 												data-control-animate-to-top="true"
 												class="jplist-drop-down form-control">
 												<ul class="dropdown-menu">
-													<li><span data-number="3"> 3 por p·gina</span></li>
-													<li><span data-number="5"> 5 por p·gina</span></li>
+													<li><span data-number="3"> 3 por p√°gina</span></li>
+													<li><span data-number="5"> 5 por p√°gina</span></li>
 													<li><span data-number="10" data-default="true"> 10 por
-															p·gina</span></li>
+															p√°gina</span></li>
 													<li><span data-number="all"> Todos</span></li>
 												</ul>
 											</div>
@@ -229,10 +225,6 @@ $lista = $pdo->query ( "select a.cod_animal,
 														data-type="text">Description A-Z</span></li>
 													<li><span data-path=".desc" data-order="desc"
 														data-type="text">Description Z-A</span></li>
-													<li><span data-path=".like" data-order="asc"
-														data-type="number" data-default="true">Likes asc</span></li>
-													<li><span data-path=".like" data-order="desc"
-														data-type="number">Likes desc</span></li>
 													<li><span data-path=".date" data-order="asc"
 														data-type="datetime">Date asc</span></li>
 													<li><span data-path=".date" data-order="desc"
