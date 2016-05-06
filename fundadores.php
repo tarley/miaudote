@@ -76,7 +76,10 @@
 		</div>
 	</div>
 
-	<?php include 'shared/_scripts.php';?>
+	<?php 
+	include 'shared/_footer.php';
+	
+	include 'shared/_scripts.php';?>
 
 </body>
 </html>

@@ -30,6 +30,8 @@
 							id="menu-topo-adote-um-animal">Adote um animal</a></li>
 						<li><a href="#contact" class="menu-topo"
 							id="menu-topo-fale-conosco">Fale Conosco</a></li>
+							<li><a href="fundadores.php" class="menu-topo"
+							id="menu-topo-fale-conosco">Fundadores</a></li>
 						<li><a href="login.html" class="glyphicon glyphicon-lock"></a></li>
 						<!--<li ><a href="#dev">Desenvolvedores</a></li>-->
 					</ul>

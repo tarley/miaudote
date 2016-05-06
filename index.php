@@ -56,91 +56,13 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 ?>
 <html lang="en">
 <head>
-<!--<meta charset="UTF-8" />-->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-<meta name="viewport"
-	content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<!--<link rel="stylesheet" href="assets/css/jquery-ui.css">-->
-<title>Miaudote</title>
-
-<!-- Google fonts -->
-<link rel="stylesheet" href="assets/css/fontGoogle.css">
-<!-- font awesome -->
-<link rel="stylesheet"
-	href="assets/fonts/font-awesome/css/font-awesome.css">
-
-
-<!-- bootstrap -->
-<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-
-<!-- animate.css -->
-<link rel="stylesheet" href="assets/css/animate.css" />
-<link rel="stylesheet" href="assets/css/normalize.min.css" />
-<link rel="stylesheet" href="assets/css/set.css">
-
-<!-- gallery --->
-<!--<link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">
-
-		<!-- favicon -->
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="assets/css/style.css">
-
-<!-- Filtro -->
-<link rel="stylesheet" href="assets/css/reset.css">
-<!-- CSS reset -->
-<link rel="stylesheet" href="assets/css/style-filtro.css">
-<!-- Resource style -->
+<?php include 'shared/_header.php';?>
 </head>
 
 <body id="body">
-	<div class="topbar animated fadeInLeftBig"></div>
-
-	<!-- Header Starts -Header e menus de inicializaÃƒÂ§ÃƒÂ£o-->
-	<div class="navbar-wrapper">
-		<div class="container">
-			<div class="navbar navbar-default navbar-fixed-top" role="navigation"
-				id="top-nav">
-				<div class="container">
-					<div class="navbar-header">
-						<!-- Logo Starts -->
-						<a class="navbar-brand" href="#home"><img src="images/logo2.png"
-							alt="logo"></a>
-						<!-- #Logo Ends -->
-						<button type="button" class="navbar-toggle collapsed"
-							data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="sr-only">Toggle navigation</span> <span
-								class="icon-bar"></span> <span class="icon-bar"></span> <span
-								class="icon-bar"></span>
-						</button>
-					</div>
-
-					<!-- Nav Starts -->
-					<div class="navbar-collapse  collapse">
-						<ul class="nav navbar-nav navbar-right scroll">
-							<li class="active"><a href="#body" class="menu-topo"
-								id="menu-topo-inicio">Inicio</a></li>
-							<li><a href="#filtro" class="menu-topo" id="menu-topo-buscar">Busca</a>
-							</li>
-							<li><a href="#about" class="menu-topo" id="menu-topo-quem-somos">Quem
-									Somos</a></li>
-							<li><a href="#body" class="menu-topo"
-								id="menu-topo-adote-um-animal">Adote um animal</a></li>
-							<li><a href="#contact" class="menu-topo"
-								id="menu-topo-fale-conosco">Fale Conosco</a></li>
-							<li><a href="login.html" class="glyphicon glyphicon-lock"></a></li>
-
-							<!--<li ><a href="#dev">Desenvolvedores</a></li>-->
-						</ul>
-					</div>
-					<!-- #Nav Ends -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- #Header Starts -->
+	<?php include 'shared/_menu.php';
+	      include 'assets/php/fundador.php';	
+	?>
 
 	<!-- Div master mostra conteÃºdo daspÃ¡ginas -->
 	<div id="master"></div>
@@ -393,84 +315,12 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 	<hr>
 	<div id="partners" class="container spacer "></div>
 
-	<!--Contato-->
-	<div id="contact" class="spacer">
-		<div class="container contactform center">
-			<h2 class="text-center  wowload fadeInUp">Fale conosco</h2>
-			<div class="col-sm-offset-4">
-				<div id="opt-contact">
-					<div class="img-contact" style="float: left; margin-top: 30px">
-						<img src="images/icon-phone.png"><span>(31)2516-2305</span><br> <img
-							src="images/icon-whats.png"><span>(31)99358-6958</span><br> <img
-							src="images/icon-email.png" /><span>valhalla@ong.com</span>
-					</div>
-				</div>
-			</div>
-			<!--
-				<div class="row wowload fadeInLeftBig">
-					<form id="contactForm" action="" method="Post">
-						<div class="col-sm-6 col-sm-offset-3 col-xs-12">      
-							<input type="text" name="name" placeholder="Nome" required>
-							<input type="text" name="email"placeholder="E-mail" required>
-							<textarea rows="5" name="comment" placeholder="Mensagem" required></textarea>
-							<button id="enviarEmail" class="btn btn-primary"><i class="fa fa-paper-plane"></i> Enviar </button>
-						</div>
-					</form>
-				</div>-->
+	
 
-			<div class="ReturnUser col-sm-6 col-sm-offset-3 col-xs-12">
-				<!-- Exibe mensagens ao usuario em tempo de execuÃƒÂ§ÃƒÂ£o -->
+	<?php 
+	include 'shared/_footer.php';
+	
+	include 'shared/_scripts.php';?>
 
-			</div>
-		</div>
-	</div>
-	<!--Contact Ends-->
-
-	<!-- Footer Starts -->
-	<div class="footer text-center spacer">
-		<p class="wowload flipInX">
-			<a href="#"><i class="fa fa-facebook fa-2x"></i></a> <a href="#"><i
-				class="fa fa-instagram fa-2x"></i></a> <a href="#"><i
-				class="fa fa-twitter fa-2x"></i></a> <a href="#"><i
-				class="fa fa-flickr fa-2x"></i></a>
-		</p>
-		Copyright 2016 Miaudote. All rights reserved.
-	</div>
-	<!-- # Footer Ends -->
-	<a href="#galery" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
-
-	<!-- jquery -->
-	<script src="assets/js/jquery-1.12.0.js"></script>
-
-	<script src="assets/js/util.js"></script>
-
-	<!-- wow script -->
-	<script src="assets/js/wow.min.js"></script>
-
-
-	<!-- boostrap -->
-	<script src="assets/js/bootstrap.js" type="text/javascript"></script>
-
-	<!-- jquery mobile -->
-	<script src="assets/js/touchSwipe.min.js"></script>
-
-
-	<!-- custom script -->
-	<script src="assets/js/script.js"></script>
-	<script src="assets/js/email.js"></script>
-
-	<!--<script src="assets/js/jquery-1.13.3.js"></script>
-
-		<script type="text/javascript" src="assets/js/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="assets/js/jssor.slider.mini.js"></script>-->
-
-
-	<script src="assets/js/jquery-2.1.1.js"></script>
-	<script src="assets/js/jquery.mixitup.min.js"></script>
-	<script src="assets/js/main.js"></script>
-	<!-- Resource jQuery -->
-
-	<!-- Filtros -->
-	<script src="assets/js/modernizr.js"></script>
 </body>
 </html>
