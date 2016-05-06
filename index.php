@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Ôªø<!DOCTYPE html>
 <?php
 Error_reporting ( 0 );
 
@@ -54,48 +54,51 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 								  on  (a.cod_estado = e.cod_estado)" );
 
 ?>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!--<meta charset="UTF-8" />-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta name="viewport"
+	content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
+
 <!--<link rel="stylesheet" href="assets/css/jquery-ui.css">-->
 <title>Miaudote</title>
 
 <!-- Google fonts -->
 <link rel="stylesheet" href="assets/css/fontGoogle.css">
 <!-- font awesome -->
-<link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.css">
+<link rel="stylesheet"
+	href="assets/fonts/font-awesome/css/font-awesome.css">
 
 
 <!-- bootstrap -->
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
 
-
 <!-- animate.css -->
-<link rel="stylesheet" href="assets/animate/animate.css" />
-<link rel="stylesheet" href="assets/animate/set.css">
-
+<link rel="stylesheet" href="assets/css/animate.css" />
 <link rel="stylesheet" href="assets/css/normalize.min.css" />
+<link rel="stylesheet" href="assets/css/set.css">
 
+<!-- gallery --->
+<!--<link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">
 
-<!-- favicon -->
+		<!-- favicon -->
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="assets/css/style.css">
 
 <!-- Filtro -->
 <link rel="stylesheet" href="assets/css/reset.css">
 <!-- CSS reset -->
 <link rel="stylesheet" href="assets/css/style-filtro.css">
 <!-- Resource style -->
-<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body id="body">
 	<div class="topbar animated fadeInLeftBig"></div>
 
-	<!-- Header Starts -Header e menus de inicializa√É¬ß√É¬£o-->
+	<!-- Header Starts -Header e menus de inicializa√É∆í√Ç¬ß√É∆í√Ç¬£o-->
 	<div class="navbar-wrapper">
 		<div class="container">
 			<div class="navbar navbar-default navbar-fixed-top" role="navigation"
@@ -128,6 +131,7 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 							<li><a href="#contact" class="menu-topo"
 								id="menu-topo-fale-conosco">Fale Conosco</a></li>
 							<li><a href="login.html" class="glyphicon glyphicon-lock"></a></li>
+
 							<!--<li ><a href="#dev">Desenvolvedores</a></li>-->
 						</ul>
 					</div>
@@ -138,7 +142,7 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 	</div>
 	<!-- #Header Starts -->
 
-	<!-- Div master mostra conte√∫do dasp√°ginas -->
+	<!-- Div master mostra conte√É¬∫do dasp√É¬°ginas -->
 	<div id="master"></div>
 
 
@@ -159,7 +163,7 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 				<ul class="cd-filters">
 					<li class="placeholder"><a data-type="todos" href="#0">Todos</a></li>
 					<li class="filter"><a class="selected" href="#0" data-type="todos">Todos</a></li>
-					<li class="filter" data-filter=".cao"><a href="#0" data-type="cao">C„es</a></li>
+					<li class="filter" data-filter=".cao"><a href="#0" data-type="cao">C√£es</a></li>
 					<li class="filter" data-filter=".gato"><a href="#0"
 						data-type="gato">Gatos</a></li>
 				</ul>
@@ -193,8 +197,8 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 				<li class="gap"></li>
 				<li class="gap"></li>
 			</ul>
-			<div class="cd-fail-message">Desculpe-nos, mas n„o encontramos nenhum
-				animalzinho com este perfil...</div>
+			<div class="cd-fail-message">Desculpe-nos, mas n√£o encontramos
+				nenhum animalzinho com este perfil...</div>
 		</section>
 
 		<!-- cd-gallery -->
@@ -259,12 +263,12 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 
 
 				<div class="cd-filter-block">
-					<h4>RaÁa</h4>
+					<h4>Ra√ßa</h4>
 
 					<div class="cd-filter-content">
 						<div class="cd-select cd-filters">
 							<select class="filter" name="selectThis" id="selectThis">
-								<option value="">Escolha uma raÁa</option>
+								<option value="">Escolha uma ra√ßa</option>
 								<option value=".srd">Tomba-lata</option>
 								<option value=".bulldog">Bulldog</option>
 								<option value=".boxer">Boxer</option>
@@ -294,7 +298,7 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 
 						<li><input class="filter" data-filter=".femea" type="radio"
 							name="radioButton" id="radio3"> <label class="radio-label"
-							for="radio3">FÍmea</label></li>
+							for="radio3">F√™mea</label></li>
 					</ul>
 
 				</div>
@@ -315,7 +319,6 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 						</div>
 					</div>
 				</div>
-
 				<div class="cd-filter-block">
 					<h4>Peso</h4>
 
@@ -347,36 +350,38 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 		<div id="result-search" class="col-md-8 class"
 			style="min-height: 400px;"></div>
 	</div>
-
 	<!-- Cirlce Starts -->
 	<div id="about" class="container spacer about">
 		<h2 class="text-center wowload fadeInUp">Quem Somos</h2>
 		<div class="row">
 			<div class="col-sm-6 wowload fadeInLeft">
 				</br>
-				<p align="justify">O projeto InformaC„o surgiu do esforÁo conjunto de professores do curso de 
-				Medicina Veterin·ria, preocupados com o crescente n˙meros de c„es abandonados 
-				e os problemas sociais e de sa˙de p˙blica ocasionados desse fato. Ambicionavam 
-				ainda, um modo de transmitir as comunidades informaÁıes e dicas de cuidados 
-				gerais para com seu animal de estimaÁ„o, com enfoque especial em doenÁas 
-				parasit·rias, principalmente zoonoses (doenÁas naturalmente transmissÌveis do 
-				animal ao homem), alÈm È claro, da posse respons·vel de animais domÈsticos.
-				Para isso reuniram um grupo de alunos, previamente selecionados, 
-				do curso de Medicina Veterin·ria, liderados e treinados por professores 
-				tidos como referencia nos temas propostos.</p>
+				<p align="justify">O projeto InformaC√£o surgiu do esfor√ßo conjunto
+					de professores do curso de Medicina Veterin√°ria, preocupados com o
+					crescente n√∫meros de c√£es abandonados e os problemas sociais e de
+					sa√∫de p√∫blica ocasionados desse fato. Ambicionavam ainda, um modo
+					de transmitir as comunidades informa√ß√µes e dicas de cuidados gerais
+					para com seu animal de estima√ß√£o, com enfoque especial em doen√ßas
+					parasit√°rias, principalmente zoonoses (doen√ßas naturalmente
+					transmiss√≠veis do animal ao homem), al√©m √© claro, da posse
+					respons√°vel de animais dom√©sticos. Para isso reuniram um grupo de
+					alunos, previamente selecionados, do curso de Medicina Veterin√°ria,
+					liderados e treinados por professores tidos como referencia nos
+					temas propostos.</p>
 
 
 			</div>
 			<div class="col-sm-6 wowload fadeInRight">
 				</br>
-				<p align="justify">Desse modo o projeto atuar· 
-				em parceria com as comunidades visando sensibilizar seus membros quanto 
-				‡ posse respons·vel de animais domÈsticos, cuidados com sua sa˙de, evidenciando 
-				o grande problema causado pelo abandono desses animais.
-				A import‚ncia no cuidado e tratamento de doenÁas que a maioria da populaÁ„o tem pouco 
-				conhecimento do assunto, È tambÈm um dos principais objetivos do projeto, que buscar· 
-				desse modo contribuir de forma efetiva, n„o apenas com o bem-estar animal, 
-				mas tambÈm com a sa˙de e bem-estar das comunidades.</p>
+				<p align="justify">Desse modo o projeto atuar√° em parceria com as
+					comunidades visando sensibilizar seus membros quanto √† posse
+					respons√°vel de animais dom√©sticos, cuidados com sua sa√∫de,
+					evidenciando o grande problema causado pelo abandono desses
+					animais. A import√¢ncia no cuidado e tratamento de doen√ßas que a
+					maioria da popula√ß√£o tem pouco conhecimento do assunto, √© tamb√©m um
+					dos principais objetivos do projeto, que buscar√° desse modo
+					contribuir de forma efetiva, n√£o apenas com o bem-estar animal, mas
+					tamb√©m com a sa√∫de e bem-estar das comunidades.</p>
 				</br>
 				<h4>
 					<i class="fa fa-graduation-cap" aria-hidden="true">Apoio: Newton</i>
@@ -385,6 +390,9 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 		</div>
 	</div>
 	<!-- #Cirlce Ends -->
+	<hr>
+	<div id="partners" class="container spacer "></div>
+
 	<!--Contato-->
 	<div id="contact" class="spacer">
 		<div class="container contactform center">
@@ -411,7 +419,7 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 				</div>-->
 
 			<div class="ReturnUser col-sm-6 col-sm-offset-3 col-xs-12">
-				<!-- Exibe mensagens ao usuario em tempo de execu√É¬ß√É¬£o -->
+				<!-- Exibe mensagens ao usuario em tempo de execu√É∆í√Ç¬ß√É∆í√Ç¬£o -->
 
 			</div>
 		</div>
