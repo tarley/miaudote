@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.9-MariaDB, for Win32 (AMD64)
+-- MySQL dump 10.16  Distrib 10.1.10-MariaDB, for Win32 (AMD64)
 --
 -- Host: localhost    Database: adote
 -- ------------------------------------------------------
--- Server version	10.1.9-MariaDB
+-- Server version	10.1.10-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -35,7 +35,9 @@ CREATE TABLE `tb_adocao` (
   `COD_USUARIO` int(11) NOT NULL,
   `DT_ADOCAO` datetime NOT NULL,
   `COD_ANIMAL_ADT` int(11) NOT NULL,
-  PRIMARY KEY (`COD_ADOCAO`)
+  PRIMARY KEY (`COD_ADOCAO`),
+  UNIQUE KEY `IX_COD_ANIMAL_ADOCAO` (`COD_ANIMAL_ADT`,`COD_USUARIO`),
+  CONSTRAINT `tb_adocao_ibfk_1` FOREIGN KEY (`COD_ANIMAL_ADT`) REFERENCES `tb_animal` (`COD_ANIMAL`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -67,13 +69,15 @@ CREATE TABLE `tb_animal` (
   `IND_PORTE` int(11) DEFAULT NULL,
   `DT_CADASTRO` date DEFAULT NULL,
   `DT_ADOCAO` date DEFAULT NULL,
-  `COD_RACA` int(11) NOT NULL,
-  `COD_ESTADO` varchar(45) DEFAULT NULL,
-  `COD_CIDADE` int(11) NOT NULL,
   `COD_ESPECIE` int(11) NOT NULL,
+  `COD_CIDADE` int(11) NOT NULL,
   PRIMARY KEY (`COD_ANIMAL`),
-  KEY `FK_TB_USUARIO_ANIMAL` (`COD_USUARIO`),
-  CONSTRAINT `FK_TB_USUARIO_ANIMAL` FOREIGN KEY (`COD_USUARIO`) REFERENCES `tb_usuario` (`COD_USUARIO`)
+  KEY `IX_TB_ANIMAL_COD_ESPECIE` (`COD_ESPECIE`),
+  KEY `IX_TB_ANIMAL_COD_USUARIO` (`COD_USUARIO`),
+  KEY `IX_TB_ANIMAL_COD_CIDADE` (`COD_CIDADE`),
+  CONSTRAINT `tb_animal_ibfk_1` FOREIGN KEY (`COD_ESPECIE`) REFERENCES `tb_especie` (`COD_ESPECIE`) ON UPDATE CASCADE,
+  CONSTRAINT `tb_animal_ibfk_2` FOREIGN KEY (`COD_USUARIO`) REFERENCES `tb_usuario` (`COD_USUARIO`) ON UPDATE CASCADE,
+  CONSTRAINT `tb_animal_ibfk_3` FOREIGN KEY (`COD_CIDADE`) REFERENCES `tb_cidade` (`COD_CIDADE`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,14 +87,7 @@ CREATE TABLE `tb_animal` (
 
 LOCK TABLES `tb_animal` WRITE;
 /*!40000 ALTER TABLE `tb_animal` DISABLE KEYS */;
-INSERT INTO `tb_animal` VALUES 
-(1,1,'DI CAPRIO','ZUIUDI DA MAMAE','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,2,'MARROM',0,'0000-00-00',NULL,1,'11',1636,1),
-(2,1,'TOM CRUISE','SEU NOVO AMOR','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,1,'BRANCO',1,NULL,NULL,1,'11',1636,1),
-(3,1,'BORIS','DE BOAS','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,3,'BRANCO',1,NULL,NULL,1,'11',1764,2),
-(4,1,'TOTO','VIDA MANSA','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',2,2,'MARROM',0,NULL,NULL,1,'19',3591,2),
-(5,1,'REX','OH LINDO','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,1,'BRANCO',2,NULL,NULL,1,'19',3638,1),
-(6,1,'FRANK','SORRISO FACIL','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,3,'BRANCO',2,NULL,NULL,1,'26',5250,1),
-(7,1,'CHOCO','TESTEMUNHEM','Os portões Asgard me esperam',1,3,'PRETO',1,NULL,NULL,1,'19',3653,1);
+INSERT INTO `tb_animal` VALUES (1,1,'DI CAPRIO','ZUIUDI DA MAMAE','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,2,'MARROM',0,'0000-00-00',NULL,1,1636),(2,1,'TOM CRUISE','SEU NOVO AMOR','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,1,'BRANCO',1,NULL,NULL,1,1636),(3,1,'BORIS','DE BOAS','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,3,'BRANCO',1,NULL,NULL,1,1764),(4,1,'TOTO','VIDA MANSA','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',2,2,'MARROM',0,NULL,NULL,1,3591),(5,1,'REX','OH LINDO','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,1,'BRANCO',2,NULL,NULL,1,3638),(6,1,'FRANK','SORRISO FACIL','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,3,'BRANCO',2,NULL,NULL,1,5250),(7,1,'CHOCO','TESTEMUNHEM','Os portões Asgard me esperam',1,3,'PRETO',1,NULL,NULL,1,3653);
 /*!40000 ALTER TABLE `tb_animal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +103,8 @@ CREATE TABLE `tb_cidade` (
   `NOM_CIDADE` varchar(120) DEFAULT NULL,
   `COD_ESTADO` int(5) DEFAULT NULL,
   PRIMARY KEY (`COD_CIDADE`),
-  KEY `FK_CIDADE_ESTADO` (`COD_ESTADO`)
+  KEY `FK_CIDADE_ESTADO` (`COD_ESTADO`),
+  CONSTRAINT `tb_cidade_ibfk_1` FOREIGN KEY (`COD_ESTADO`) REFERENCES `tb_estado` (`COD_ESTADO`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5565 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -182,7 +180,9 @@ CREATE TABLE `tb_foto` (
   `URL` varchar(200) DEFAULT NULL,
   `ID_FOTO_PRI` char(1) DEFAULT 'N',
   `NOM_FOTO` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`COD_FOTO`,`COD_ANIMAL`)
+  PRIMARY KEY (`COD_FOTO`,`COD_ANIMAL`),
+  KEY `COD_ANIMAL` (`COD_ANIMAL`),
+  CONSTRAINT `tb_foto_ibfk_1` FOREIGN KEY (`COD_ANIMAL`) REFERENCES `tb_animal` (`COD_ANIMAL`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -192,13 +192,7 @@ CREATE TABLE `tb_foto` (
 
 LOCK TABLES `tb_foto` WRITE;
 /*!40000 ALTER TABLE `tb_foto` DISABLE KEYS */;
-INSERT INTO `tb_foto` VALUES 	(1,1,'images/user/animal','S','FOTO1'),(1,2,NULL,'S','FOTO1'),(1,3,NULL,'S','FOTO1'),
-								(1,4,NULL,'S','FOTO1'),(1,5,NULL,'S','FOTO1'),(1,6,NULL,'S','FOTO1'),
-								(2,1,NULL,'N','FOTO2'),(2,2,NULL,'N','FOTO2'),(2,3,NULL,'N','FOTO2'),(2,4,NULL,'N','FOTO2'),
-								(2,5,NULL,'N','FOTO2'),(2,6,NULL,'N','FOTO2'),(3,1,NULL,'N','FOTO3'),(3,2,'','N','FOTO3'),
-								(3,3,NULL,'N','FOTO3'),(3,5,NULL,'N','FOTO3'),(3,6,NULL,'N','FOTO3'),(4,1,NULL,'N','FOTO4'),
-								(5,1,NULL,'N','FOTO5'),(6,1,NULL,'N','FOTO6'),(7,1,NULL,'N','FOTO7'),(8,1,NULL,'N','FOTO8'),
-								(9,1,NULL,'N','FOTO9'),(10,1,NULL,'N','FOTO10');
+INSERT INTO `tb_foto` VALUES (1,1,'images/user/animal','S','FOTO1'),(1,2,NULL,'S','FOTO1'),(1,3,NULL,'S','FOTO1'),(1,4,NULL,'S','FOTO1'),(1,5,NULL,'S','FOTO1'),(1,6,NULL,'S','FOTO1'),(2,1,NULL,'N','FOTO2'),(2,2,NULL,'N','FOTO2'),(2,3,NULL,'N','FOTO2'),(2,4,NULL,'N','FOTO2'),(2,5,NULL,'N','FOTO2'),(2,6,NULL,'N','FOTO2'),(3,1,NULL,'N','FOTO3'),(3,2,'','N','FOTO3'),(3,3,NULL,'N','FOTO3'),(3,5,NULL,'N','FOTO3'),(3,6,NULL,'N','FOTO3'),(4,1,NULL,'N','FOTO4'),(5,1,NULL,'N','FOTO5'),(6,1,NULL,'N','FOTO6'),(7,1,NULL,'N','FOTO7'),(8,1,NULL,'N','FOTO8'),(9,1,NULL,'N','FOTO9'),(10,1,NULL,'N','FOTO10');
 /*!40000 ALTER TABLE `tb_foto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -241,7 +235,7 @@ CREATE TABLE `tb_usuario` (
   `NOM_USUARIO` varchar(100) DEFAULT NULL,
   `TELEFONE` varchar(15) DEFAULT NULL,
   `PERFIL` varchar(1000) DEFAULT NULL,
-  `SENHA` varchar(100) DEFAULT NULL,
+  `SENHA` varchar(30) NOT NULL,
   PRIMARY KEY (`COD_USUARIO`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -252,9 +246,7 @@ CREATE TABLE `tb_usuario` (
 
 LOCK TABLES `tb_usuario` WRITE;
 /*!40000 ALTER TABLE `tb_usuario` DISABLE KEYS */;
-INSERT INTO `tb_usuario` VALUES (1,'ong@email.com','ONG','31','Uma ong que ama os animais','1'),
-								(2,'ong@ong,com','CAO CARINHO','32','Especializada em tratamento de animais','1'),
-								(3,'valhalla@ong.com','Portões de Valhalla','31 3333 3333','testemunhem','1');
+INSERT INTO `tb_usuario` VALUES (1,'ong@email.com','ONG','31','Uma ong que ama os animais',''),(2,'ong@ong,com','CAO CARINHO','32','Especializada em tratamento de animais',''),(3,'valhalla@ong.com','Portões de Valhalla','31 3333 3333','testemunhem','');
 /*!40000 ALTER TABLE `tb_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -267,4 +259,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-12 21:23:11
+-- Dump completed on 2016-05-08 20:44:22
