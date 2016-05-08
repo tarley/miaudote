@@ -21,3 +21,11 @@
 <link rel="stylesheet" href="assets/css/style-filtro.css">
 <!-- Resource style -->
 <link rel="stylesheet" href="assets/css/style.css">
+
+<!--login-->
+<link rel="stylesheet" href="assets/css/styleLogin.css">
+<!-- font awesome -->
+<link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.css">
+<!-- favicon -->
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">

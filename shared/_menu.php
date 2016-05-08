@@ -19,20 +19,14 @@
 
 				<!-- Nav Starts -->
 				<div class="navbar-collapse  collapse">
-					<ul class="nav navbar-nav navbar-right scroll">
-						<li class="active"><a href="#body" class="menu-topo"
-							id="menu-topo-inicio">Inicio</a></li>
-						<li><a href="#filtro" class="menu-topo" id="menu-topo-buscar">Busca</a>
-						</li>
-						<li><a href="#about" class="menu-topo" id="menu-topo-quem-somos">Quem
-								Somos</a></li>
-						<li><a href="#body" class="menu-topo"
-							id="menu-topo-adote-um-animal">Adote um animal</a></li>
-						<li><a href="#contact" class="menu-topo"
-							id="menu-topo-fale-conosco">Fale Conosco</a></li>
-							<li><a href="fundadores.php" class="menu-topo"
-							id="menu-topo-fale-conosco">Fundadores</a></li>
-						<li><a href="login.html" class="glyphicon glyphicon-lock"></a></li>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="nav scroll active"><a href="#body" class="menu-topo" id="menu-topo-inicio">Inicio</a></li>
+						<li class="nav scroll"><a href="#filtro" class="menu-topo" id="menu-topo-buscar">Busca</a></li>
+						<li class="nav scroll"><a href="#about" class="menu-topo" id="menu-topo-quem-somos">Quem Somos</a></li>
+						<li class="nav scroll"><a href="#body" class="menu-topo" id="menu-topo-adote-um-animal">Adote um animal</a></li>
+						<li class="nav scroll"><a href="#contact" class="menu-topo" id="menu-topo-fale-conosco">Fale Conosco</a></li>
+						<li><a href="index.php?page=fundadores" class="menu-topo navigation" id="fundadores">Fundadores</a></li>
+						<li><a href="index.php?page=login" class="glyphicon glyphicon-lock navigation" id="login"></a></li>
 						<!--<li ><a href="#dev">Desenvolvedores</a></li>-->
 					</ul>
 				</div>
