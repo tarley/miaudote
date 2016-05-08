@@ -70,6 +70,7 @@ CREATE TABLE `tb_animal` (
   `COD_RACA` int(11) NOT NULL,
   `COD_ESTADO` varchar(45) DEFAULT NULL,
   `COD_CIDADE` int(11) NOT NULL,
+  `COD_ESPECIE` int(11) NOT NULL,
   PRIMARY KEY (`COD_ANIMAL`),
   KEY `FK_TB_USUARIO_ANIMAL` (`COD_USUARIO`),
   CONSTRAINT `FK_TB_USUARIO_ANIMAL` FOREIGN KEY (`COD_USUARIO`) REFERENCES `tb_usuario` (`COD_USUARIO`)
@@ -82,7 +83,14 @@ CREATE TABLE `tb_animal` (
 
 LOCK TABLES `tb_animal` WRITE;
 /*!40000 ALTER TABLE `tb_animal` DISABLE KEYS */;
-INSERT INTO `tb_animal` VALUES (1,1,'DI CAPRIO','ZUIUDI DA MAMAE','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,2,'MARROM',0,'0000-00-00',NULL,1,'11',1636),(2,1,'TOM CRUISE','SEU NOVO AMOR','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,1,'BRANCO',1,NULL,NULL,1,'11',1636),(3,1,'BORIS','DE BOAS','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,3,'BRANCO',1,NULL,NULL,1,'11',1764),(4,1,'TOTO','VIDA MANSA','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',2,2,'MARROM',0,NULL,NULL,1,'19',3591),(5,1,'REX','OH LINDO','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,1,'BRANCO',2,NULL,NULL,1,'19',3638),(6,1,'FRANK','SORRISO FACIL','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,3,'BRANCO',2,NULL,NULL,1,'26',5250),(7,1,'CHOCO','TESTEMUNHEM','Os portões Asgard me esperam',1,3,'PRETO',1,NULL,NULL,1,'19',3653);
+INSERT INTO `tb_animal` VALUES 
+(1,1,'DI CAPRIO','ZUIUDI DA MAMAE','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,2,'MARROM',0,'0000-00-00',NULL,1,'11',1636,1),
+(2,1,'TOM CRUISE','SEU NOVO AMOR','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,1,'BRANCO',1,NULL,NULL,1,'11',1636,1),
+(3,1,'BORIS','DE BOAS','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,3,'BRANCO',1,NULL,NULL,1,'11',1764,2),
+(4,1,'TOTO','VIDA MANSA','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',2,2,'MARROM',0,NULL,NULL,1,'19',3591,2),
+(5,1,'REX','OH LINDO','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,1,'BRANCO',2,NULL,NULL,1,'19',3638,1),
+(6,1,'FRANK','SORRISO FACIL','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',1,3,'BRANCO',2,NULL,NULL,1,'26',5250,1),
+(7,1,'CHOCO','TESTEMUNHEM','Os portões Asgard me esperam',1,3,'PRETO',1,NULL,NULL,1,'19',3653,1);
 /*!40000 ALTER TABLE `tb_animal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,7 +192,13 @@ CREATE TABLE `tb_foto` (
 
 LOCK TABLES `tb_foto` WRITE;
 /*!40000 ALTER TABLE `tb_foto` DISABLE KEYS */;
-INSERT INTO `tb_foto` VALUES (1,1,'images/user/animal','S','FOTO1'),(1,2,NULL,'S','FOTO1'),(1,3,NULL,'S','FOTO1'),(1,4,NULL,'S','FOTO1'),(1,5,NULL,'S','FOTO1'),(1,6,NULL,'S','FOTO1'),(2,1,NULL,'N','FOTO2'),(2,2,NULL,'N','FOTO2'),(2,3,NULL,'N','FOTO2'),(2,4,NULL,'N','FOTO2'),(2,5,NULL,'N','FOTO2'),(2,6,NULL,'N','FOTO2'),(3,1,NULL,'N','FOTO3'),(3,2,'','N','FOTO3'),(3,3,NULL,'N','FOTO3'),(3,5,NULL,'N','FOTO3'),(3,6,NULL,'N','FOTO3'),(4,1,NULL,'N','FOTO4'),(5,1,NULL,'N','FOTO5'),(6,1,NULL,'N','FOTO6'),(7,1,NULL,'N','FOTO7'),(8,1,NULL,'N','FOTO8'),(9,1,NULL,'N','FOTO9'),(10,1,NULL,'N','FOTO10');
+INSERT INTO `tb_foto` VALUES 	(1,1,'images/user/animal','S','FOTO1'),(1,2,NULL,'S','FOTO1'),(1,3,NULL,'S','FOTO1'),
+								(1,4,NULL,'S','FOTO1'),(1,5,NULL,'S','FOTO1'),(1,6,NULL,'S','FOTO1'),
+								(2,1,NULL,'N','FOTO2'),(2,2,NULL,'N','FOTO2'),(2,3,NULL,'N','FOTO2'),(2,4,NULL,'N','FOTO2'),
+								(2,5,NULL,'N','FOTO2'),(2,6,NULL,'N','FOTO2'),(3,1,NULL,'N','FOTO3'),(3,2,'','N','FOTO3'),
+								(3,3,NULL,'N','FOTO3'),(3,5,NULL,'N','FOTO3'),(3,6,NULL,'N','FOTO3'),(4,1,NULL,'N','FOTO4'),
+								(5,1,NULL,'N','FOTO5'),(6,1,NULL,'N','FOTO6'),(7,1,NULL,'N','FOTO7'),(8,1,NULL,'N','FOTO8'),
+								(9,1,NULL,'N','FOTO9'),(10,1,NULL,'N','FOTO10');
 /*!40000 ALTER TABLE `tb_foto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,6 +241,7 @@ CREATE TABLE `tb_usuario` (
   `NOM_USUARIO` varchar(100) DEFAULT NULL,
   `TELEFONE` varchar(15) DEFAULT NULL,
   `PERFIL` varchar(1000) DEFAULT NULL,
+  `SENHA` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`COD_USUARIO`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -237,7 +252,9 @@ CREATE TABLE `tb_usuario` (
 
 LOCK TABLES `tb_usuario` WRITE;
 /*!40000 ALTER TABLE `tb_usuario` DISABLE KEYS */;
-INSERT INTO `tb_usuario` VALUES (1,'ong@email.com','ONG','31','Uma ong que ama os animais'),(2,'ong@ong,com','CAO CARINHO','32','Especializada em tratamento de animais'),(3,'valhalla@ong.com','Portões de Valhalla','31 3333 3333','testemunhem');
+INSERT INTO `tb_usuario` VALUES (1,'ong@email.com','ONG','31','Uma ong que ama os animais','1'),
+								(2,'ong@ong,com','CAO CARINHO','32','Especializada em tratamento de animais','1'),
+								(3,'valhalla@ong.com','Portões de Valhalla','31 3333 3333','testemunhem','1');
 /*!40000 ALTER TABLE `tb_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
