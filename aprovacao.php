@@ -1,7 +1,8 @@
 <?php
 Error_reporting ( 0 );
-
-include ("assets/php/conexao.php");
+require_once 'assets/php/conexao.php';
+require_once 'seguranca.php';
+protectPage();
 $pdo = conectar ();
 
 header ( "Content-Type: text/html; charset=UTF-8", true );
