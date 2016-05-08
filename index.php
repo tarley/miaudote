@@ -1,8 +1,9 @@
 ﻿<!DOCTYPE html>
 <?php
-Error_reporting ( 0 );
+Error_reporting (E_ALL);
 
 include ("assets/php/conexao.php");
+include ("assets/php/navigation.php");
 $pdo = conectar ();
 
 header ( "Content-Type: text/html; charset=UTF-8", true );
@@ -40,11 +41,6 @@ $listaAnimal = $pdo->query ( " select 	e.nom_estado,
 											inner join tb_usuario u   on(a.cod_usuario = u.cod_usuario)
 							where
 								f.id_foto_pri = 's'" );
-/*
- * if ($listaAnimal == 0){
- * echo "Sem animais listados";
- * };
- */
 
 $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 										         e.sg_uf,
@@ -65,17 +61,19 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 	?>
 
 	<!-- Div master mostra conteÃºdo daspÃ¡ginas -->
-	<div id="master"></div>
 
-
-	<input type='hidden' id='current_page' />
-	<input type='hidden' id='show_per_page' />
-	<!-- Galeria de destaques-->
-	<div id="galery" class=" clearfix grid row">
-		<div id="galery-image" class="scroll col-md-8 col-md-offset-2"></div>
+	<div id="conteudo" class="clear spacer fix grid row" style ="padding-top:6em;">
+		<div id="inicio-header" class="col-md-6 col-md-offset-3" style="">
+			<ul class="nav nav-pills nav-justified navigation">
+				<li><a href="index.php?page=destaques" class="menu-topo" 	  id="destaques"  data-link='destaques'>Destaques</a></li>
+				<li><a href="index.php?page=recem_adotados" class="menu-topo" id="recem_adotados"  data-link='adotados'>Recem Adotados</a></li>
+			</ul>
+		</div>
+	
+		<div id="conteudo-sub" class="col-md-10 col-md-offset-1 scroll" style="min-height:800px">
+			<?php navigation()?>
+		</div>
 	</div>
-	<div id='page_navigation' class="nav-pagination"></div>
-	<hr>
 
 	<div id="filtro" class="clearfix filtros row scroll"
 		style="padding-top: 90px;">
@@ -107,7 +105,7 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 										<figcaption>
 											<h3>" . utf8_encode ( $row ['nom_cidade'] ) . " - " . $row ['sg_uf'] . "</h3>
 											<span>" . $row ["ind_sexo"] . ", " . $row ["idade"] . " ano(s)</span> 
-											<a href='#search' id='animal-filtro' data-value='" . $row ['cod_animal'] . "'>Perfil</a>
+											<a href='#conteudo' id='animal-filtro' data-value='" . $row ['cod_animal'] . "'>Perfil</a>
 										</figcaption>	
 										</figure>
 									</div> 
@@ -265,8 +263,7 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 		</div>
 		<a href="#0" id="filtro-menu" class="cd-filter-trigger">Filtros</a> </main>
 	</div>
-
-	<div id="search" class="clearfix grid row scroll">
+	<!--<div id="search" class="clearfix grid row scroll">
 		<div id="menu-search" class="col-md-2"></div>
 
 		<div id="result-search" class="col-md-8 class"
@@ -274,6 +271,7 @@ $listaEstado = $pdo->query ( "select  distinct a.cod_estado,
 	</div>
 	<!-- Cirlce Starts -->
 	<div id="about" class="container spacer about">
+		<hr>
 		<h2 class="text-center wowload fadeInUp">Quem Somos</h2>
 		<div class="row">
 			<div class="col-sm-6 wowload fadeInLeft">
