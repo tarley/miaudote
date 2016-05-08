@@ -1,37 +1,6 @@
 $(function(){
 	
-	jQuery(document).ready(function(){
-		var acao;
-		var galery = $("#galery");
-		var lista = galery.find("#galery-image");
-		var itens="";
-		
-				
-		$.getJSON('assets/php/util.php?acao=getDestaque',function(data){
-			if(data== 0){
-				itens+="<div class='empty-destaque'></p> Desculpe!,não há destaques para exibir.</p></div>";	
-			}else{
-				$.each(data,function(k,v){
-					itens += "<figure id ='perfil' class='effect-oscar wowload fadeIn'>";
-					itens +="<img src='images/profile/user_1/pet_"+v.COD_ANIMAL+"/book/"+v.NOM_FOTO+".jpg' />";
-					itens += "<figcaption>";
-					itens += "<h2>"+v.NOM_ANIMAL+"</h2>";
-					itens += "<p>"+v.DESC_ANIMAL+"</br>";
-					itens += "<a href='#search' id='getPerfil' data-value='"+v.COD_ANIMAL+"' class='scroll' >Ver perfil</a></p>";
-					itens += "</figcaption>";
-					itens += "</figure>";
-				});	
-			}
-			itens += itens + itens;
-			itens += itens + itens;
-			itens += "<script type='text/javascript'>aplicarPainacao();</script>";
-			
-			lista.html(itens);
 
-		});
-	})
-	
-	
 	$(document).on('click','#getPerfil', function(){		
 		var cod_animal = $(this).data("value");
 		var galery = $("#search");
@@ -139,15 +108,7 @@ $(function(){
 			lista.html(itens);
 		});
 	});	
-	
-	/* 
-	$(document).on('click','#closePerfil', function(){
-	  $("#search").hide(1500, function() {
-		$('#search').hide("slow");
-	  });
-	});
-	*/
-	
+
 	// Classe do menu do topo
 	$('.menu-topo').click(function(){		
 		//$('#master').fadeOut(500);
@@ -156,11 +117,6 @@ $(function(){
 	// A��o do bot�o in�cio
 	$('#menu-topo-inicio').click(function(){
 		$('#master').fadeOut(500);
-	});
-	
-	// A��o do bot�o buscar
-	$('#menu-topo-buscar').click(function(){
-		$('#filtro-menu').click();
 	});
 	
 	// A��o do bot�o quem somos
@@ -172,6 +128,13 @@ $(function(){
 	$('#menu-topo-adote-um-animal').click(function(){
 		$('#master').fadeIn(500).load('assets/php/util.php?acao=getPagina&pagina=adote-um-animal');
 	});
+	
+	$(document).on('click','#animal-filtro', function(){
+		$('#conteudo-sub').fadeIn(1000).load('perfil.php?id='+$(this).data("value"));
+		window.history.pushState( location.href, "Perfil",'index.php?page=perfil&id='+$(this).data("value"));
+		document.title = "Miaudote | Perfil";
+		
+	})
 	
 	
 });
