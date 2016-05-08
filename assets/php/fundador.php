@@ -23,7 +23,12 @@
 		function __construct($nome, $papel, $urlImagem, $twitter, $facebook, $linkedin) {
 			$this->nome = $nome;
 			$this->papel = $papel;
-			$this->urlImagem = $urlImagem;
+			
+			if(empty($urlImagem))
+				$this->urlImagem = "images/fundadores/desconhecido.jpg";
+			else
+				$this->urlImagem = "images/fundadores/" . $urlImagem;
+			
 			$this->twitter = $twitter;
 			$this->facebook = $facebook;
 			$this->linkedin = $linkedin;
