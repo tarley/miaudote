@@ -13,16 +13,13 @@
   });
 	
 
-
-
-
 $(function() {
 	$('.navigation a ').click(function(e) {
 
 		href = $(this).attr("href");
 		pagina = $(this).attr("id");
 		
-		loadContent(pagina,"avancar");
+		loadContent(pagina,"");
 		
 
 		history.pushState('','New URL: '+href, href);
@@ -32,18 +29,29 @@ $(function() {
 	window.onpopstate = function(event) {
 
 		console.log("pathname: "+location.pathname.search);
-		retornar = location.search.substr(6);
-		loadContent(retornar,"voltar");
+		retornar = location.search.substr(6); //Pagina que ira ser carregada
+		
+		/*Neste trecho, é preciso saber se a url de destino é da pagina de perfil,
+		se for, é necessario extrair o id do animal (funcao slice) e utiliza-lo na funcao loadContent para montar o link corretamente*/
+		if(retornar.match(/perfil/)){ 
+			id_perfil = retornar.slice(10);
+			retornar  = retornar.slice(0,6);
+		}else{
+			id_perfil = "";
+		}
+		loadContent(retornar,id_perfil);
+
 	};
 
 });
 
-function loadContent(pagina,destino){
+function loadContent(pagina,id){
 	
-	if(destino =="avancar"){
-		$('#conteudo-sub').fadeIn(1000).load(pagina+'.php');
+ 
+	if(retornar =="perfil"){
+		$('#conteudo-sub').fadeIn(500).load(pagina+'.php?&id='+id+'#conteudo');
 	}else{
-		$('#conteudo-sub').fadeIn(1000).load(pagina+'.php');
+		$('#conteudo-sub').fadeIn(500).load(pagina+'.php');
 	}
 	
 	$('li').removeClass('current');

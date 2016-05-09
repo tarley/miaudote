@@ -9,45 +9,47 @@ $pdo = conectar ();
 header ( "Content-Type: text/html; charset=UTF-8", true );
 
 $listaAnimal = $pdo->query ( " select 	e.nom_estado,
-								e.sg_uf,
-								c.nom_cidade,
-								a.cod_usuario,
-								u.nom_usuario,
-								a.cod_animal,
-								a.nom_animal,
-								f.cod_foto,
-								f.nom_foto,
-							  case
-							  when esp.cod_especie = 1 then 'cao'
-							  when esp.cod_especie = 2 then 'gato'
-								end as cod_especie,
-								a.cor,
-								a.idade,									
-								case
-									when a.ind_porte = 1 then 'pequeno'
-									when a.ind_porte = 2 then 'medio'
-									when a.ind_porte = 3 then 'grande'
-									else 'indefinido'
-								end as ind_porte,									
-								case
-									when a.ind_sexo = 1 then 'macho'
-									when a.ind_sexo = 2 then 'femea'
-								end as ind_sexo										
-							from 
-								tb_animal a inner join tb_estado  e   on(a.cod_estado  = e.cod_estado)
-											inner join tb_cidade  c   on(a.cod_cidade  = c.cod_cidade)
-											inner join tb_especie esp on(a.cod_especie = esp.cod_especie) 
-											inner join tb_foto    f   on(a.cod_animal  = f.cod_animal)
-											inner join tb_usuario u   on(a.cod_usuario = u.cod_usuario)
-							where
-								f.id_foto_pri = 's'" );
+	e.sg_uf,
+	c.nom_cidade,
+	a.cod_usuario,
+	u.nom_usuario,
+	a.cod_animal,
+	a.nom_animal,
+	f.cod_foto,
+	f.nom_foto,
+  case
+  when esp.cod_especie = 1 then 'cao'
+  when esp.cod_especie = 2 then 'gato'
+	end as cod_especie,
+	a.cor,
+	a.idade,									
+	case
+		when a.ind_porte = 1 then 'pequeno'
+		when a.ind_porte = 2 then 'medio'
+		when a.ind_porte = 3 then 'grande'
+		else 'indefinido'
+	end as ind_porte,									
+	case
+		when a.ind_sexo = 1 then 'macho'
+		when a.ind_sexo = 2 then 'femea'
+	end as ind_sexo										
+from 
+	tb_animal a inner join tb_especie esp on(a.cod_especie = esp.cod_especie) 
+				inner join tb_foto    f   on(a.cod_animal  = f.cod_animal)
+				inner join tb_usuario u   on(a.cod_usuario = u.cod_usuario)
+				inner join tb_cidade  c   on(a.cod_cidade  = c.cod_cidade)
+				inner join tb_estado  e   on(c.cod_estado  = e.cod_estado)
+where
+	f.id_foto_pri = 's' " );
 
-$listaEstado = $pdo->query ( "select  distinct a.cod_estado,
-										         e.sg_uf,
-												 e.cod_estado,
-												 e.nom_estado
-								  from  tb_animal a inner join tb_estado e
-								  on  (a.cod_estado = e.cod_estado)" );
+$listaEstado = $pdo->query ("select  distinct	e.cod_estado,
+												e.sg_uf,
+												e.cod_estado,
+												e.nom_estado
+							from  tb_animal a inner join tb_cidade c on 
+													(a.cod_cidade = c.cod_cidade) 
+											  inner join tb_estado e
+													on  (c.cod_estado = e.cod_estado)" );
 
 ?>
 <html lang="en">
