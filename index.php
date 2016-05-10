@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <?php
-Error_reporting (E_ALL);
+Error_reporting ( E_ALL );
 
 include ("assets/php/conexao.php");
 include ("assets/php/navigation.php");
@@ -42,7 +42,7 @@ from
 where
 	f.id_foto_pri = 's' " );
 
-$listaEstado = $pdo->query ("select  distinct	e.cod_estado,
+$listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 												e.sg_uf,
 												e.cod_estado,
 												e.nom_estado
@@ -58,21 +58,27 @@ $listaEstado = $pdo->query ("select  distinct	e.cod_estado,
 </head>
 
 <body id="body">
-	<?php include 'shared/_menu.php';
-	      include 'assets/php/fundador.php';	
+	<?php
+	
+include 'shared/_menu.php';
+	include 'assets/php/fundador.php';
 	?>
 
 	<!-- Div master mostra conteÃºdo daspÃ¡ginas -->
 
-	<div id="conteudo" class="clear spacer fix grid row" style ="padding-top:6em;">
+	<div id="conteudo" class="clear spacer fix grid row"
+		style="padding-top: 6em;">
 		<div id="inicio-header" class="col-md-6 col-md-offset-3" style="">
 			<ul class="nav nav-pills nav-justified navigation">
-				<li><a href="index.php?page=destaques" class="menu-topo" 	  id="destaques"  data-link='destaques'>Destaques</a></li>
-				<li><a href="index.php?page=recem_adotados" class="menu-topo" id="recem_adotados"  data-link='adotados'>Recem Adotados</a></li>
+				<li><a href="index.php?page=destaques" class="menu-topo"
+					id="destaques" data-link='destaques'>Destaques</a></li>
+				<li><a href="index.php?page=recem_adotados" class="menu-topo"
+					id="recem_adotados" data-link='adotados'>Recem Adotados</a></li>
 			</ul>
 		</div>
-	
-		<div id="conteudo-sub" class="col-md-10 col-md-offset-1 scroll" style="min-height:800px">
+
+		<div id="conteudo-sub" class="col-md-10 col-md-offset-1 scroll"
+			style="min-height: 800px">
 			<?php navigation()?>
 		</div>
 	</div>
@@ -119,8 +125,8 @@ $listaEstado = $pdo->query ("select  distinct	e.cod_estado,
 				<li class="gap"></li>
 				<li class="gap"></li>
 			</ul>
-			<div class="cd-fail-message">Desculpe-nos, mas não encontramos
-				nenhum animalzinho com este perfil...</div>
+			<div class="cd-fail-message">Desculpe-nos, mas não encontramos nenhum
+				animalzinho com este perfil...</div>
 		</section>
 
 		<!-- cd-gallery -->
@@ -271,7 +277,7 @@ $listaEstado = $pdo->query ("select  distinct	e.cod_estado,
 		<div id="result-search" class="col-md-8 class"
 			style="min-height: 400px;"></div>
 	</div>
-	<!-- Cirlce Starts -->
+	<!-- Inicio quem somos -->
 	<div id="about" class="container spacer about">
 		<hr>
 		<h2 class="text-center wowload fadeInUp">Quem Somos</h2>
@@ -311,10 +317,50 @@ $listaEstado = $pdo->query ("select  distinct	e.cod_estado,
 			</div>
 		</div>
 	</div>
-	<!-- #Cirlce Ends -->
-	<hr>
-	<div id="partners" class="container spacer "></div>
+	<!-- Final quem somos -->
+	<!-- Inicio como adotar -->
+	<div id="comoAdotar" class="container spacer about">
+		<hr>
+		<h2 class="text-center wowload fadeInUp">Como adotar</h2>
+		<div class="row">
+			<div class="col-sm-6 wowload fadeInLeft">
+				</br>
+				<p align="justify">São os muitos os locais onde pode adoptar um
+					animal. As associações são um bom ponto de partida, assim como
+					canis municipais. Veja aqui uma lista das associações que existem
+					no nosso país e escolha a mais perto da sua residência. Para
+					adoptar é necessário responder às questões dos voluntários, levar
+					um documento que o identifique e claro preencher uma ficha de
+					adopção e declaração de responsabilidade. Deverá levar uma trela e
+					coleira se adoptar um cão ou uma transportadora se optar pelo um
+					gato. Não se admire se o voluntário lhe perguntar se pode visitar o
+					animal ou pedir que envie fotografias dele.
+			
+			</div>
+			<div class="col-sm-6 wowload fadeInRight">
+				</br>
+				<p align="justify">É uma precaução contra eventuais maus-tratos,
+					abandonos ou negligência. Algumas associações pedem uma taxa de
+					adopção, pois os gastos com os animais encarregues são avultados e
+					sejamos realistas, se não tem dinheiro para pagar esta taxa
+					(irrisória na sua maioria dados os gastos normais que se deve ter
+					com um animal), certamente também não terá para o manter. Acima de
+					tudo lembre-se, o papel do voluntário é ter a certeza que o animal
+					é bem entregue e não divertir-se a massacra-lo com perguntas sem
+					fim. Por isso respeite o seu trabalho.</p>
 
+				</p>
+				<h4>
+					<a href="documents/TERMO_DE_RESPONSABILIDADE.pdf" download>Adoção
+						Legal</a>
+				</h4>
+
+				</br>
+			</div>
+		</div>
+	</div>
+	<!-- Final Como Adotar -->
+	<hr>
 	
 
 	<?php 

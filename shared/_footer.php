@@ -41,4 +41,4 @@
 	Copyright 2016 Miaudote. All rights reserved.
 </div>
 <!-- # Footer Ends -->
-<a href="#galery" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
+<a href="#conteudo" class="gototop"><i class="fa fa-angle-up  fa-3x"></i></a>
