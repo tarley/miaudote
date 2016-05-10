@@ -2,7 +2,7 @@
 Error_reporting ( 0 );
 require_once 'assets/php/conexao.php';
 require_once 'seguranca.php';
-protectPage();
+protectPage ();
 $pdo = conectar ();
 
 header ( "Content-Type: text/html; charset=UTF-8", true );
@@ -61,9 +61,17 @@ $lista = $pdo->query ( "select a.cod_animal,
 	href="assets/css/aprovacao/jquery.news-ticker.css">
 <link type="text/css" rel="stylesheet"
 	href="assets/css/aprovacao/jplist-custom.css">
+<link rel="stylesheet"
+	href="assets/fonts/font-awesome/css/font-awesome.css">
 </head>
 <!--BEGIN CONTENT-->
 <div class="page-content">
+	<div>
+		<a class="btn btn-default btn-lg" href="#"> <i
+			class="fa fa-sign-out" aria-hidden="true">Sair</i>
+
+		</a>
+	</div>
 	<div id="tab-general">
 		<div class="row mbl">
 			<div class="col-lg-12">
@@ -136,7 +144,8 @@ $lista = $pdo->query ( "select a.cod_animal,
 												<div class="input-group">
 													<span class="input-group-addon"><i class="fa fa-search"></i></span><input
 														data-path=".desc" type="text" value=""
-														placeholder="filtro Descrição" data-control-type="textbox"
+														placeholder="filtro Descrição"
+														data-control-type="textbox"
 														data-control-name="desc-filter"
 														data-control-action="filter" class="form-control" />
 												</div>
@@ -157,33 +166,25 @@ $lista = $pdo->query ( "select a.cod_animal,
 													while ( $row = $lista->fetch ( PDO::FETCH_ASSOC ) ) {
 														echo "<tr class='tbl-item'>													
 															<td class='img'>
-																<a href='' onclick='AbrirFotos(" .$row["cod_animal"]. ");'><p class='desc'>Ver Fotos</p></a>
-																<img src='" .$row["url"]. "' alt='' title='' />							   									
+																<a href='' onclick='AbrirFotos(" . $row ["cod_animal"] . ");'><p class='desc'>Ver Fotos</p></a>
+																<img src='" . $row ["url"] . "' alt='' title='' />							   									
 															</td>													
 															<td class='td-block'>
 																<p class='date'></p>
-																<p class='title'>" .$row["nom_animal"]. "</p>
-																<p class='desc'>" .$row["desc_animal"]. "</p>
-																<p class='desc'>" .$row["desc_perfil"]. "</p>
+																<p class='title'>" . $row ["nom_animal"] . "</p>
+																<p class='desc'>" . $row ["desc_animal"] . "</p>
+																<p class='desc'>" . $row ["desc_perfil"] . "</p>
 															</td>
 															<td class='td-block'>
-																<p class='title'>" .$row["nom_usuario"]. "</p>
-																<p class='desc'>" .$row["email"]. "</p>
-																<p class='desc'>" .$row["telefone"]. "</p>					
+																<p class='title'>" . $row ["nom_usuario"] . "</p>
+																<p class='desc'>" . $row ["email"] . "</p>
+																<p class='desc'>" . $row ["telefone"] . "</p>					
 															</td>
 															<td class='td-block'>
-																<p class='title'>Ação</p>
-																<div class='btn-group'>
-																	<button type='button' data-toggle='dropdown'
-																		class='btn btn-primary dropdown-toggle'>
-																		Ação &nbsp;<i class='fa fa-angle-down'></i>
-																	</button>
-		
-																	<ul role='menu' class='dropdown-menu'>
-																		<li><a href='#'>Aprovar</a></li>
-																		<li><a href='#'>Reprovar</a></li>
-																	</ul>
-																</div>
+																<a class='btn btn-success' href='#'>
+  																<i class='fa fa-check fa-lg' aria-hidden='true'></i> Aceitar</a>
+																<a class='btn btn-danger' href='#'>
+																<i class='fa fa-trash-o fa-lg' aria-hidden='true'></i> Rejeitar</a>
 															</td>
 														</tr>";
 													}
