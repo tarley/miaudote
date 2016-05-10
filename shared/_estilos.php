@@ -5,7 +5,7 @@
 
 <!-- bootstrap -->
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-
+<link rel="stylesheet" href="assets/css/fundadores/fundadores.css">
 <!-- animate.css -->
 <link rel="stylesheet" href="assets/animate/animate.css" />
 <link rel="stylesheet" href="assets/animate/set.css">
