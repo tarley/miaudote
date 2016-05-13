@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	//error_reporting(E_ALL);
 	if(!isset($pdo)){
 		require_once 'assets/php/conexao.php';
@@ -60,8 +60,8 @@
 							</div>
 							<div id='content'>
 								<ul id='tabs' class='nav nav-tabs' data-tabs='tabs'>
-									<li class='active'><a href='#sobre-mim' data-toggle='tab'>Sobre Min</a></li>
-									<li><a href='#caracteristicas' data-toggle='tab'>Caracteristicas</a></li>
+									<li class='active'><a href='#sobre-mim' data-toggle='tab'>Sobre Mim</a></li>
+									<li><a href='#caracteristicas' data-toggle='tab'>Características</a></li>
 									<li><a href='#contato' data-toggle='tab'>Contato</a></li>
 								</ul>
 								<div id='my-tab-content' class='tab-content' style ='min-height:100px;'>
@@ -73,8 +73,10 @@
 									<div class='tab-pane' id='caracteristicas'>
 										<ul>
 										<li>Idade: $row[idade]. ano(s) </li>
-										<li>Sexo : $row[ind_porte]  </li>
-										<li>Porte: $row[ind_sexo] </li>
+										<li>Sexo : $row[ind_sexo] </li>
+										<li>Porte: $row[ind_porte]  </li>
+										<br><br>
+										<li>*Todos os animais do Miaudote são castrados.  </li>
 										</ul>	
 									</div>
 									<div class='tab-pane' id='contato'>
