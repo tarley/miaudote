@@ -278,11 +278,12 @@ include 'shared/_menu.php';
 			style="min-height: 400px;"></div>
 	</div>
 	<!-- Inicio quem somos -->
-	<!-- 
+	
 	<div id="about" class="container spacer about">
+	
 		<hr>
 		<h2 class="text-center wowload fadeInUp">Quem Somos</h2>
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-sm-6 wowload fadeInLeft">
 				</br>
 				<p align="justify">O projeto InformaCão surgiu do esforço conjunto
@@ -316,8 +317,8 @@ include 'shared/_menu.php';
 					<i class="fa fa-graduation-cap" aria-hidden="true">Apoio: Newton</i>
 				</h4>
 			</div>
-		</div>
-	</div>-->
+		</div>-->
+	</div>
 	<!-- Final quem somos -->
 	<!-- Inicio como adotar -->
 	<div id="comoAdotar" class="container spacer about">
