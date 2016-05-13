@@ -60,7 +60,7 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 <body id="body">
 	<?php
 	
-include 'shared/_menu.php';
+	include 'shared/_menu.php';
 	include 'assets/php/fundador.php';
 	?>
 
@@ -278,9 +278,9 @@ include 'shared/_menu.php';
 			style="min-height: 400px;"></div>
 	</div>
 	<!-- Inicio quem somos -->
-	
+
 	<div id="about" class="container spacer about">
-	
+
 		<hr>
 		<h2 class="text-center wowload fadeInUp">Quem Somos</h2>
 		<!-- <div class="row">
@@ -327,31 +327,35 @@ include 'shared/_menu.php';
 		<div class="row">
 			<div class="col-sm-6 wowload fadeInLeft">
 				</br>
-				<p align="justify">São os muitos os locais onde pode adoptar um
-					animal. As associações são um bom ponto de partida, assim como
-					canis municipais. Veja aqui uma lista das associações que existem
-					no nosso país e escolha a mais perto da sua residência. Para
-					adoptar é necessário responder às questões dos voluntários, levar
-					um documento que o identifique e claro preencher uma ficha de
-					adopção e declaração de responsabilidade. Deverá levar uma trela e
-					coleira se adoptar um cão ou uma transportadora se optar pelo um
-					gato. Não se admire se o voluntário lhe perguntar se pode visitar o
-					animal ou pedir que envie fotografias dele.
-			
+				<p align="justify">Do ponto de vista de muitas pessoas, adotar um
+					animal é um conceito estranho, pois em sua visão comprar é o mais
+					normal, entretanto é importante esclarecermos que estranho é
+					justamente o contrário. Nossos amigos de quatro patas são seres
+					vivos assim como nós humanos, e da mesma maneira possuem vontade,
+					sentimentos, tem necessidade de amar e serem amados. Se não
+					compramos amigos humanos, por que haveríamos de comprar um animal?
+
+					Alguns cuidados, contudo, devem ser levados em consideração antes
+					de escolher um amigo peludo. Adote um animal já castrado ou
+					comprometa-se a castrá-lo assim que atingir a idade apropriada.Cães
+					e gatos podem viver quinze anos ou mais, e ao adotar um animal você
+					será responsável por cuidar dele durante todo esse tempo e arcar
+					com todas as despesas provenientes desse cuidado, animais não são
+					brinquedos.</p>
 			</div>
 			<div class="col-sm-6 wowload fadeInRight">
 				</br>
-				<p align="justify">É uma precaução contra eventuais maus-tratos,
-					abandonos ou negligência. Algumas associações pedem uma taxa de
-					adopção, pois os gastos com os animais encarregues são avultados e
-					sejamos realistas, se não tem dinheiro para pagar esta taxa
-					(irrisória na sua maioria dados os gastos normais que se deve ter
-					com um animal), certamente também não terá para o manter. Acima de
-					tudo lembre-se, o papel do voluntário é ter a certeza que o animal
-					é bem entregue e não divertir-se a massacra-lo com perguntas sem
-					fim. Por isso respeite o seu trabalho.</p>
+				<p align="justify">Antes de tomar a decisão leve em consideração que
+					você deverá estar disposto a ceder tempo, paciência, dedicação e
+					amor. Além disso, haverá custos envolvidos na adoção de um animal,
+					como por exemplo a ração e o vermífugo. Nunca abandone um animal
+					pois cães e gatos se apegam aos amigos humanos, e ao serem
+					abandonados entram em depressão profunda, além de ficarem exposto
+					às ruas onde há doenças e perigos. A adoção é um dos atos mais
+					nobres que um ser humano pode demonstrar e como recompensa terá
+					sempre um amigo que te amará incondicionalmente..</p>
 
-				</p>
+
 				<h4>
 					<a href="documents/TERMO_DE_RESPONSABILIDADE.pdf" download>Adoção
 						Legal</a>
@@ -365,10 +369,11 @@ include 'shared/_menu.php';
 	<hr>
 	
 
-	<?php 
+	<?php
 	include 'shared/_footer.php';
 	
-	include 'shared/_scripts.php';?>
+	include 'shared/_scripts.php';
+	?>
 
 </body>
 </html>
