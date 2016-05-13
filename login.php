@@ -40,9 +40,12 @@
 								case "get_out_05":
 									echo "<span class='error_report'>Usuário ou senha incorretos</span>";
 									break;
-								case "get_out_05":
+								case "get_out_06":
 									echo "<span class='error_report'>Por favor realize o login para acessar este recurso</span>";
 									break;
+								case "get_out_07":
+									echo "<span class='error_report'>Usuário n&atilde;o tem permiss&atilde;o neste m&etilde;ste m&otilde;dulo! </span>";
+									break;	
 								default:
 									echo "<span class='error_report'>Por favor, veifique as informações de acesso </span>";
 									break;

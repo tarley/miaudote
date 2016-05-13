@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.9-MariaDB, for Win32 (AMD64)
+-- MySQL dump 10.16  Distrib 10.1.10-MariaDB, for Win32 (AMD64)
 --
 -- Host: localhost    Database: adote
 -- ------------------------------------------------------
--- Server version	10.1.9-MariaDB
+-- Server version	10.1.10-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -68,7 +68,7 @@ CREATE TABLE `tb_animal` (
   `COR` varchar(50) DEFAULT NULL,
   `IND_PORTE` int(11) DEFAULT NULL,
   `DT_CADASTRO` date DEFAULT NULL,
-  `DT_APROVACAO` date DEFAULT NULL,
+  `DT_ADOCAO` date DEFAULT NULL,
   `COD_ESPECIE` int(11) NOT NULL,
   `COD_CIDADE` int(11) NOT NULL,
   PRIMARY KEY (`COD_ANIMAL`),
@@ -234,9 +234,8 @@ CREATE TABLE `tb_usuario` (
   `EMAIL` char(50) DEFAULT NULL,
   `NOM_USUARIO` varchar(100) DEFAULT NULL,
   `TELEFONE` varchar(15) DEFAULT NULL,
-  `PERFIL` varchar(50) DEFAULT NULL,
+  `PERFIL` varchar(1000) DEFAULT NULL,
   `SENHA` varchar(30) NOT NULL,
-  `CNPJ-CPF` int(15) DEFAULT NULL,
   PRIMARY KEY (`COD_USUARIO`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -247,7 +246,7 @@ CREATE TABLE `tb_usuario` (
 
 LOCK TABLES `tb_usuario` WRITE;
 /*!40000 ALTER TABLE `tb_usuario` DISABLE KEYS */;
-INSERT INTO `tb_usuario` VALUES (1,'ong@email.com','ONG','31','Uma ong que ama os animais','',NULL),(2,'ong@ong,com','CAO CARINHO','32','Especializada em tratamento de animais','',NULL),(3,'valhalla@ong.com','Portões de Valhalla','31 3333 3333','testemunhem','',NULL);
+INSERT INTO `tb_usuario` VALUES (1,'ong@email.com','ONG','31','Uma ong que ama os animais',''),(2,'ong@ong,com','CAO CARINHO','32','Especializada em tratamento de animais',''),(3,'valhalla@ong.com','Portões de Valhalla','31 3333 3333','testemunhem','');
 /*!40000 ALTER TABLE `tb_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -260,4 +259,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-11 22:57:02
+-- Dump completed on 2016-05-08 20:44:22

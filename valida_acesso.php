@@ -11,7 +11,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$permissao = validaUsuario($usuario, $senha);
 	
 	if ($permissao == "OK") {
-		header("Location:aprovacao.php");
+		
+		switch ($_SESSION['idPermissao']){
+			
+			case 1:
+					header("Location:animais/");
+				break;
+			case 2:
+					header("Location:aprovacao.php");
+				break;	
+		}
+		
 	}else{
 		kick_out($permissao);
 	}

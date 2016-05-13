@@ -64,7 +64,8 @@
 									<li><a href='#caracteristicas' data-toggle='tab'>Caracteristicas</a></li>
 									<li><a href='#contato' data-toggle='tab'>Contato</a></li>
 								</ul>
-								<div id='my-tab-content' class='tab-content' style ='min-height:100px'>
+								<div id='my-tab-content' class='tab-content' style ='min-height:100px;'>
+									<br><br>
 									<div class='tab-pane active' id='sobre-mim'>
 										
 										<p>$row[desc_perfil]</p>

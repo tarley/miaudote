@@ -73,13 +73,14 @@ a:focus {
 figure {
   margin: 0;
 }
+/*
 img {
   vertical-align: middle;
   min-width: 150px;
   max-width: 200px;
   min-height: 150px;
   max-height: 150px;  
-}
+}*/
 .img-responsive {
   display: block;
   max-width: 100%;

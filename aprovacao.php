@@ -2,7 +2,10 @@
 Error_reporting ( 0 );
 require_once 'assets/php/conexao.php';
 require_once 'seguranca.php';
-protectPage ();
+
+$tipo_permissao	=	1;
+protectPage ($tipo_permissao);
+
 $pdo = conectar ();
 
 header ( "Content-Type: text/html; charset=UTF-8", true );
@@ -67,7 +70,7 @@ $lista = $pdo->query ( "select a.cod_animal,
 <!--BEGIN CONTENT-->
 <div class="page-content">
 	<div>
-		<a class="btn btn-default btn-lg" href="#"> <i
+		<a class="btn btn-default btn-lg" href="sair.php"> <i
 			class="fa fa-sign-out" aria-hidden="true">Sair</i>
 
 		</a>
