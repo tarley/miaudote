@@ -278,6 +278,7 @@ include 'shared/_menu.php';
 			style="min-height: 400px;"></div>
 	</div>
 	<!-- Inicio quem somos -->
+	<!-- 
 	<div id="about" class="container spacer about">
 		<hr>
 		<h2 class="text-center wowload fadeInUp">Quem Somos</h2>
@@ -316,7 +317,7 @@ include 'shared/_menu.php';
 				</h4>
 			</div>
 		</div>
-	</div>
+	</div>-->
 	<!-- Final quem somos -->
 	<!-- Inicio como adotar -->
 	<div id="comoAdotar" class="container spacer about">
