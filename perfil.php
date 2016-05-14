@@ -14,6 +14,7 @@
 				a.idade,
 				f.cod_foto,
 				f.nom_foto,
+				f.url,
 				u.telefone,
 				u.email,
 				
@@ -56,7 +57,7 @@
 				if($resultado){
 					while($row = $resultado->fetch()) {
 						echo"<div class='drop-shadow lifted' style='position:relative;margin:0 auto;width:800px;min-height:500px;border:0px solid';>
-								<img  class='img-responsive' alt='#' id='details-img' src='images/profile/user_1/pet_$row[cod_animal]/book/$row[nom_foto].jpg'/>
+								<img  class='img-responsive' alt='#' id='details-img' src='".substr($row ['url'],3)."'/>
 							</div>
 							<div id='content'>
 								<ul id='tabs' class='nav nav-tabs' data-tabs='tabs'>

@@ -22,12 +22,17 @@ if(@$_POST && trim(@$_GET['a']) == 's'){
 	$perfil				= utf8_decode($_POST['perfil']);
 	$sexo				= $_POST['sexo'];
 	$especie			= $_POST['especie'];
+	$porte	 			= $_POST['porte'];
+	$cor	 			= $_POST['cor'];
+	$idade	 			= $_POST['idade'];
 	
 	$qry = "insert into tb_animal 
 			(COD_USUARIO, NOM_ANIMAL, DESC_ANIMAL, DESC_PERFIL,
-			IND_SEXO, COD_ESPECIE, DT_CADASTRO, COD_CIDADE)
+			IND_SEXO, IDADE, COR,
+			IND_PORTE, COD_ESPECIE, COD_CIDADE)
 	values (".$_SESSION['usuarioID'].",'{$nome}', '{$descricao}', '{$perfil}',
-			'{$sexo}', '{$especie}', now(), '{$cidade}') ";
+			'{$sexo}', '{$idade}', '{$cor}',
+			'{$porte}', '{$especie}', '{$cidade}') ";
 	
 	$pdo->query ($qry);
 	$id 	= $pdo->lastInsertId();
@@ -52,8 +57,8 @@ if(@$_POST && trim(@$_GET['a']) == 's'){
 				$up_fotos++;
 		    	
 		    	$i==1?
-		    		$qry_foto	.=	"('".$id."','".$arquivo."', '1'),":
-		    		$qry_foto	.=	"('".$id."','".$arquivo."', '0'),";
+		    		$qry_foto	.=	"('".$id."','".$arquivo."', 'S'),":
+		    		$qry_foto	.=	"('".$id."','".$arquivo."', 'N'),";
 			}
 		}
 	}
@@ -118,6 +123,16 @@ $(function(){
 		
 		if($('#descricao').val()==''){
 			msg	+=	'- informe uma descrição válido! \n';
+			err	=	1;	
+		}
+		
+		if($('#idade').val()==''){
+			msg	+=	'- informe a idade! \n';
+			err	=	1;	
+		}
+		
+		if($('#cor').val()==''){
+			msg	+=	'- informe a cor! \n';
 			err	=	1;	
 		}
 		
@@ -195,6 +210,29 @@ $(function(){
 				<textarea type="text" 		id="perfil" 	name="perfil" class="form-control"/ 			style="width:400px;height:100px;"/></textarea>
 				<br><br>
 			</div>
+			<div class="input-group">
+				Idade:
+				<br>
+				<input type="number" 			id="idade" 		name="idade" min="1" class="form-control" style="width:400px;"/>
+				<br/><br/>
+			</div>
+			<div class="input-group">
+				Cor:
+				<br>
+				<input type="text" 			id="cor" 		name="cor" class="form-control" style="width:400px;"/>
+				<br/><br/>
+			</div>
+			<div class="input-group">
+				Porte:
+				<br>
+				<select name="porte" id="porte" class="form-control" style="width:400px;"/>
+					<option value='0' selected>Pequeno</option>
+					<option value='1' >m&eacute;dio</option>
+					<option value='2' >Grande</option>
+				</select>
+				<br/><br/>
+			</div>
+			
 			<div class="input-group">
 				Sexo:
 				<br>

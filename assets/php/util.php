@@ -12,6 +12,7 @@
 									a.desc_animal,
 									f.cod_foto,
 									f.nom_foto,
+									f.url,
 									f.id_foto_pri
 												
 									from 	tb_animal a , tb_foto f
@@ -25,11 +26,11 @@
 				}else{	
 					while($rowdestaque = $stmdestaque->fetch()){
 					echo "<figure id ='perfil' class='effect-oscar wowload fadein'>
-							<img src='images/profile/user_1/pet_$rowdestaque[cod_animal]/book/$rowdestaque[nom_foto].jpg'/>
+							<img src='".substr($rowdestaque['url'],3)."'/>
 							<figcaption>
-							<h2>$rowdestaque[nom_animal]</h2>
-							<p> $rowdestaque[desc_animal]</br>
-							<a href='#conteudo' id='animal-filtro' data-value='" .$rowdestaque['cod_animal']. "'>Perfil</a>
+							<h2>".$rowdestaque['nom_animal']."</h2>
+							<p>".$rowdestaque['desc_animal']."</br>
+							<a href='#conteudo' id='animal-filtro' data-value='".$rowdestaque['cod_animal']."'>Perfil</a>
 							</figcaption>
 							</figure>";					
 					}
@@ -46,6 +47,7 @@
 								a.idade,
 								f.cod_foto,
 								f.nom_foto,
+								f.url,
 								u.telefone,
 								u.email,
 								u.nom_usuario,							

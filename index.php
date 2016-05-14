@@ -17,6 +17,7 @@ $listaAnimal = $pdo->query ( " select 	e.nom_estado,
 	a.nom_animal,
 	f.cod_foto,
 	f.nom_foto,
+	f.url,
   case
   when esp.cod_especie = 1 then 'cao'
   when esp.cod_especie = 2 then 'gato'
@@ -105,7 +106,7 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 								echo "<li class='mix " . $row ["nom_animal"] . " " . $row ["cor"] . " " . $row ["cod_especie"] . " " . $row ["idade"] . "a " . $row ["ind_porte"] . " " . $row ["ind_sexo"] . " " . $row ["sg_uf"] . " " . ltrim ( $row ["nom_cidade"] ) . "'>
 									<div class='imgHolder'>
 										<figure>										
-										<img id='animal-filtro' data-value='" . $row ['cod_animal'] . "'  src='images/profile/user_" . $row ['cod_usuario'] . "/pet_" . $row ['cod_animal'] . "/book/" . $row ['nom_foto'] . ".jpg' >								
+										<img id='animal-filtro' data-value='" . $row ['cod_animal'] . "'  src='".substr($row ['url'],3)."' >								
 										<hr>
 										<p>
 											" . $row ['nom_animal'] . " 

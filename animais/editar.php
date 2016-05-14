@@ -20,6 +20,7 @@ if(@trim($_GET['a'])=='exc' && filter_var(@trim($_GET['n']),FILTER_VALIDATE_INT)
 	$id_del		=	(int)$_GET['id_'];
 	
 	$qry = "delete from tb_foto where COD_FOTO=".$id_del." AND COD_ANIMAL=".$id_animal." LIMIT 1";
+	//die($qry);
 	$pdo->query ($qry);
 	$_SESSION['mensagem']	=	'dado-removido';
 	die('<script>window.location.href="editar.php?n='.trim($_GET['n']).'";</script>');
@@ -41,6 +42,9 @@ if($_POST && trim($_GET['a']) == 's'){
 	$perfil				= utf8_decode($_POST['perfil']);
 	$sexo				= $_POST['sexo'];
 	$especie			= $_POST['especie'];
+	$porte	 			= $_POST['porte'];
+	$cor	 			= $_POST['cor'];
+	$idade	 			= $_POST['idade'];
 	$cidade	 			= $_POST['cidade'];
 	
 	$tem_fotos_capa		= $_POST['tem_fotos_capa'];	
@@ -51,8 +55,10 @@ if($_POST && trim($_GET['a']) == 's'){
 								  	DESC_PERFIL='{$perfil}',
 								  	IND_SEXO='{$sexo}',
 								  	COD_ESPECIE='{$especie}',
-								  	COD_CIDADE='{$cidade}',
-								  	DT_CADASTRO=now()								  	
+								  	IDADE='{$especie}',
+								  	COR='{$cor}',
+								  	IND_PORTE='{$especie}',
+								  	COD_CIDADE='{$cidade}'						  	
 			where COD_ANIMAL='".$id."'";
 	
 	$pdo->query ($qry);
@@ -79,10 +85,10 @@ if($_POST && trim($_GET['a']) == 's'){
 		    	
 				if($tem_fotos_capa=='false'){
 			    	$i==1?
-						$capa	=	1:
-						$capa	=	0;
+						$capa	=	"'S'":
+						$capa	=	"'N'";
 				}else{
-					$capa	=	0;
+					$capa	=	"'N'";
 				}
 				
 				$qry_foto	.=	"('".$id."','".$arquivo."', $capa),";
@@ -160,7 +166,7 @@ if(!filter_var(trim(@$_GET['n']),FILTER_VALIDATE_INT) || trim(@$_GET['n']) < 1){
 		$ind_sexo			= 		$row['IND_SEXO'];			
 		$idade				= 		$row['IDADE'];			
 		$cor				= 		$row['COR'];			
-		$ind_porte			= 		$row['IND_PORTE'];			
+		$porte			= 		$row['IND_PORTE'];			
 		$dt_cadastro		= 		$row['DT_CADASTRO'];			
 		$dt_adocao			= 		$row['DT_ADOCAO'];			
 		$cod_especie		= 		$row['COD_ESPECIE'];			
@@ -272,6 +278,16 @@ $(function(){
 			err	=	1;	
 		}
 		
+		if($('#idade').val()==''){
+			msg	+=	'- informe a idade! \n';
+			err	=	1;	
+		}
+		
+		if($('#cor').val()==''){
+			msg	+=	'- informe a cor! \n';
+			err	=	1;	
+		}
+		
 		if($('#estado').val()==''){
 			msg	+=	'- informe o estado! \n';
 			err	=	1;	
@@ -303,7 +319,19 @@ $(function(){
 			return true;
 		}
 	});
-});       
+	
+	$('.btnExcluir_foto').click(function(){excluirItem($(this).attr('id').split('_')[1]);}).css('cursor','pointer');
+});
+
+var excluirItem = function(id_Item){
+	var msg = 'Tem certeza de que deseja excluir o registro? ';
+	if(confirm(msg)){
+		var vlw =	$('#id_dado').val();
+		window.location.href='editar.php?a=exc&n='+vlw+'&id_='+id_Item;
+	}
+	return false;
+}
+//-->       
 </script>
 </head>
 <body>
@@ -344,6 +372,39 @@ $(function(){
 				<br>
 				<textarea type="text" 		id="perfil" 	name="perfil" class="form-control"/ 			style="width:400px;height:100px;"/><?=$desc_perfil?></textarea>
 				<br><br>
+			</div>
+			<div class="input-group">
+				Idade:
+				<br>
+				<input type="number" 			id="idade" 		name="idade" min="1" class="form-control" value="<?=$idade?>" style="width:400px;"/>
+				<br/><br/>
+			</div>
+			<div class="input-group">
+				Cor:
+				<br>
+				<input type="text" 			id="cor" 		name="cor" class="form-control" value="<?=$cor?>" style="width:400px;"/>
+				<br/><br/>
+			</div>
+			<div class="input-group">
+				Porte:
+				<br>
+				<select name="porte" id="porte" class="form-control" style="width:400px;"/>
+					<?php
+					$porte==0?
+						print "<option value='0' selected>Pequeno</option>":
+						print "<option value='0' >Pequeno</option>";
+						
+					$porte==1?
+						print "<option value='1' selected>m&eacute;dio</option>":
+						print "<option value='1' >m&eacute;dio</option>";	
+					
+					$porte==2?
+						print "<option value='2' selected>Grande</option>":
+						print "<option value='2' >Grande</option>";	
+					
+					?>
+				</select>
+				<br/><br/>
 			</div>
 			<div class="input-group">
 				Sexo:

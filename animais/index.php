@@ -130,7 +130,9 @@ var excluirItem = function(id_Item){
 			<th>Nome</th>
 			<th>Esp&eacute;cie</th>
 			<th>Sexo</th>
-			<th>Data de Cadastro</th>
+			<th>Idade</th>
+			<th>Cor</th>
+			<th>Porte</th>
 			<th>Foto (capa)</th>
 			
 			<th align="center" >Editar</th>
@@ -162,6 +164,7 @@ var excluirItem = function(id_Item){
 			$nom_cidade			= 		$row['NOM_CIDADE'];	
 			
 			$nom_especie		= 		$row['NOM_ESPECIE'];
+			$foto				= 		$row['URL'];
 			$nom_usuario		= 		$row['NOM_USUARIO']!=''?$row['NOM_USUARIO']:'-';
 			
 			
@@ -175,13 +178,29 @@ var excluirItem = function(id_Item){
 			@list($data,$hora) = @explode(' ',$dt_adocao);
 			$dt_adocao = @implode('/',array_reverse(explode('-',$data)));
 			
+			switch($ind_porte){
+				case 0:
+						$ind_porte	=	'Pequeno';
+					break;
+				case 1:
+						$ind_porte	=	'Médio';
+					break;
+				case 2:
+						$ind_porte	=	'Grande';
+					break;
+			}
+			
 	?>
 		<tr>
 			<td valign="middle"><?php echo $nom_animal;  ?></td>
 			<td valign="middle"><?php echo $nom_especie;  ?></td>
 			<td valign="middle"><?php echo $sexo;  ?></td>
-			<td valign="middle"><?php echo $dt_cadastro;  ?></td>
-			<td valign="middle"><?php echo $dt_cadastro;  ?></td>
+			<td valign="middle"><?php echo $idade;  ?></td>
+			<td valign="middle"><?php echo $cor;  ?></td>
+			<td valign="middle"><?php echo $ind_porte;  ?></td>
+			<td valign="middle">
+				<img src="<?php echo $foto;  ?>" style="max-width:200px;max-height:150px;">
+			</td>
 			
 			
 			<td valign="middle" align="center" >
@@ -207,7 +226,9 @@ var excluirItem = function(id_Item){
 			<th>Nome</th>
 			<th>Esp&eacute;cie</th>
 			<th>Sexo</th>
-			<th>Data de Cadastro</th>
+			<th>Idade</th>
+			<th>Cor</th>
+			<th>Porte</th>
 			<th>Foto (capa)</th>
 			
 			<th align="center" >Editar</th>
