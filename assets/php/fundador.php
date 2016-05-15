@@ -30,8 +30,4 @@
 		}
 	}
 	
-	$disciplinas = array(
-	
-	);
-	
 ?>

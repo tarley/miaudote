@@ -3,6 +3,7 @@
 		if(isset($fundadores)){
 			include 'assets/php/fundador.php';
 		}
+		
 		$fundadoresSI = array (
 				new Fundador ( 'Ariane Silva', 'Analista de testes', 'images/fundadores/Ariane_Silva.jpg', '', '', '' ),
 				new Fundador ( 'Bruna Frazoni', 'Desenvolvedora', 'images/fundadores/Bruna_Frazoni.jpg', '', '', '' ),
@@ -12,16 +13,28 @@
 				new Fundador ( 'Lucas Raphael', 'Desenvolvedor', 'images/fundadores/Lucas_Raphael.JPG', '', '', '' ),
 				new Fundador ( 'Luiz Henrique', 'Desenvolvedor', 'images/fundadores/Luiz_Henrique.jpg', '', '', '' ),
 				new Fundador ( 'Marcela Simão', 'Desenvolvedora', 'images/fundadores/Marcela_Simao.jpg', '', '', '' ),
-				new Fundador ( 'Felipe Sangiorge', 'Analista de testes', 'images/fundadores/desconhecido.jpg', '', '', '' ),
-				new Fundador ( 'Albert Rocha', 'Analista de testes', 'images/fundadores/desconhecido.jpg', '', '', '' ),
-				new Fundador ( 'Gustavo Resende', 'Administrador de Banco de Dados', 'images/fundadores/desconhecido.jpg', '', '', '' ),
+				new Fundador ( 'Felipe Sangiorge', 'Analista de testes', 'images/fundadores/Felipe_Sangiorge.jpg', '', '', '' ),
+				new Fundador ( 'Albert Rocha', 'Analista de testes', 'images/fundadores/Albert_Rocha.jpg', '', '', '' ),
+				new Fundador ( 'Gustavo Resende', 'Administrador de Banco de Dados', 'images/fundadores/Gustavo_Resende.jpg', '', '', '' ),
 				new Fundador ( 'Carlos Alberto', 'Desenvolvedor', 'images/fundadores/Carlos_Alberto.jpg', '', '', '' ),
-				new Fundador ( 'Jeferson Eustáquio', 'Desenvolvedor', 'images/fundadores/desconhecido.jpg', '', '', '' ),
-				new Fundador ( 'Tarley Lana', 'Prof.Orientador', 'images/fundadores/desconhecido.jpg', '', '', '' ),
+				new Fundador ( 'Jeferson Eustáquio', 'Desenvolvedor', 'images/fundadores/Jeferson_Eustaquio.jpg', '', '', '' ),
+				new Fundador ( 'Tarley Lana', 'Prof.Orientador', 'images/fundadores/Tarley_Lana.jpg', '', '', '' )
 		);
 		
 		$fundadoresVet = array (
-				new Fundador ( 'Paula', 'Prof(a).Orientadora', 'images/fundadores/desconhecido.jpg', '', '', '' )
+				new Fundador ( 'Anna Carolina', 'Orientado de extensão', 'images/fundadores/Anna_Carolina.jpg', '', '', '' ),
+				new Fundador ( 'Bárbara Magalhães', 'Orientado de extensão', 'images/fundadores/Barbara_Magalhaes.jpg', '', '', '' ),
+				new Fundador ( 'Bety Saara', 'Orientado de extensão', 'images/fundadores/Bety_Saara.jpg', '', '', '' ),
+				new Fundador ( 'Carlos Carvalho', 'Orientado de extensão', 'images/fundadores/Carlos_Carvalho.jpg', '', '', '' ),
+				new Fundador ( 'Carolina Oliveira', 'Orientado de extensão', 'images/fundadores/Carolina_Oliveira.jpg', '', '', '' ),
+				new Fundador ( 'Célia Charchar', 'Orientado de extensão', 'images/fundadores/Celia_Charchar.jpg', '', '', '' ),
+				new Fundador ( 'Daniel Dimas', 'Orientado de extensão', 'images/fundadores/Daniel_Dimas.jpg', '', '', '' ),
+				new Fundador ( 'Gabriel Alcântara', 'Orientado de extensão', 'images/fundadores/Gabriel_Alcantara.jpg', '', '', '' ),
+				new Fundador ( 'Gabriel Wnuk', 'Orientado de extensão', 'images/fundadores/Gabriel_Wnuk.jpg', '', '', '' ),
+				new Fundador ( 'Izabella Maria', 'Orientado de extensão', 'images/fundadores/Izabella_Maria.jpg', '', '', '' ),
+				new Fundador ( 'Luiza Fernandes', 'Orientado de extensão', 'images/fundadores/Luiza_Fernandes.jpg', '', '', '' ),
+				new Fundador ( 'Pollyanna Ferreira', 'Orientado de extensão', 'images/fundadores/Pollyanna_Ferreira.jpg', '', '', '' ),
+				new Fundador ( 'Paula Cambraia', 'Prof(a).Orientadora', 'images/fundadores/Paula_Cambraia.jpg', '', '', '' )
 		);
 		
 		$disciplinas = array (
