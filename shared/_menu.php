@@ -27,7 +27,7 @@
 						<li class="nav scroll"><a href="#contact" class="menu-topo" id="menu-topo-fale-conosco">Fale Conosco</a></li>
 						<li><a href="index.php?page=fundadores" class="menu-topo navigation" id="fundadores">Fundadores</a></li>
 						<li><a href="index.php?page=login" class="glyphicon glyphicon-lock navigation" id="login"></a></li>
-						<!--<li ><a href="#dev">Desenvolvedores</a></li>-->
+					
 					</ul>
 				</div>
 				<!-- #Nav Ends -->

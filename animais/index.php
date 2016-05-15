@@ -108,21 +108,28 @@ var excluirItem = function(id_Item){
 </head>
 <body>
 	
+	<?php
 	
+	switch ($_SESSION['idPermissao']){
+		case 1:
+				include(PATH.'shared/_painel_ong.php');
+			break;
+		case 2:
+				include(PATH.'shared/_painel_moderador.php');
+			break;
+	}
+	?>
+	<br>
+	<br>
+	</br>
+	</br>
 	<h1>
 		Gestor de Animais
 	</h1>
 	<div id="conteudo" style="text-align: justify;" >
-	<br/><br/>
 	<a class="btn btn-success" href="cadastrar.php?tot=<?=$num?>">
 		<i class="fa fa-plus" aria-hidden="true"> </i>&nbsp;Cadastrar
 	</a>
-	
-	<a class="btn btn-default btn-lg" href="<?=PATH?>sair.php" style="float:right;"> 
-		<i class="fa fa-sign-out" aria-hidden="true">Sair</i>
-	</a>
-	
-	
 <table class="demo-tbl">
 
 	<thead>

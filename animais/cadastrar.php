@@ -171,8 +171,24 @@ $(function(){
 </script>
 </head>
 <body>
-	<div id="alertMsg"></div>
+
+<?php
 	
+	switch ($_SESSION['idPermissao']){
+		case 1:
+				include(PATH.'shared/_painel_ong.php');
+			break;
+		case 2:
+				include(PATH.'shared/_painel_moderador.php');
+			break;
+	}
+	?>
+
+	<div id="alertMsg"></div>
+	<br>
+	<br>
+	</br>
+	</br>
 
 	<h1>
 		Gestor de Animais - Cadastrar novo
@@ -182,11 +198,7 @@ $(function(){
 	<a class="btn btn-default btn-lg" href="./" style="float:left;"> 
 		<i class="fa fa-arrow-left" aria-hidden="true"> </i>&nbsp;Voltar
 	</a>
-	
-	<a class="btn btn-default btn-lg" href="<?=PATH?>sair.php" style="float:right;"> 
-		<i class="fa fa-sign-out" aria-hidden="true">Sair</i>
-	</a>
-	
+
 	<div style="clear:both;height:30px;"></div>
 	
 	<center>
