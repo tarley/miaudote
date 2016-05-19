@@ -1,0 +1,1 @@
+No servidor dar permissão 777 para essa pasta.
