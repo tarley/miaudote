@@ -186,7 +186,7 @@ $lista = $pdo->query ( "select a.cod_animal,
 															<td class='td-block'>
 																<a class='btn btn-success' href='#' onclick=\"Aprovar('" . $row ['cod_animal'] . "');\">
   																<i class='fa fa-check fa-lg' aria-hidden='true'></i> Aceitar</a>
-																<a class='btn btn-danger' href='#'>
+																<a class='btn btn-danger' href='#' onclick=\"Reprovar('" . $row ['cod_animal'] . "');\">
 																<i class='fa fa-trash-o fa-lg' aria-hidden='true'></i> Rejeitar</a>
 															</td>
 														</tr>";
@@ -307,6 +307,20 @@ $lista = $pdo->query ( "select a.cod_animal,
 	function Aprovar(id) {
 		$.ajax({
             url: 'assets/php/aprovar.php',
+            type: 'POST',  
+            data: 'id=' + id,          
+	        success: function(msg){ 
+                alert(msg);
+                location.reload();                
+        	},
+    		error: function() {
+        		alert('Erro');
+    		}
+        });	    
+	}
+	function Reprovar(id) {
+		$.ajax({
+            url: 'assets/php/reprovar.php',
             type: 'POST',  
             data: 'id=' + id,          
 	        success: function(msg){ 
