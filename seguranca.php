@@ -39,7 +39,7 @@ function validaUsuario($usuario, $senha) {
 	}else if(empty($nsenha)){
 		return "get_out_04";
 	}else{
-		$sql = "select cod_usuario,nom_usuario,email,senha  from  ".$_SG['tabela']." where ".$cS."email = ?  limit 1";
+		$sql = "select cod_usuario,nom_usuario,email,senha  from  tb_usuario where email = ?  limit 1";
 		//$sql = "select cod_usuario,nom_usuario,email,senha,id_permissao  from  ".$_SG['tabela']." where ".$cS."email = ? and ".$cS."senha = ? limit 1";
 		$stm = $pdo->prepare($sql);
 		$stm-> bindValue(1, $nusuario);
