@@ -184,7 +184,7 @@ $lista = $pdo->query ( "select a.cod_animal,
 																<p class='desc'>" . $row ["telefone"] . "</p>					
 															</td>
 															<td class='td-block'>
-																<a class='btn btn-success' href='#'>
+																<a class='btn btn-success' href='#' onclick=\"Aprovar('" . $row ['cod_animal'] . "');\">
   																<i class='fa fa-check fa-lg' aria-hidden='true'></i> Aceitar</a>
 																<a class='btn btn-danger' href='#'>
 																<i class='fa fa-trash-o fa-lg' aria-hidden='true'></i> Rejeitar</a>
@@ -257,7 +257,6 @@ $lista = $pdo->query ( "select a.cod_animal,
 	</div>
 </div>
 
-</div>
 <script src="assets/js/aprovacao/jquery-1.10.2.min.js"></script>
 <script src="assets/js/aprovacao/jquery-migrate-1.2.1.min.js"></script>
 <script src="assets/js/aprovacao/jquery-ui.js"></script>
@@ -301,6 +300,22 @@ $lista = $pdo->query ( "select a.cod_animal,
 <script type="text/javascript">
 	function AbrirFotos(id) {		
 		var win = window.open('foto.php?id='+id,'_blank');
+	}
+
+</script>
+<script>	
+	function Aprovar(id) {
+		$.ajax({
+            url: 'assets/php/aprovar.php',
+            type: 'POST',  
+            data: 'id=' + id,          
+	        success: function(msg){ 
+                alert(msg);
+        	},
+    		error: function() {
+        		alert('Erro');
+    		}
+        });	    
 	}
 </script>
 </html>
