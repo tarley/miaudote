@@ -21,7 +21,7 @@ $(function(){
 				itens +="<div id='closePerfil'style='margin-top:20px;float:right;height:30px;width:10%;cursor:pointer'>";
 				itens +="<a href='#filtro-menu'><span>Ir a Busca</span></div></a>";
 				//itens +="<img class='img-responsive' alt='' id='details-img'src='images/profile/user_1/pet_"+v.COD_ANIMAL+"/book/"+v.NOM_FOTO+".jpg'/>";
-				itens +="<img class='img-responsive' alt='' id='details-img' src='"+v.URL+"'/>";
+				itens +="<img class='img-responsive' alt='' id='details-img' src='"+v.URL+"'  style='max-width:120px;max-height:120px;' />";
 				itens +="</div>";
 				itens +="<div style='text-align:left;position:relative;margin:0 auto;width:800px;margin-top:20px;height:350px;border:0px solid;'>";
 				itens +="<hr>";
@@ -77,7 +77,7 @@ $(function(){
 				itens +="<div id='closePerfil'style='margin-top:20px;float:right;height:30px;width:10%;cursor:pointer'>";
 				itens +="<a href='#filtro-menu'><span>Ir a Busca</span></div></a>";
 				//itens +="<img class='img-responsive' alt='' id='details-img'src='images/profile/user_1/pet_"+v.COD_ANIMAL+"/book/"+v.NOM_FOTO+".jpg'/>";
-				itens +="<img class='img-responsive' alt='' id='details-img' src='"+v.URL+"'/>";
+				itens +="<img class='img-responsive' alt='' id='details-img' src='"+v.URL+"'  style='max-width:120px;max-height:120px;'/>";
 				itens +="</div>";
 				itens +="<div style='text-align:left;position:relative;margin:0 auto;width:800px;margin-top:20px;height:350px;border:0px solid;'>";
 				itens +="<hr>";
