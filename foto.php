@@ -101,7 +101,7 @@ ul li.bspHasModal {
 		while ( $row = $fotos->fetch ( PDO::FETCH_ASSOC ) ) {
 			echo "<ul class='row first'>		
 					<li>
-						<img src='" . $row ["url"] . "'>
+						<img src='" . substr($row ["url"],3) . "'>
 					</li>				
 				  </ul>";
 		}

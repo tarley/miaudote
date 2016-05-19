@@ -170,7 +170,7 @@ $lista = $pdo->query ( "select a.cod_animal,
 														echo "<tr class='tbl-item'>													
 															<td class='img'>
 																<a href='' onclick='AbrirFotos(" . $row ["cod_animal"] . ");'><p class='desc'>Ver Fotos</p></a>
-																<img src='" . $row ["url"] . "' alt='' title='' />							   									
+																<img src='" . substr($row ["url"],3) . "' alt='' title='' />							   									
 															</td>													
 															<td class='td-block'>
 																<p class='date'></p>
@@ -311,6 +311,7 @@ $lista = $pdo->query ( "select a.cod_animal,
             data: 'id=' + id,          
 	        success: function(msg){ 
                 alert(msg);
+                location.reload();                
         	},
     		error: function() {
         		alert('Erro');

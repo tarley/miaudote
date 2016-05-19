@@ -1,6 +1,8 @@
 <?php
 require_once 'conexao.php';
 
+$pdo = conectar();
+
 $id = $_POST['id'];
 
 $data = date('Y-m-d');
