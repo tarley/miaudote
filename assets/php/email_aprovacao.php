@@ -1,9 +1,8 @@
 <?php
 require_once 'conexao.php';
 
-$pdo = conectar();
-
-function enviaEmail($status, $codanimal) {		
+function enviaEmail($status, $codanimal) {
+	$pdo = conectar();	
 	$sql = "SELECT nom_animal, cod_usuario FROM tb_animal WHERE cod_animal = :codanimal";
 	$stm = $pdo->prepare($sql);
 	$stm->bindValue(':codanimal', $codanimal, PDO::PARAM_INT);
