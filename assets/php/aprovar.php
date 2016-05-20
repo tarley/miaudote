@@ -1,5 +1,6 @@
 <?php
 require_once 'conexao.php';
+require_once 'email_aprovacao.php';
 
 $pdo = conectar();
 
@@ -15,6 +16,7 @@ try {
 	$stm->bindValue(':id', $id, PDO::PARAM_INT);
 	
 	if($stm->execute()){
+		//enviaEmail('Aprovado', $id);
 		echo "Cadastro aprovado com sucesso";
 	} else {
 		echo "Falha ao aprovar cadastro";
