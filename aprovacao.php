@@ -319,18 +319,20 @@ $lista = $pdo->query ( "select a.cod_animal,
         });	    
 	}
 	function Reprovar(id) {
-		$.ajax({
-            url: 'assets/php/reprovar.php',
-            type: 'POST',  
-            data: 'id=' + id,          
-	        success: function(msg){ 
-                alert(msg);
-                location.reload();                
-        	},
-    		error: function() {
-        		alert('Erro');
-    		}
-        });	    
+		if(confirm("Deseja realmente reprovar o cadastro?")) {
+			$.ajax({
+	            url: 'assets/php/reprovar.php',
+	            type: 'POST',  
+	            data: 'id=' + id,          
+		        success: function(msg){ 
+	                alert(msg);
+	                location.reload();                                
+	        	},
+	    		error: function() {
+	        		alert('Erro');
+	    		}
+	        });
+		}
 	}
 </script>
 </html>
