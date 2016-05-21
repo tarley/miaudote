@@ -39,7 +39,7 @@ function validaUsuario($usuario, $senha) {
 	}else if(empty($nsenha)){
 		return "get_out_04";
 	}else{
-		$sql = "select cod_usuario,nom_usuario,email,senha  from  tb_usuario where email = '".$nusuario."'  limit 1";
+		$sql = "select cod_usuario,nom_usuario,email,senha,perfil  from  tb_usuario where email = '".$nusuario."'  limit 1";
 		//$sql = "select cod_usuario,nom_usuario,email,senha,id_permissao  from  ".$_SG['tabela']." where ".$cS."email = ? and ".$cS."senha = ? limit 1";
 		$stm = $pdo->prepare($sql);
 		$stm-> bindValue(1, $nusuario);
@@ -57,13 +57,13 @@ function validaUsuario($usuario, $senha) {
 			// Definimos dois valores na sessÃ£o com os dados do usuÃ¡rio
 			$_SESSION['usuarioID'] 		= $resultado['cod_usuario']; // Pega o valor da coluna 'id do registro encontrado no MySQL
 			$_SESSION['usuarioNome'] 	= $resultado['nom_usuario']; // Pega o valor da coluna 'nome' do registro encontrado no MySQL
-			//$_SESSION['idPermissao'] 	= $resultado['id_permissao'];
+			$_SESSION['idPermissao'] 	= $resultado['perfil'];
 			
-			if($usuario=="ong@email.com"){
+			/*if($usuario=="ong@email.com"){
 				$_SESSION['idPermissao'] =	1;
 			}else{
 				$_SESSION['idPermissao'] =	2;
-			}
+			}*/
 			 
 			if ($_SG['validaSempre'] == true) {
 				// Definimos dois valores na sessÃ£o com os dados do login

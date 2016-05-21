@@ -22,7 +22,7 @@
 				$stmdestaque = $pdo->prepare($listar);
 				$stmdestaque-> execute();
 				if(!$stmdestaque){
-					echo "n�o h� destaques a serem exibidos";
+					echo "não há destaques a serem exibidos";
 				}else{	
 					while($rowdestaque = $stmdestaque->fetch()){
 					echo "<figure id ='perfil' class='effect-oscar wowload fadein'>
@@ -35,7 +35,40 @@
 							</figure>";					
 					}
 				} 
-			}/*fim get destaque*/
+			} 
+			
+			if($acao == 'getAdotados') {
+				
+				$listar ="select 	a.cod_animal,
+									a.nom_animal,
+									a.desc_animal,
+									a.dt_adocao,
+									f.cod_foto,
+									f.nom_foto,
+									f.url,
+									f.id_foto_pri												
+									from 	tb_animal a , tb_foto f
+									where 	a.cod_animal = f.cod_animal 
+									and  f.id_foto_pri = 's'
+									and a.dt_adocao is not null ";
+		
+				$stmdestaque = $pdo->prepare($listar);
+				$stmdestaque-> execute();
+				if(!$stmdestaque){
+					echo "não há destaques a serem exibidos";
+				}else{	
+					while($rowdestaque = $stmdestaque->fetch()){
+					echo "<figure id ='perfil' class='effect-oscar wowload fadein'>
+							<img src='".substr($rowdestaque['url'],3)."'/>
+							<figcaption>
+							<h2>".$rowdestaque['nom_animal']."</h2>
+							<p>".$rowdestaque['desc_animal']."</br>
+							<a href='#conteudo' id='animal-filtro' data-value='".$rowdestaque['cod_animal']."'>Perfil</a>
+							</figcaption>
+							</figure>";					
+					}
+				} 
+			}/*fim get Adotados*/
 			
 			if($acao == 'getperfil'){
 				sleep(2);			
