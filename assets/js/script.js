@@ -7,24 +7,16 @@
 				$('html,body').animate({scrollTop:$(this.hash).offset().top}, 800);
 				$("li").removeClass('active');
 				$(this).parents('li').toggleClass('active');
+				
+				history_link($(this).attr("href"),$(this).attr("id"));	
 			}
 		}
 	 });
   });
 	
 
-$(function() {
-	$('.navigation a ').click(function(e) {
+$(function history_link(href,pagina) {
 
-		href = $(this).attr("href");
-		pagina = $(this).attr("id");
-		
-		loadContent(pagina,"");
-		
-
-		history.pushState('','New URL: '+href, href);
-		e.preventDefault();
-	});
 	
 	window.onpopstate = function(event) {
 
@@ -45,10 +37,17 @@ $(function() {
 
 });
 
+
+function history_link(href,pagina){
+	loadContent(pagina,"");
+	history.pushState('','New URL: '+href, href/* este segundo href nao veio de uma variavel*/);
+	
+}
+
 function loadContent(pagina,id){
 	
  
-	if(retornar =="perfil"){
+	if(pagina =="perfil"){
 		$('#conteudo-sub').fadeIn(500).load(pagina+'.php?&id='+id+'#conteudo');
 	}else{
 		$('#conteudo-sub').fadeIn(500).load(pagina+'.php');
