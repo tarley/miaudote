@@ -19,11 +19,10 @@ if ($_SG['abreSessao'] == true) {
 	get_out_03 = "Usuario digitado no formato incorreto";
 	get_out_04 = "Senha deve ser informada";
 	get_out_05 = "Usuario ou senha incorretos";
-	get_out_06 = "Por favor realize o login para acessar este recurso";
  */
 
 
-function validaUsuario($usuario, $senha) {
+function validaUsuario($usuario, $senha){
 
 	global $_SG;
 	$pdo = conectar();
@@ -40,9 +39,8 @@ function validaUsuario($usuario, $senha) {
 		return "get_out_04";
 	}else{
 		$sql = "select cod_usuario,nom_usuario,email,senha,perfil  from  tb_usuario where email = '".$nusuario."'  limit 1";
-		//$sql = "select cod_usuario,nom_usuario,email,senha,id_permissao  from  ".$_SG['tabela']." where ".$cS."email = ? and ".$cS."senha = ? limit 1";
 		$stm = $pdo->prepare($sql);
-		$stm-> bindValue(1, $nusuario);
+		$stm-> bindValue(1 ,$nusuario);
 		$stm-> bindValue(2 ,$nsenha);
 		$stm-> execute();
 		$resultado = $stm->fetch(PDO::FETCH_ASSOC);
@@ -59,11 +57,6 @@ function validaUsuario($usuario, $senha) {
 			$_SESSION['usuarioNome'] 	= $resultado['nom_usuario']; // Pega o valor da coluna 'nome' do registro encontrado no MySQL
 			$_SESSION['idPermissao'] 	= $resultado['perfil'];
 			
-			/*if($usuario=="ong@email.com"){
-				$_SESSION['idPermissao'] =	1;
-			}else{
-				$_SESSION['idPermissao'] =	2;
-			}*/
 			 
 			if ($_SG['validaSempre'] == true) {
 				// Definimos dois valores na sessÃ£o com os dados do login
@@ -82,14 +75,14 @@ function validaUsuario($usuario, $senha) {
 function protectPage($tipo_permissao){
     global $_SG;
 	
-    if (!isset($_SESSION['usuarioID']) OR !isset($_SESSION['usuarioNome'])) {
-        // NÃ£o hÃ¡ usuÃ¡rio logado, manda pra pÃ¡gina de login
+    if (!isset($_SESSION['usuarioID']) OR !isset($_SESSION['usuarioNome'])){
+       
        kick_out("get_out_01");
-    } else if (!isset($_SESSION['usuarioID']) OR !isset($_SESSION['usuarioNome'])) {
+    } else if (!isset($_SESSION['usuarioID']) OR !isset($_SESSION['usuarioNome'])){
         // HÃ¡ usuÃ¡rio logado, verifica se precisa validar o login novamente
-        if ($_SG['validaSempre'] == true) {
+        if ($_SG['validaSempre'] == true){
             // Verifica se os dados salvos na sessÃ£o batem com os dados do banco de dados
-            if (!validaUsuario($_SESSION['usuarioLogin'], $_SESSION['usuarioSenha'])) {
+            if (!validaUsuario($_SESSION['usuarioLogin'], $_SESSION['usuarioSenha'])){
                 // Os dados nÃ£o batem, manda pra tela de login
                kick_out("get_out_07");
             }
@@ -103,56 +96,31 @@ function protectPage($tipo_permissao){
      
 function kick_out($permissao) {
     global $_SG;
-    // Remove as variÃ¡veis da sessÃ£o (caso elas existam)
+    //Remove as variÃ¡veis da sessÃ£o (caso elas existam)
     unset($_SESSION['usuarioID'], $_SESSION['usuarioNome'], $_SESSION['usuarioLogin'], $_SESSION['usuarioSenha']);
      // Manda pra tela de login
      header("Location:index.php?page=login&acesso=$permissao");
 }
 
-function up_arquivo_foto($upload,$patch){
-		
-	@set_time_limit(0);
-	$extensao	=	@strtolower(@end(explode('.',$upload['name'])));
-	$array_formato	=	array("png","jpg","gif","jpeg","bmp");
-							  
-	if($upload['size']>1000000){
-		echo '<script>alert("A imagem não pode ter mais de 1Mb.");</script>';
-		return 'Erro';
-	}else{
-		if(in_array($extensao,$array_formato)){
-		
-		    $imagem_nome 	= md5(time(uniqid($upload['name']))).md5(uniqid(time())). "." .$extensao;			    		    
-		    $imagem_dir 	= $patch.$imagem_nome;		    
-		    @move_uploaded_file($upload["tmp_name"], $imagem_dir) or die ("Erro de permissão. path:".$imagem_dir);		        			
-			
-			$imgGrava 	= $patch.$imagem_nome;
-				
-			return $imgGrava;
-		}else{
-			return "";
-		}
-	}
-}
-
 function msgAlert(){
 	
-	$mensagem	=	@$_SESSION['mensagem'];
+	$mensagem=@$_SESSION['mensagem'];
 	switch($mensagem){
 	
 		case 'dados-salvos':
-				$_SESSION['mensagem']	=	'';
-				echo '<script>$("#alertMsg").fadeIn(300).html("Os dados foram salvos com sucesso.");setTimeout(function(){$("#alertMsg").fadeOut(300);},4000);</script>';			
+			$_SESSION['mensagem']	=	'';
+			echo '<script>$("#alertMsg").fadeIn(300).html("Os dados foram salvos com sucesso.");setTimeout(function(){$("#alertMsg").fadeOut(300);},4000);</script>';			
 			break;
 			
 		case 'dado-removido':
-				$_SESSION['mensagem']	=	'';
-				echo '<script>$("#alertMsg").fadeIn(300).html("Os dados foram removidos com sucesso.");setTimeout(function(){$("#alertMsg").fadeOut(300);},4000);</script>';			
+			$_SESSION['mensagem']	='';
+			echo '<script>$("#alertMsg").fadeIn(300).html("Os dados foram removidos com sucesso.");setTimeout(function(){$("#alertMsg").fadeOut(300);},4000);</script>';			
 			break;
 				
 		case 'usuario-removido':
-				$_SESSION['mensagem']	=	'';
-				echo '<script>$("#alertMsg").fadeIn(300).html("Usuário removido com sucesso.");setTimeout(function(){$("#alertMsg").fadeOut(300);},4000);</script>';			
-			break;
+			$_SESSION['mensagem']	=	'';
+			echo '<script>$("#alertMsg").fadeIn(300).html("Usuário removido com sucesso.");setTimeout(function(){$("#alertMsg").fadeOut(300);},4000);</script>';			
+		break;
 	}
 }
 ?>
