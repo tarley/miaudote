@@ -97,11 +97,8 @@
 					//pega a largura, altura, tipo e atributo da imagem
 					list($largura, $altura, $tipo, $atributo) = getimagesize($destino);
 
-					// testa se é preciso redimensionar a imagem
-					if(($largura > $this->largura) || ($altura > $this->altura)){
-						$this->redimensionar($largura, $altura, $tipo, $destino);
-					}
-						
+					$this->redimensionar($largura, $altura, $tipo, $destino); //Inbdependente do tamanho da imagem ele irá redimensionar seja para mais ou para menos
+
 					$imgGrava = $novo_nome;	
 				}else{
 					$imgGrava ="";
