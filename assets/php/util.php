@@ -49,13 +49,13 @@
 									f.id_foto_pri												
 									from 	tb_animal a , tb_foto f
 									where 	a.cod_animal = f.cod_animal 
-									and  f.id_foto_pri = 's'
-									and a.dt_adocao is not null ";
+									and  	f.id_foto_pri = 's'
+									and 	a.dt_adocao is not null ";
 		
 				$stmdestaque = $pdo->prepare($listar);
 				$stmdestaque-> execute();
 				if(!$stmdestaque){
-					echo "não há destaques a serem exibidos";
+					echo "não há recem adotados a serem exibidos";
 				}else{	
 					while($rowdestaque = $stmdestaque->fetch()){
 					echo "<figure id ='perfil' class='effect-oscar wowload fadein'>
