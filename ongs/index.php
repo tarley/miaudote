@@ -3,6 +3,39 @@
 define('PATH', '../');
 define('IMG_ADM_PATH', '../images/');
 
+require_once PATH.'assets/php/conexao.php';
+require_once PATH.'seguranca.php';
+
+$tipo_permissao	=	2;
+protectPage ($tipo_permissao);
+
+$pdo = conectar ();
+
+$qry = "select 
+		u.cod_usuario,
+		u.nom_usuario,
+		u.email,
+		u.senha,
+		u.telefone,
+		u.perfil
+			
+		from tb_usuario u			
+		GROUP BY u.cod_usuario";
+
+$lista 	= $pdo->query ($qry);
+$num 	= $pdo->query ($qry)->rowCount();
+
+
+
+if(@trim($_GET['a'])=='exc' && filter_var(@trim($_GET['n']),FILTER_VALIDATE_INT)){
+	
+		$qry = "delete from tb_usuario where cod_usuario=".trim($_GET['n']) ."";
+		$pdo->query ($qry);
+		$_SESSION['mensagem'] = 'dado-removido';
+		die('<script>window.location.href="./";</script>');
+		
+}
+
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 <head>
@@ -14,9 +47,9 @@ define('IMG_ADM_PATH', '../images/');
 <link rel="apple-touch-icon" href="images/icons/favicon.png">
 <link rel="apple-touch-icon" sizes="72x72" 	href="images/icons/favicon-72x72.png">
 <link rel="apple-touch-icon" sizes="114x114" href="images/icons/favicon-114x114.png">
-<!--Loading bootstrap css-->
+<!--Loading bootstrap css
 <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700">
-<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
+<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">-->
 <link type="text/css" rel="stylesheet" href="<?=PATH?>assets/css/aprovacao/jquery-ui-1.10.4.custom.min.css">
 <link type="text/css" rel="stylesheet" href="<?=PATH?>assets/css/aprovacao/font-awesome.min.css">
 <link type="text/css" rel="stylesheet" href="<?=PATH?>assets/css/aprovacao/bootstrap.min.css">
@@ -76,51 +109,51 @@ var excluirItem = function(id_Item){
 			<th>Nome</th>
 			<th>Email</th>
 			<th>Senha</th>
-			<th>CNPJ</th>
-			
-			
+			<th>telefone</th>
+			<th>Permissao</th>
 			<th align="center" >Editar</th>
 			<th align="center" >Excluir</th>
 		</tr>
 	</thead>
 	<tbody>
+	<?php
+		if ($lista) {
+			while ( $row = $lista->fetch ( PDO::FETCH_ASSOC )):
+			
+			$cod_usuario   = 		$row['cod_usuario'];			
+			$nom_usuario   = 		$row['nom_usuario'];			
+			$email	       = 		$row['email'];		
+			$senha		   = 		$row['senha'];
+			$telefone	   = 		$row['telefone'];			
+			$permissao	   = 		$row['perfil'];	
 
+	?>
 		<tr>
-			<td valign="middle"></td>
-			<td valign="middle"></td>
-			<td valign="middle"></td>
-			<td valign="middle"></td>
-			
-			
-			
+		<td valign="middle"><?php echo $nom_usuario;  ?></td>
+		<td valign="middle"><?php echo $email;  ?></td>
+		<td valign="middle"><?php echo $senha;  ?></td>
+		<td valign="middle"><?php echo $telefone;  ?></td>
+		<td valign="middle"><?php echo $permissao;?></td>
+
 			<td valign="middle" align="center" >
-				
-				<a class='btn btn-warning' href='editar.php?n=<?=$COD_USUARIO?>' >
+				<a class='btn btn-warning' href='editar.php?n=<?=$cod_usuario?>' >
 					<i class='fa fa-pencil' aria-hidden='true'></i> &nbsp;Editar
 				</a>
 			</td>
 			<td valign="middle" align="center" >
-				
-				<a class='btn btn-danger btnExcluir' href='#' id='btnExcluir_<?php echo $COD_USUARIO; ?>'>
+				<a class='btn btn-danger btnExcluir' href='#' id='btnExcluir_<?php echo $cod_usuario; ?>'>
 					<i class='fa fa-trash-o fa-lg' aria-hidden='true'></i> &nbsp;Excluir
 				</a>
 			</td>
 		</tr>
+	<?php 
+		endwhile; 
+	}
+	?>
 
 	</tbody>
-	<!-- tfoot>
-		<tr>
-			<th>Nome ONG</th>
-			<th>Email</th>
-			<th>Perfil</th>
-			
-			
-			<th align="center" >Editar</th>
-			<th align="center" >Excluir</th>
-		</tr>
-	</tfoot-->
-</table>
 
+</table>
 
 
 	</div>

@@ -2,6 +2,58 @@
 define ( 'PATH', '../' );
 define ( 'IMG_ADM_PATH', '../images/' );
 
+require_once PATH.'assets/php/conexao.php';
+require_once PATH.'seguranca.php';
+
+
+$tipo_permissao	=	2;
+protectPage ($tipo_permissao);
+
+$pdo = conectar();
+
+if(@$_POST && trim(@$_GET['a']) == 's'){
+	
+	$nome	 			= utf8_decode($_POST['NOM_USUARIO']);
+	$email			    = $_POST['EMAIL_USUARIO'];
+	$senha	 			= $_POST['SENHA'];
+	$telefone	 		= $_POST['TELEFONE'];
+	$perfil             = $_POST['PERFIL'];
+	
+	try{
+		/*$qry = "insert into tb_usuario (NOM_USUARIO,EMAIL,SENHA) 	values ('{$nome}', '{$email}', '{$senha}') ";
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $pdo->prepare($qry);
+		$stmt ->execute();*/
+		
+	
+		$statement = $pdo->prepare('insert into tb_usuario (NOM_USUARIO,EMAIL,SENHA,TELEFONE,PERFIL) 	values (:nome,:email,:senha,:telefone,:perfil)');
+
+		 $nome     = filter_var($_POST['NOM_USUARIO']);
+		 $email    = filter_var($_POST['EMAIL_USUARIO']);
+		 $senha    = filter_var($_POST['SENHA']);
+		 $telefone    = filter_var($_POST['TELEFONE']);
+
+		 $statement->bindParam(':nome',  $nome);
+		 $statement->bindParam(':email', $email);
+		 $statement->bindParam(':senha', $senha);
+		 $statement->bindParam(':telefone', $telefone);
+		 $statement->bindParam(':perfil', $perfil);
+		 
+		 // Executa a sentença já com os valores
+		 if($statement->execute()){
+		  // Definimos a mensagem de sucesso
+		   @$_SESSION['messagem'] = 'dados-salvos';
+		   die('<script>window.location.href="./";</script>');
+		 }else{
+		   // Definimos a mensagem de erro
+		   @$_SESSION['messagem'] = 'Falha ao cadastrar usuário';
+		 }
+		
+	}catch(PDOException $e) {
+		echo 'Error: '. $e->getMessage();
+	}	
+}
+
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 <head>
@@ -110,15 +162,14 @@ $(function(){
 			<form method="post" action="?n=<?php echo trim(@$_GET['n']); ?>&a=s"
 				name="form" id="form" enctype="multipart/form-data">
 				<div class="input-group">
-
 					Nome da ONG: <br> <input type="text" id="NOM_USUARIO"
 						name="NOM_USUARIO" class="form-control" style="width: 400px;" /> <br />
 					<br />
 				</div>
 				<div class="input-group">
-					E-mail: <br> <input type="email" id="EMAIL" name="NOM_USUARIO"
+					E-mail: <br> <input type="email" id="EMAIL" name="EMAIL_USUARIO"
 						class="form-control" /		style="width: 400px;" /> <br />
-					<br />
+					<br/>
 				</div>
 				<div class="input-group">
 					Senha: <br> <input type="password" id="SENHA" name="SENHA"
@@ -126,11 +177,15 @@ $(function(){
 					<br>
 				</div>
 				<div class="input-group">
-					CNPJ: <br> <input type="text" id="CNPJ" name="CNPJ"
+					Telefone: <br> <input type="text" id="TELEFONE" name="TELEFONE"
 						class="form-control" style="width: 400px;" /> <br />
 					<br />
 				</div>
-
+				<div class="input-group">
+					Permissao: <br> <input type="text" id="PERFIL" name="PERFIL"
+						class="form-control" style="width: 400px;" /> <br />
+					<br />
+				</div>
 				<div style="clear: both; height: 30px;"></div>
 				<div class="input-group">
 					<table align="center" border="0" cellspacing="10" cellpadding="20">
@@ -145,10 +200,11 @@ $(function(){
 						</tr>
 					</table>
 				</div>
-
-
 			</form>
 		</center>
 
 </body>
 </html>
+<?php
+msgAlert();
+?>
