@@ -19,12 +19,12 @@
 				<!-- Nav Starts -->
 				<div class="navbar-collapse  collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="nav scroll active"><a href="/" class="menu-topo" id="menu-topo-inicio">Inicio</a></li>
-						<li class="nav scroll"><a href="#filtro" class="menu-topo" id="menu-topo-buscar">Busca</a></li>
-						<li class="nav scroll"><a href="#about" class="menu-topo" id="menu-topo-quem-somos">Quem Somos</a></li>
-						<li class="nav scroll"><a href="#comoAdotar" class="menu-topo" id="menu-topo-como-adotar">Como Adotar</a></li>
-						<li class="nav scroll"><a href="#contact" class="menu-topo" id="menu-topo-fale-conosco">Fale Conosco</a></li>
-						<li><a href="index.php?page=fundadores" class="menu-topo navigation" id="fundadores">Fundadores</a></li>
+						<li class="nav scroll active"><a href="index.php?page=destaques#conteudo" class="menu-topo navigation" id="destaques">Inicio</a></li>
+						<li class="nav scroll"><a href="#filtro" class="menu-topo" id="">Busca</a></li>
+						<li class="nav scroll"><a href="#about" class="menu-topo" id="">Quem Somos</a></li>
+						<li class="nav scroll"><a href="#comoAdotar" class="menu-topo" id="">Como Adotar</a></li>
+						<li class="nav scroll"><a href="#contact" class="menu-topo" id="">Fale Conosco</a></li>
+						<li ><a href="index.php?page=fundadores" class="menu-topo navigation" id="fundadores">Fundadores</a></li>
 						<li><a href="index.php?page=login" class="glyphicon glyphicon-lock navigation" id="login"></a></li>
 					
 					</ul>
