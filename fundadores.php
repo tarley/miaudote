@@ -1,5 +1,4 @@
-
-	<?php 
+<?php 
 		if(isset($fundadores)){
 			include 'assets/php/fundador.php';
 		}
@@ -45,7 +44,7 @@
 		
 		?>
 			
-			<div class="container container-fundador">
+			<!--<div class="container-fundador">-->
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<h2 class="section-heading"><?php echo utf8_encode('Fundadores do Sistema')?></h2>
@@ -75,5 +74,5 @@
 					<?php endforeach;?>
 				</div>
 				<?php endforeach;?>		
-			</div>
+			<!--</div>-->
 			
