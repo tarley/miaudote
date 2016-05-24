@@ -113,7 +113,7 @@ $(function(){
 	
 	$('#form').submit(function(){
 		
-		var msg =	'Erros encotnrados: \n\n';
+		var msg =	'Erros encotrados: \n\n';
 		var err =	0;
 		 
 		if($('#nome').val()==''){
@@ -142,7 +142,7 @@ $(function(){
 		}
 		
 		if($('#cidade').val()==''){
-			msg	+=	'- informe a ciudade! \n';
+			msg	+=	'- informe a cidade! \n';
 			err	=	1;	
 		}
 		*
@@ -225,7 +225,7 @@ $(function(){
 			<div class="input-group">
 				Idade:
 				<br>
-				<input type="number" 			id="idade" 		name="idade" min="1" class="form-control" style="width:400px;"/>
+				<input type="number" 			id="idade" 		name="idade" min="1" max="20" class="form-control" style="width:400px;"/>
 				<br/><br/>
 			</div>
 			<div class="input-group">
