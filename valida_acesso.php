@@ -17,9 +17,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			case 1:
 					header("Location:animais/");
 				break;
+				
 			case 2:
 					header("Location:aprovacao.php");
 				break;	
+			case 3:
+				header("Location:ongs/");
+				
+				break;
+				
+			
 		}
 		
 	}else{

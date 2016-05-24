@@ -1,17 +1,17 @@
 <?php
-
 define('PATH', '../');
 define('IMG_ADM_PATH', '../images/');
 
-Error_reporting ( 0 );
+Error_reporting (0);
 require_once PATH.'assets/php/conexao.php';
+require_once PATH.'assets/php/upload.php';
 require_once PATH.'seguranca.php';
+
 
 $tipo_permissao	=	2;
 protectPage ($tipo_permissao);
 
 $pdo = conectar ();
-
 
 
 if(@$_POST && trim(@$_GET['a']) == 's'){
@@ -34,45 +34,45 @@ if(@$_POST && trim(@$_GET['a']) == 's'){
 			'{$sexo}', '{$idade}', '{$cor}',
 			'{$porte}', '{$especie}', '{$cidade}') ";
 	
-	$pdo->query ($qry);
-	$id 	= $pdo->lastInsertId();
+	$pdo->query($qry);
+	$id = $pdo->lastInsertId();
 	
 	// Prepara a inclusão das fotos
-	$qry_foto 			= 	"insert into tb_foto (COD_ANIMAL, URL, ID_FOTO_PRI) values ";
-	$up_fotos		=	0;
+	$qry_foto 	= 	"insert into tb_foto (COD_ANIMAL, URL, ID_FOTO_PRI) values ";
+	$up_fotos	=	0;
 	
 	for($i=1;$i<=5;$i++){
 		if(!empty($_FILES['foto'.$i]['size'])){
 			$files_foto = $_FILES['foto'.$i];
-		    $arquivo 	= up_arquivo_foto($files_foto,'../images/uploads/');
-		   
-		    
+					
+			$upload    = new Upload($files_foto,387,600,'../images/uploads/'); 
+			$arquivo   = $upload->salvar();
+					
 			if($arquivo=='Erro'){
-		    	// Se chegar aqui, redireciona
 				$_SESSION['mensagem']	=	'dados-salvos';
-				//die('<script>window.location.href="./editar.php?n='.$id.'";</script>');
-				die("asd");
-				
+				die("asd");	
 			}else{
 				$up_fotos++;
-		    	
 		    	$i==1?
-		    		$qry_foto	.=	"('".$id."','".$arquivo."', 'S'),":
-		    		$qry_foto	.=	"('".$id."','".$arquivo."', 'N'),";
+				$qry_foto	.=	"('".$id."','../images/uploads/".$arquivo."', 'S'),":
+				$qry_foto	.=	"('".$id."','../images/uploads/".$arquivo."', 'N'),";
 			}
 		}
 	}
 	
+	
 	// Inclui as fotos
-	$tamanho_sql	=	strlen($qry_foto);
+	$tamanho_sql =	strlen($qry_foto);
 	if($up_fotos>0){
-		$qry_foto			=	substr($qry_foto,0,$tamanho_sql-1);
+		
+		$qry_foto =	substr($qry_foto,0,$tamanho_sql-1);		
 		$pdo->query ($qry_foto);
+
 	}
 	
 	// Se chegar aqui, redireciona
 	$_SESSION['mensagem']	=	'dados-salvos';
-	die('<script>window.location.href="./cadastrar.php";</script>');
+	//die('<script>window.location.href="./cadastrar.php";</script>');
 	
 }
 
@@ -145,7 +145,7 @@ $(function(){
 			msg	+=	'- informe a ciudade! \n';
 			err	=	1;	
 		}
-		
+		*
 		var conta_foto	=	0; 
 		$('.foto-animal').each(function(){
 			

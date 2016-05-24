@@ -5,6 +5,7 @@ define('IMG_ADM_PATH', '../images/');
 
 Error_reporting ( 0 );
 require_once PATH.'assets/php/conexao.php';
+require_once PATH.'assets/php/upload.php';
 require_once PATH.'seguranca.php';
 
 $tipo_permissao	=	2;
@@ -13,27 +14,24 @@ protectPage ($tipo_permissao);
 $pdo = conectar ();
 
 
-
 if(@trim($_GET['a'])=='exc' && filter_var(@trim($_GET['n']),FILTER_VALIDATE_INT)){
 
-	$id_animal	=	(int)$_GET['n'];
-	$id_del		=	(int)$_GET['id_'];
+	$id_animal	  =	(int)$_GET['n'];
+	$id_del		  =	(int)$_GET['id_'];
+	$arquivo_foto = $_GET['foto'];
 	
 	$qry = "delete from tb_foto where COD_FOTO=".$id_del." AND COD_ANIMAL=".$id_animal." LIMIT 1";
 	//die($qry);
-	$pdo->query ($qry);
+	if($pdo->query ($qry)){
+		unlink($arquivo_foto);	
+		echo $arquivo_foto."_arquivo deletad com sucesso";
+
+	};
 	$_SESSION['mensagem']	=	'dado-removido';
 	die('<script>window.location.href="editar.php?n='.trim($_GET['n']).'";</script>');
 }
 
 if($_POST && trim($_GET['a']) == 's'){
-	
-	/*
-	print "<pre>";
-	print_r($_POST);
-	print "</pre>";
-	exit();
-	*/
 	
 	// Altera os dados
 	$id					= (int)trim($_GET['n']);
@@ -50,15 +48,15 @@ if($_POST && trim($_GET['a']) == 's'){
 	$tem_fotos_capa		= $_POST['tem_fotos_capa'];	
 	
 	$qry = "UPDATE tb_animal set 
-								 	NOM_ANIMAL='{$nome}',
-								 	DESC_ANIMAL='{$descricao}',
-								  	DESC_PERFIL='{$perfil}',
-								  	IND_SEXO='{$sexo}',
-								  	COD_ESPECIE='{$especie}',
-								  	IDADE='{$especie}',
-								  	COR='{$cor}',
-								  	IND_PORTE='{$especie}',
-								  	COD_CIDADE='{$cidade}'						  	
+				NOM_ANIMAL='{$nome}',
+				DESC_ANIMAL='{$descricao}',
+				DESC_PERFIL='{$perfil}',
+				IND_SEXO='{$sexo}',
+				COD_ESPECIE='{$especie}',
+				IDADE='{$especie}',
+				COR='{$cor}',
+				IND_PORTE='{$especie}',
+				COD_CIDADE='{$cidade}'						  	
 			where COD_ANIMAL='".$id."'";
 	
 	$pdo->query ($qry);
@@ -68,46 +66,66 @@ if($_POST && trim($_GET['a']) == 's'){
 	$qry_foto 			= 	"insert into tb_foto (COD_ANIMAL, URL, ID_FOTO_PRI) values ";
 	$up_fotos		=	0;
 	
-	for($i=1;$i<=5;$i++){
-		if(!empty($_FILES['foto'.$i]['size'])){
-			$files_foto = $_FILES['foto'.$i];
-		    $arquivo 	= up_arquivo_foto($files_foto,'../images/uploads/');
-		    
-		    
-			if($arquivo=='Erro'){
-		    	// Se chegar aqui, redireciona
-				$_SESSION['mensagem']	=	'dados-salvos';
-				die('<script>window.location.href="./editar.php?n='.$id.'";</script>');
-				die("asd");
+	if($num > 0 ){
+		
+		for($i=$num;$i<=5;$i++){
+			if(!empty($_FILES['foto'.$i]['size'])){
+				$files_foto = $_FILES['foto'.$i];
+						
+				$upload    = new Upload($files_foto,387,600,'../images/uploads/'); 
+				$arquivo   = $upload->salvar();
 				
-			}else{
-				$up_fotos++;
-		    	
-				if($tem_fotos_capa=='false'){
-			    	$i==1?
-						$capa	=	"'S'":
-						$capa	=	"'N'";
+				//echo $arquivo;
+				
+				if($arquivo=='Erro'){
+					$_SESSION['mensagem']	=	'dados-salvos';
+					die("asd");	
 				}else{
-					$capa	=	"'N'";
+					$up_fotos++;
+					$i==1?
+					$qry_foto	.=	"('".$id."','../images/uploads/".$arquivo."', 'S'),":
+					$qry_foto	.=	"('".$id."','../images/uploads/".$arquivo."', 'N'),";
 				}
-				
-				$qry_foto	.=	"('".$id."','".$arquivo."', $capa),";
 			}
 		}
+		
+		
+	}else{
+		for($i=1;$i<=5;$i++){
+			if(!empty($_FILES['foto'.$i]['size'])){
+				$files_foto = $_FILES['foto'.$i];
+						
+				$upload    = new Upload($files_foto,387,600,'../images/uploads/'); 
+				$arquivo   = $upload->salvar();
+				
+				//echo $arquivo;
+				
+				if($arquivo=='Erro'){
+					$_SESSION['mensagem']	=	'dados-salvos';
+					die("asd");	
+				}else{
+					$up_fotos++;
+					$i==1?
+					$qry_foto	.=	"('".$id."','../images/uploads/".$arquivo."', 'S'),":
+					$qry_foto	.=	"('".$id."','../images/uploads/".$arquivo."', 'N'),";
+				}
+			}
+		}
+
 	}
+	
 	
 	
 	// Inclui as fotos
-	$tamanho_sql	=	strlen($qry_foto);
+	$tamanho_sql =	strlen($qry_foto);
 	if($up_fotos>0){
-		$qry_foto			=	substr($qry_foto,0,$tamanho_sql-1);
+	
+		$qry_foto =	substr($qry_foto,0,$tamanho_sql-1);
+
 		$pdo->query ($qry_foto);
+
 	}
 
-	// Se chegar aqui, redireciona
-	$_SESSION['mensagem']	=	'dados-salvos';
-	die('<script>window.location.href="./editar.php?n='.trim($_GET['n']).'";</script>');
-	
 }
 
 
@@ -182,8 +200,8 @@ if(!filter_var(trim(@$_GET['n']),FILTER_VALIDATE_INT) || trim(@$_GET['n']) < 1){
 		$htlm_fotos			=	'';
 		
 		$titulo_capa		=	'<h1 style="font-size:15pt;">Foto: Tamanho e formato 800x600 px JPG
-											<br><span style="color:red;">(A primeira foto selecionada será a foto de capa)</span>
-											</h1><br>';
+								<br><span style="color:red;">(A primeira foto selecionada será a foto de capa)</span>
+								</h1><br>';
 		$titulo_capa		.=	'<input type="hidden" value="false" name="tem_fotos_capa" id="tem_fotos_capa" />';
 		
 		if($num > 0){
@@ -191,14 +209,15 @@ if(!filter_var(trim(@$_GET['n']),FILTER_VALIDATE_INT) || trim(@$_GET['n']) < 1){
 			$capa		=	'false';
 			
 			
-			while ( $row_ = $lista_->fetch ( PDO::FETCH_ASSOC ) ):
+			while ( $row_ = $lista_->fetch (PDO::FETCH_ASSOC )):
 			
 				$id_foto	= 	$row_['COD_FOTO'];
 				$arquivo	=	$row_['URL'];
+
 				
-				if($row_['ID_FOTO_PRI'] == 1){
+				if($row_['ID_FOTO_PRI'] == 'S'){
 					$capa_				=	'<br><div style="width:100px;margin:20px auto;background-color:red;padding:5px;color:#FFF;">Foto de capa</div>';
-					$titulo_capa		=	'<h1 style="font-size:15pt;">Foto: Tamanho e formato 800x600 px JPG
+					$titulo_capa		=	'<h1 style="font-size:15pt;">Foto: Tamanho minimo recomendado : 400 x 400 pixels
 											<br><span style="color:red;">(Para trocar a foto de capa, &eacute; necess&aacute;rio deletar a capa atual)</span>
 											</h1><br>';
 					$titulo_capa		.=	'<input type="hidden" value="true" name="tem_fotos_capa" id="tem_fotos_capa" />';
@@ -207,7 +226,7 @@ if(!filter_var(trim(@$_GET['n']),FILTER_VALIDATE_INT) || trim(@$_GET['n']) < 1){
 				}
 				
 				$htlm_fotos	.= '<div style="width:250px;min-height:150px;margin:10px;padding:15px;float:left;border:1px solid #ccc;background-color:#fcfbfb;">';			
-				$htlm_fotos	.= '	<img src="'.IMG_ADM_PATH.'del.gif" class="btnExcluir_foto" id="btnExcluir_'.$id_foto.'" ><br>';
+				$htlm_fotos	.= '	<img src="'.IMG_ADM_PATH.'del.gif" class="btnExcluir_foto" id="btnExcluir_'.$id_foto.'" data-value="'.$arquivo.'"" ><br>';
 				$htlm_fotos	.= '	<img src="'.$arquivo.'"	style="max-width:200px;max-height:150px;margin:15px 0;">';
 				$htlm_fotos	.= $capa_;
 				$htlm_fotos	.= '</div>';
@@ -217,12 +236,24 @@ if(!filter_var(trim(@$_GET['n']),FILTER_VALIDATE_INT) || trim(@$_GET['n']) < 1){
 		}
 		
 		$opcoes_fotos	=	'';
-		for($i=1;$i<=(5-$num_fotos);$i++){
+		
+		if($num_fotos ==0){
+			for($i=1;$i<=(5-$num_fotos);$i++){
 			$opcoes_fotos	.=	'Foto('.$i.'): 	
 								 <br>
-								 <input type="file" 		id="foto'.$i.'" 	name="foto'.$i.'" class="foto-animal"/>
+								 <input type="file" id="foto'.$i.'" name="foto'.$i.'" class="foto-animal"/>
 								 <br/><br/>';
+			}
+			
+		}else{
+			for($i=($num_fotos);$i<5;$i++){
+			$opcoes_fotos	.=	'Foto('.($i+1).'): 	
+								 <br>
+								 <input type="file" id="foto'.($i+1).'" name="foto'.($i+1).'" class="foto-animal"/>
+								 <br/><br/>';
+			}
 		}
+
 		
 	}
 }
@@ -320,14 +351,16 @@ $(function(){
 		}
 	});
 	
-	$('.btnExcluir_foto').click(function(){excluirItem($(this).attr('id').split('_')[1]);}).css('cursor','pointer');
+	$('.btnExcluir_foto').click(function(){
+		excluirItem($(this).attr('id').split('_')[1],$(this).data("value"));
+	}).css('cursor','pointer');
 });
 
-var excluirItem = function(id_Item){
+var excluirItem = function(id_Item,foto){
 	var msg = 'Tem certeza de que deseja excluir o registro? ';
 	if(confirm(msg)){
 		var vlw =	$('#id_dado').val();
-		window.location.href='editar.php?a=exc&n='+vlw+'&id_='+id_Item;
+		window.location.href='editar.php?a=exc&n='+vlw+'&id_='+id_Item+'&foto='+foto;
 	}
 	return false;
 }

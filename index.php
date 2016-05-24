@@ -71,15 +71,12 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 		style="padding-top: 6em;">
 		<div id="inicio-header" class="col-md-6 col-md-offset-3" style="">
 			<ul class="nav nav-pills nav-justified navigation">
-				<li><a href="index.php?page=destaques" class="menu-topo"
-					id="destaques" data-link='destaques'>Destaques</a></li>
-				<li><a href="index.php?page=recem_adotados" class="menu-topo"
-					id="recem_adotados" data-link='adotados'>Recem Adotados</a></li>
+				<li><a href="index.php?page=destaques" class="menu-topo" id="destaques" data-link='destaques'>Destaques</a></li>
+				<li><a href="index.php?page=recem_adotados" class="menu-topo"id="recem_adotados" data-link='adotados'>Recem Adotados</a></li>
 			</ul>
 		</div>
 
-		<div id="conteudo-sub" class="col-md-10 col-md-offset-1 scroll"
-			style="min-height: 800px">
+		<div id="conteudo-sub" class="col-md-9 col-md-offset-2 scroll"	style="min-height: 800px">
 			<?php navigation()?>
 		</div>
 	</div>
@@ -100,28 +97,28 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 		</div>
 		<section id="galery-perfil" class="cd-gallery">
 			<ul class="filtros cs-style-3">
-						<?php
-						if ($listaAnimal) {
-							while ( $row = $listaAnimal->fetch ( PDO::FETCH_ASSOC ) ) {
-								echo "<li class='mix " . $row ["nom_animal"] . " " . $row ["cor"] . " " . $row ["cod_especie"] . " " . $row ["idade"] . "a " . $row ["ind_porte"] . " " . $row ["ind_sexo"] . " " . $row ["sg_uf"] . " " . ltrim ( $row ["nom_cidade"] ) . "'>
-									<div class='imgHolder'>
-										<figure>										
-										<img id='animal-filtro' data-value='" . $row ['cod_animal'] . "'  src='".substr($row ['url'],3)."' >								
-										<hr>
-										<p>
-											" . $row ['nom_animal'] . " 
-										</p>
-										<figcaption>
-											<h3>" . utf8_encode ( $row ['nom_cidade'] ) . " - " . $row ['sg_uf'] . "</h3>
-											<span>" . $row ["ind_sexo"] . ", " . $row ["idade"] . " ano(s)</span> 
-											<a href='#conteudo' id='animal-filtro' data-value='" . $row ['cod_animal'] . "'>Perfil</a>
-										</figcaption>	
-										</figure>
-									</div> 
-								</li>";
-							}
-						}
-						?>
+				<?php
+				if ($listaAnimal) {
+					while ( $row = $listaAnimal->fetch ( PDO::FETCH_ASSOC ) ) {
+						echo "<li class='mix " . $row ["nom_animal"] . " " . $row ["cor"] . " " . $row ["cod_especie"] . " " . $row ["idade"] . "a " . $row ["ind_porte"] . " " . $row ["ind_sexo"] . " " . $row ["sg_uf"] . " " . ltrim ( $row ["nom_cidade"] ) . "'>
+							<div class='imgHolder'>
+								<figure>										
+								<img id='animal-filtro' data-value='" . $row ['cod_animal'] . "'  src='".substr($row ['url'],3)."' >								
+								<hr>
+								<p>
+									" . $row ['nom_animal'] . " 
+								</p>
+								<figcaption>
+									<h3>" . utf8_encode ( $row ['nom_cidade'] ) . " - " . $row ['sg_uf'] . "</h3>
+									<span>" . $row ["ind_sexo"] . ", " . $row ["idade"] . " ano(s)</span> 
+									<a href='#conteudo' id='animal-filtro' data-value='" . $row ['cod_animal'] . "'>Perfil</a>
+								</figcaption>	
+								</figure>
+							</div> 
+						</li>";
+					}
+				}
+				?>
 				<li class="gap"></li>
 				<li class="gap"></li>
 				<li class="gap"></li>
