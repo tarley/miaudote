@@ -76,7 +76,7 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 			</ul>
 		</div>
 
-		<div id="conteudo-sub" class="col-md-9 col-md-offset-2 scroll"	style="min-height: 800px">
+		<div id="conteudo-sub" class="col-md-10 col-md-offset-1 scroll"	style="min-height: 800px">
 			<?php navigation()?>
 		</div>
 	</div>
