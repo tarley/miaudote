@@ -127,21 +127,24 @@ UNLOCK TABLES;
 UPDATE `tb_usuario` SET `PERFIL` = 'usuario' WHERE `tb_usuario`.`COD_USUARIO` = 1 ;
 UPDATE `tb_usuario` SET `PERFIL` = 'usuario' WHERE `tb_usuario`.`COD_USUARIO` = 2 ;
 UPDATE `tb_usuario` SET `PERFIL` = 'usuario' WHERE `tb_usuario`.`COD_USUARIO` = 3 ;
+UPDATE `tb_usuario` SET `SENHA` = '1' WHERE `tb_usuario`.`COD_USUARIO` = 1 ;
+UPDATE `tb_usuario` SET `SENHA` = '2' WHERE `tb_usuario`.`COD_USUARIO` = 1 ;
+UPDATE `tb_usuario` SET `SENHA` = '3' WHERE `tb_usuario`.`COD_USUARIO` = 1 ;
 
 -- Inserção dos usuarios moderadores, retirados da pagina fundadores, senha cadastrada para todos é 123
-insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'anna.carolina@newtonpaiva.br','anna.carolina',null,'moderador','202cb962ac59075b964b07152d234b70');
-insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'barbara.bagalhaes@newtonpaiva.br','barbara.bagalhaes',null,'moderador','202cb962ac59075b964b07152d234b70');
-insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'bety.saara@newtonpaiva.br','bety.saara',null,'moderador','202cb962ac59075b964b07152d234b70');
-insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'carlos.carvalho@newtonpaiva.br','carlos.carvalho',null,'moderador','202cb962ac59075b964b07152d234b70');
-insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'carolin.oaliveira@newtonpaiva.br','carolin.oaliveira',null,'moderador','202cb962ac59075b964b07152d234b70');
-insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'celia.charchar@newtonpaiva.br','celia.charchar',null,'moderador','202cb962ac59075b964b07152d234b70');
-insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'daniel.dimas@newtonpaiva.br','daniel.dimas',null,'moderador','202cb962ac59075b964b07152d234b70');
-insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'gabriel.alcantara@newtonpaiva.br','gabriel.alcantara',null,'moderador','202cb962ac59075b964b07152d234b70');
-insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'gabriel.wnuk@newtonpaiva.br','gabriel.wnuk',null,'moderador','202cb962ac59075b964b07152d234b70');
-insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'izabella.maria@newtonpaiva.br','izabella.maria',null,'moderador','202cb962ac59075b964b07152d234b70');
-insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'luiza.fernandes@newtonpaiva.br','luiza.fernandes',null,'moderador','202cb962ac59075b964b07152d234b70');
-insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'pollyanna.ferreira@newtonpaiva.br','pollyanna.ferreira',null,'moderador','202cb962ac59075b964b07152d234b70');
-insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'paula.cambraia@newtonpaiva.br','paula.cambraia',null,'moderador','202cb962ac59075b964b07152d234b70');
+insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'anna.carolina@newtonpaiva.br','anna.carolina',null,'moderador','1');
+insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'barbara.bagalhaes@newtonpaiva.br','barbara.bagalhaes',null,'moderador','1');
+insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'bety.saara@newtonpaiva.br','bety.saara',null,'moderador','1');
+insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'carlos.carvalho@newtonpaiva.br','carlos.carvalho',null,'moderador','1');
+insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'carolin.oaliveira@newtonpaiva.br','carolin.oaliveira',null,'moderador','1');
+insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'celia.charchar@newtonpaiva.br','celia.charchar',null,'moderador','1');
+insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'daniel.dimas@newtonpaiva.br','daniel.dimas',null,'moderador','1');
+insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'gabriel.alcantara@newtonpaiva.br','gabriel.alcantara',null,'moderador','1');
+insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'gabriel.wnuk@newtonpaiva.br','gabriel.wnuk',null,'moderador','1');
+insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'izabella.maria@newtonpaiva.br','izabella.maria',null,'moderador','1');
+insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'luiza.fernandes@newtonpaiva.br','luiza.fernandes',null,'moderador','1');
+insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'pollyanna.ferreira@newtonpaiva.br','pollyanna.ferreira',null,'moderador','1');
+insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'paula.cambraia@newtonpaiva.br','paula.cambraia',null,'moderador','1');
 
 
 
