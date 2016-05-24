@@ -2,7 +2,7 @@
 include("seguranca.php");
 	  global $usuario;
 	  global $senha; 
-// Verifica se um formul√°rio foi enviado
+// Verifica se um formul·rio foi enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	$usuario = (isset($_POST['username'])) ? $_POST['username'] : '';
@@ -15,17 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		switch ($_SESSION['idPermissao']){
 			
 			case 1:
-					header("Location:animais/");
+				header("Location:animais/");
 				break;
 				
 			case 2:
-					header("Location:aprovacao.php");
+				header("Location:aprovacao.php");
 				break;	
 			case 3:
 				header("Location:ongs/");
-				
 				break;
-				
+		        default: 
+		        	header("Location:403.php");
+		        	break;
 			
 		}
 		
