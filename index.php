@@ -9,6 +9,7 @@ $pdo = conectar ();
 $listaAnimal = $pdo->query ( " select 	e.nom_estado,
 	e.sg_uf,
 	c.nom_cidade,
+	c.cod_cidade,
 	a.cod_usuario,
 	u.nom_usuario,
 	a.cod_animal,
@@ -50,6 +51,10 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 											  inner join tb_estado e
 													on  (c.cod_estado = e.cod_estado)" );
 
+$listaCidade = $pdo->query ( "select distinct c.cod_cidade, 
+											  c.nom_cidade 
+								from tb_animal a inner join tb_cidade c on
+													(a.cod_cidade = c.cod_cidade)" );
 ?>
 <html lang="en">
 <head>
@@ -99,7 +104,7 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 				<?php
 				if ($listaAnimal) {
 					while ( $row = $listaAnimal->fetch ( PDO::FETCH_ASSOC ) ) {
-						echo "<li class='mix " . $row ["nom_animal"] . " " . $row ["cor"] . " " . $row ["cod_especie"] . " " . $row ["idade"] . "a " . $row ["ind_porte"] . " " . $row ["ind_sexo"] . " " . $row ["sg_uf"] . " " . ltrim ( $row ["nom_cidade"] ) . "'>
+						echo "<li class='mix " . $row ["nom_animal"] . " " . $row ["cor"] . " " . $row ["cod_especie"] . " " . $row ["idade"] . "a " . $row ["ind_porte"] . " " . $row ["ind_sexo"] . " " . $row ["sg_uf"] . " c" . ( $row ["cod_cidade"] ) . "'>
 							<div class='imgHolder'>
 								<figure>										
 								<img id='animal-filtro' data-value='" . $row ['cod_animal'] . "'  src='".substr($row ['url'],3)."' >								
@@ -121,7 +126,7 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 				<li class="gap"></li>
 				<li class="gap"></li>
 				<li class="gap"></li>
-			</ul>
+			</ul>			
 			<div class="cd-fail-message">Desculpe-nos, mas não encontramos nenhum
 				animalzinho com este perfil...</div>
 		</section>
@@ -137,6 +142,7 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 						<input type="search" placeholder="Buscar por...">
 					</div>
 				</div>
+				
 				<div class="cd-filter-block">
 					<h4>Estado</h4>
 					<div class="cd-filter-content">
@@ -144,7 +150,7 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 							<select class="filter" name="selectThis" id="selectThis">
 								<option value="">Selecione o estado ...</option>
 									<?php
-									error_reporting ( E_ALL );
+									//error_reporting ( E_ALL );
 									while ( $rowEstado = $listaEstado->fetch ( PDO::FETCH_ASSOC ) ) {
 										echo "<option value='." . $rowEstado ["sg_uf"] . "'>" . utf8_encode ( $rowEstado ["nom_estado"] ) . "</option>";
 									}
@@ -156,23 +162,26 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 
 				<div class="cd-filter-block">
 					<h4>Cidade</h4>
-
 					<div class="cd-filter-content">
 						<div class="cd-select cd-filters">
-							<select id="cod_cidade" class="filter" name="selectThis"
-								id="selectThis">
-								<option value="">Selecione a cidade ...</option>
+							<select class="filter" name="selectThis" id="selectThis">
+								<option value="">Selecione uma cidade...</option>
+								<?php
+								while ($rowCidade = $listaCidade->fetch ( PDO::FETCH_ASSOC ) ) {
+									if ($rowCidade["nom_cidade"] !== 'Belo Horizonte' )
+									{
+										echo "<option value='.c" . $rowCidade["cod_cidade"] . "'>" . utf8_encode ( $rowCidade["nom_cidade"] ) . "</option>";
+									}
+								}
+								?>
 							</select>
 						</div>
-
 					</div>
-
 				</div>
 
 
 				<div class="cd-filter-block">
 					<h4>Porte</h4>
-
 					<ul class="cd-filter-content cd-filters list">
 						<li><input class="filter" data-filter=".pequeno" type="checkbox"
 							id="cbpequeno"> <label class="checkbox-label" for="checkbox1">Pequeno</label></li>
@@ -183,13 +192,11 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 						<li><input class="filter" data-filter=".grande" type="checkbox"
 							id="cbgrande"> <label class="checkbox-label" for="checkbox3">Grande</label></li>
 					</ul>
-
 				</div>
 
 
 				<div class="cd-filter-block">
 					<h4>Raça</h4>
-
 					<div class="cd-filter-content">
 						<div class="cd-select cd-filters">
 							<select class="filter" name="selectThis" id="selectThis">
@@ -204,9 +211,7 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 								<option value=".bobtail">Bob Tail</option>
 							</select>
 						</div>
-
 					</div>
-
 				</div>
 
 
@@ -225,12 +230,10 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 							name="radioButton" id="radio3"> <label class="radio-label"
 							for="radio3">Fêmea</label></li>
 					</ul>
-
 				</div>
 
 				<div class="cd-filter-block">
 					<h4>Idade</h4>
-
 					<div class="cd-filter-content">
 						<div class="cd-select cd-filters">
 							<select class="filter" name="selectThis" id="selectThis">
@@ -244,9 +247,9 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 						</div>
 					</div>
 				</div>
+				
 				<div class="cd-filter-block">
 					<h4>Peso</h4>
-
 					<div class="cd-filter-content">
 						<div class="cd-select cd-filters">
 							<select class="filter" name="selectThis" id="selectThis">
@@ -257,11 +260,8 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 								<option value=".99kg">mais de 20kg</option>
 							</select>
 						</div>
-
 					</div>
-
-				</div>
-
+				</div>				
 			</form>
 
 			<a href="#0" class="cd-close">Fechar</a>
