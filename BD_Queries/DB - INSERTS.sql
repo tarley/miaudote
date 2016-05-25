@@ -146,7 +146,7 @@ insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) val
 insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'pollyanna.ferreira@newtonpaiva.br','pollyanna.ferreira',null,'moderador','1');
 insert into tb_usuario (COD_USUARIO,EMAIL,NOM_USUARIO,TELEFONE,PERFIL,SENHA) values (null,'paula.cambraia@newtonpaiva.br','paula.cambraia',null,'moderador','1');
 
-DELETE FROM tb_usuario where COD_RACA='1';
+DELETE FROM tb_raca where COD_RACA='1';
 INSERT INTO `tb_raca` (`COD_RACA`, `NOM_RACA`, `COD_ESPECIE`) VALUES ('1', 'Sem Raça Definida (SDR)', '1');
 
 -- Dump completed on 2016-05-15 14:48:18
