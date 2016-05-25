@@ -623,7 +623,7 @@ xcustom form elements
 /* Filtros Personalizados */
 .imgHolder {
 	position: relative;
-	margin: -15px;
+	margin: 12px;
 }
 
 .imgHolder img {
