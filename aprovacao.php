@@ -33,40 +33,87 @@ $lista = $pdo->query ( "select a.cod_animal,
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="images/icons/favicon.ico">
 <link rel="apple-touch-icon" href="images/icons/favicon.png">
-<link rel="apple-touch-icon" sizes="72x72"
-	href="images/icons/favicon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114"
-	href="images/icons/favicon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/icons/favicon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/icons/favicon-114x114.png">
 <!--Loading bootstrap css-->
-<link type="text/css" rel="stylesheet"
-	href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700">
-<link type="text/css" rel="stylesheet"
-	href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
-<link type="text/css" rel="stylesheet"
-	href="assets/css/aprovacao/jquery-ui-1.10.4.custom.min.css">
-<link type="text/css" rel="stylesheet"
-	href="assets/css/aprovacao/font-awesome.min.css">
-<link type="text/css" rel="stylesheet"
-	href="assets/css/aprovacao/bootstrap.min.css">
-<link type="text/css" rel="stylesheet"
-	href="assets/css/aprovacao/animate.css">
-<link type="text/css" rel="stylesheet"
-	href="assets/css/aprovacao/all.css">
-<link type="text/css" rel="stylesheet"
-	href="assets/css/aprovacao/main.css">
-<link type="text/css" rel="stylesheet"
-	href="assets/css/aprovacao/style-responsive.css">
-<link type="text/css" rel="stylesheet"
-	href="assets/css/aprovacao/zabuto_calendar.min.css">
-<link type="text/css" rel="stylesheet"
-	href="assets/css/aprovacao/pace.css">
-<link type="text/css" rel="stylesheet"
-	href="assets/css/aprovacao/jquery.news-ticker.css">
-<link type="text/css" rel="stylesheet"
-	href="assets/css/aprovacao/jplist-custom.css">
-<link rel="stylesheet"
-	href="assets/fonts/font-awesome/css/font-awesome.css">
+<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700">
+<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
+<link type="text/css" rel="stylesheet" href="assets/css/aprovacao/jquery-ui-1.10.4.custom.min.css">
+<link type="text/css" rel="stylesheet" href="assets/css/aprovacao/font-awesome.min.css">
+<link type="text/css" rel="stylesheet" href="assets/css/aprovacao/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="assets/css/aprovacao/animate.css">
+<link type="text/css" rel="stylesheet" href="assets/css/aprovacao/all.css">
+<link type="text/css" rel="stylesheet" href="assets/css/aprovacao/main.css">
+<link type="text/css" rel="stylesheet" href="assets/css/aprovacao/style-responsive.css">
+<link type="text/css" rel="stylesheet" href="assets/css/aprovacao/zabuto_calendar.min.css">
+<link type="text/css" rel="stylesheet" href="assets/css/aprovacao/pace.css">
+<link type="text/css" rel="stylesheet" href="assets/css/aprovacao/jquery.news-ticker.css">
+<link type="text/css" rel="stylesheet" href="assets/css/aprovacao/jplist-custom.css">
+<link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.css">
+	
+	<style>
+		.loader {
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 9999;
+			background: url('./images/page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
+			display: none;
+		}
+		
+		td.img img {
+			max-width: 235px;
+		}
+		
+		/* 
+		Max width before this PARTICULAR table gets nasty
+		This query will take effect for any screen smaller than 760px
+		and also iPads specifically.
+		*/
+		@media 
+		only screen and (max-width: 760px),
+		(min-device-width: 768px) and (max-device-width: 1024px)  {
+		
+			/* Force table to not be like tables anymore */
+			table, thead, tbody, th, td, tr { 
+				display: block; 
+			}
+			
+			/* Hide table headers (but not display: none;, for accessibility) */
+			thead tr { 
+				position: absolute;
+				top: -9999px;
+				left: -9999px;
+			}
+			
+			tr { border: 1px solid #ccc; }
+			
+			td { 
+				/* Behave  like a "row" */
+				border: none;
+				border-bottom: 1px solid #eee; 
+				position: relative;
+				padding-left: 50%; 
+			}
+			
+			td:before { 
+				/* Now like a table header */
+				position: absolute;
+				/* Top/left values mimic padding */
+				top: 6px;
+				left: 6px;
+				width: 45%; 
+				padding-right: 10px; 
+				white-space: nowrap;
+			}			
+		}
+	</style>
 </head>
+
+<body>
+<div id="loading_spinner" class="loader"></div>
 <!--BEGIN CONTENT-->
 <div class="page-content">
 	<div>
@@ -256,6 +303,7 @@ $lista = $pdo->query ( "select a.cod_animal,
 		</div>
 	</div>
 </div>
+</body>
 
 <script src="assets/js/aprovacao/jquery-1.10.2.min.js"></script>
 <script src="assets/js/aprovacao/jquery-migrate-1.2.1.min.js"></script>
@@ -297,20 +345,24 @@ $lista = $pdo->query ( "select a.cod_animal,
 
 <!--CORE JAVASCRIPT-->
 <script src="assets/js/aprovacao/main.js"></script>
+
 <script type="text/javascript">
 	function AbrirFotos(id) {		
 		var win = window.open('foto.php?id='+id,'_blank');
 	}
 
 </script>
-<script>	
+<script>
 	function Aprovar(id) {
+		$('#loading_spinner').show();
+		
 		$.ajax({
             url: 'assets/php/aprovar.php',
             type: 'POST',  
             data: 'id=' + id,          
 	        success: function(msg){ 
                 alert(msg);
+                $('#loading_spinner').hide();                
                 location.reload();                
         	},
     		error: function() {

@@ -50,6 +50,7 @@ try {
 					closedir($handle);
 				}				
 			}			
+			enviaEmail('Reprovado', $_POST['id']);
 			echo "Cadastro reprovado com sucesso";
 		} else {
 			echo "Falha ao reprovar cadastro";

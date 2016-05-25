@@ -16,7 +16,7 @@ try {
 	$stm->bindValue(':id', $id, PDO::PARAM_INT);
 	
 	if($stm->execute()){
-		//enviaEmail('Aprovado', $_POST['id']);
+		enviaEmail('Aprovado', $_POST['id']);
 		echo "Cadastro aprovado com sucesso";
 	} else {
 		echo "Falha ao aprovar cadastro";
