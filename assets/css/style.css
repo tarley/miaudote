@@ -556,3 +556,14 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 #master p{
 	text-align:justify;
 }
+#top-nav{
+	height: 100px;
+}
+
+#top-nav img{
+	min-width: 80px;
+	min-height: 95px;
+	max-width:100%;
+	max-height:100%;
+	margin-top: -10px;
+}

@@ -1,4 +1,4 @@
-<!-- Header Starts -Header e menus de inicializaÃ§Ã£o-->
+﻿<!-- Header Starts -Header e menus de inicializaÃ§Ã£o-->
 <div class="navbar-wrapper">
 	<div class="container">
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation"
@@ -6,7 +6,7 @@
 			<div class="container">
 				<div class="navbar-header">
 					<!-- Logo Starts -->
-					<a class="navbar-brand" href="/"><img src="images/logo2.png" alt="logo"></a>
+					<a class="navbar-brand" href="/"><img src="images/logomiaudote.png" alt="logo"></a>
 					<!-- #Logo Ends -->
 					<button type="button" class="navbar-toggle collapsed"
 						data-toggle="collapse" data-target=".navbar-collapse">
