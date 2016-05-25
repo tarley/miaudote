@@ -6,8 +6,6 @@ include ("assets/php/conexao.php");
 include ("assets/php/navigation.php");
 $pdo = conectar ();
 
-header ( "Content-Type: text/html; charset=UTF-8", true );
-
 $listaAnimal = $pdo->query ( " select 	e.nom_estado,
 	e.sg_uf,
 	c.nom_cidade,
@@ -59,6 +57,7 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 </head>
 
 <body id="body">
+<div class="topbar animated fadeInLeftBig"></div>
 	<?php
 	
 	include 'shared/_menu.php';
@@ -76,7 +75,7 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 			</ul>
 		</div>
 
-		<div id="conteudo-sub" class="col-md-9 col-md-offset-2 scroll"	style="min-height: 800px">
+		<div id="conteudo-sub" class="col-md-10 col-md-offset-1 scroll"	style="min-height: 800px">
 			<?php navigation()?>
 		</div>
 	</div>

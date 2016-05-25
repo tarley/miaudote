@@ -20,7 +20,7 @@
 				include('404.php');
 			}	
 		}else{
-			header("location:index.php?page=destaques");
+			include ("destaques.php");
 		}
 	}
 ?>
