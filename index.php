@@ -57,6 +57,7 @@ $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 </head>
 
 <body id="body">
+<div class="topbar animated fadeInLeftBig"></div>
 	<?php
 	
 	include 'shared/_menu.php';
