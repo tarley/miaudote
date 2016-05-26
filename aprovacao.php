@@ -64,7 +64,7 @@ $lista = $pdo->query ( "select a.cod_animal,
 		}
 		
 		td.img img {
-			max-width: 235px;
+			max-width: 100%;
 		}
 		
 		/* 
