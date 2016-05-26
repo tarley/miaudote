@@ -175,10 +175,6 @@ $lista = $pdo->query ( "select a.cod_animal,
 														data-type="text">Descrição A-Z</span></li>
 													<li><span data-path=".desc" data-order="desc"
 														data-type="text">Descrição Z-A</span></li>
-													<li><span data-path=".date" data-order="asc"
-														data-type="datetime">Data Crescente</span></li>
-													<li><span data-path=".date" data-order="desc"
-														data-type="datetime">Date Decrescente</span></li>
 												</ul>
 											</div>
 											<div class="text-filter-box">
@@ -270,17 +266,13 @@ $lista = $pdo->query ( "select a.cod_animal,
 												<ul class="dropdown-menu">
 													<li><span data-path="default">Filtrar por</span></li>
 													<li><span data-path=".title" data-order="asc"
-														data-type="text">Title A-Z</span></li>
+														data-type="text">Título A-Z</span></li>
 													<li><span data-path=".title" data-order="desc"
-														data-type="text">Title Z-A</span></li>
+														data-type="text">Título Z-A</span></li>
 													<li><span data-path=".desc" data-order="asc"
-														data-type="text">Description A-Z</span></li>
+														data-type="text">Descrição A-Z</span></li>
 													<li><span data-path=".desc" data-order="desc"
-														data-type="text">Description Z-A</span></li>
-													<li><span data-path=".date" data-order="asc"
-														data-type="datetime">Date asc</span></li>
-													<li><span data-path=".date" data-order="desc"
-														data-type="datetime">Date desc</span></li>
+														data-type="text">Descrição Z-A</span></li>
 												</ul>
 											</div>
 											<div data-type="{start} - {end} of {all}"
