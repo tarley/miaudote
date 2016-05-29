@@ -17,7 +17,7 @@
 				new Fundador ( 'Gustavo Resende', 'Administrador de Banco de Dados', 'images/fundadores/Gustavo_Resende.jpg', '', '', '' ),
 				new Fundador ( 'Carlos Alberto', 'Desenvolvedor', 'images/fundadores/Carlos_Alberto.jpg', '', '', '' ),
 				new Fundador ( 'Geovane Nascimento', 'Analista de testes', 'images/fundadores/geovane_silva.jpg', '', '', '' ),
-				new Fundador ( 'Jeferson Eustáquio', 'Desenvolvedor', 'images/fundadores/desconhecido.jpg', '', '', '' ),
+				new Fundador ( 'Jeferson Eustáquio', 'Desenvolvedor', 'images/fundadores/Jeferson_Eustaquio.jpg', '', '', '' ),
 				new Fundador ( 'Tarley Lana', 'Prof.Orientador', 'images/fundadores/Tarley_Lana.jpg', '', '', '' )
 		);
 		
