@@ -57,7 +57,6 @@
 			</div>
 			<div class="footer">
 				<button type="submit" class="button" name="myButton" value="foo">Entrar</button>
-				<button type="reset" class="button">Limpar</button>
 			</div>
 		</form>
 	</div>
