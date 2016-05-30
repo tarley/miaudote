@@ -17,7 +17,7 @@
 				<footer class="clearfix">
 					</br>
 					<p align="right" class="navigation">					
-						<i class=""><a href="index.php?page=recuperar_acesso" id="recuperar_acesso" data-link='recuperar_acesso'> Esqueceu sua senha</a></i>
+						<i class=""><a href="index.php?page=recuperar_acesso" id="recuperar_acesso" data-link='recuperar_acesso'>Esqueceu sua senha</a></i>
 					</p>
 					<?php
 						error_reporting(E_ALL);
@@ -47,7 +47,7 @@
 									echo "<span class='error_report'>Usuário n&atilde;o tem permiss&atilde;o neste m&etilde;ste m&otilde;dulo! </span>";
 									break;	
 								default:
-									echo "<span class='error_report'>Por favor, veifique as informações de acesso </span>";
+									echo "<span class='error_report'>Por favor, verifique as informações de acesso</span>";
 									break;
 							}
 							echo"</span>";
@@ -56,10 +56,8 @@
 				</footer>
 			</div>
 			<div class="footer">
-				<!--<a href="#" class="button" id="acesso_restrito">Entrar</a>-->
 				<button type="submit" class="button" name="myButton" value="foo">Entrar</button>
-				<p>
-				</p>
+				<button type="reset" class="button">Limpar</button>
 			</div>
 		</form>
 	</div>

@@ -1,38 +1,41 @@
 <?php
-include("seguranca.php");
-	  global $usuario;
-	  global $senha; 
-// Verifica se um formulário foi enviado
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	include "seguranca.php";	
 	
-	$usuario = (isset($_POST['username'])) ? $_POST['username'] : '';
-	$senha   = (isset($_POST['password'])) ? $_POST['password'] : '';
-  
-	$permissao = validaUsuario($usuario, $senha);
-	
-	if ($permissao == "OK") {
+	global $usuario;
+	global $senha;
+	// Verifica se um formulï¿½rio foi enviado
+	if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 		
-		switch ($_SESSION['idPermissao']){
+		$usuario = (isset ( $_POST ['username'] )) ? $_POST ['username'] : '';
+		$senha = (isset ( $_POST ['password'] )) ? $_POST ['password'] : '';
+		
+		Logger("usuario=" . $usuario . " senha=" . $senha);
+		
+		$resultado = validaUsuario ( $usuario, $senha );
+		
+		if ($resultado == "OK") {
 			
-			case 1:
-				header("Location:animais/");
-				break;
-				
-			case 2:
-				header("Location:aprovacao.php");
-				break;	
-			case 3:
-				header("Location:ongs/");
-				break;
-		        default: 
-		        	header("Location:403.php");
-		        	break;
+			Logger("Autenticado. idPermissao=" . $_SESSION ['idPermissao']);
+			$page = "403.php";
 			
+			switch ($_SESSION ['idPermissao']) {				
+				case '1' :
+					$page = "animais/";
+					break;				
+				case '2' :
+					$page = "aprovacao.php";
+					break;
+				case '3' :
+					$page = "ongs/";
+					break;
+				default :
+					Logger("Perfil invÃ¡lido. ");
+					break;
+			}
+			Logger("Location:" . CONTEXT_NAME . $page);
+			header("Location:" . CONTEXT_NAME . $page);
+		} else {
+			kick_out ( $resultado );
 		}
-		
-	}else{
-		kick_out($permissao);
 	}
- 
-}
 ?>

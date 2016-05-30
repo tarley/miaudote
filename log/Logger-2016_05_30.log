@@ -1,0 +1,30 @@
+[00:04:43 BRT] 	 [::1] 	 usuario=ong@ong.com senha=1 
+[00:04:43 BRT] 	 [::1] 	 nusuario=ong@ong_com nsenha=1 
+[00:04:44 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[00:04:44 BRT] 	 [::1] 	 get_out_05 
+[00:04:53 BRT] 	 [::1] 	 usuario=ong1@ong.com senha=1 
+[00:04:53 BRT] 	 [::1] 	 nusuario=ong1@ong_com nsenha=1 
+[00:04:53 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[00:04:53 BRT] 	 [::1] 	 OK 
+[00:04:53 BRT] 	 [::1] 	 Autenticado. idPermissao=1 
+[00:04:54 BRT] 	 [::1] 	 Location:/miaudote/animais/ 
+[00:05:13 BRT] 	 [::1] 	 usuario=ong1@ong.com senha=2 
+[00:05:14 BRT] 	 [::1] 	 nusuario=ong1@ong_com nsenha=2 
+[00:05:14 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[00:05:14 BRT] 	 [::1] 	 get_out_05 
+[00:05:23 BRT] 	 [::1] 	 usuario=ong2@ong.com senha=2 
+[00:05:23 BRT] 	 [::1] 	 nusuario=ong2@ong_com nsenha=2 
+[00:05:23 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[00:05:23 BRT] 	 [::1] 	 OK 
+[00:05:23 BRT] 	 [::1] 	 Autenticado. idPermissao=2 
+[00:05:23 BRT] 	 [::1] 	 Location:/miaudote/aprovacao.php 
+[00:05:41 BRT] 	 [::1] 	 usuario=ong3@ong.com senha=3 
+[00:05:42 BRT] 	 [::1] 	 nusuario=ong3@ong_com nsenha=3 
+[00:05:42 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[00:05:42 BRT] 	 [::1] 	 OK 
+[00:05:42 BRT] 	 [::1] 	 Autenticado. idPermissao=3 
+[00:05:42 BRT] 	 [::1] 	 Location:/miaudote/ongs/ 
+[00:07:32 BRT] 	 [::1] 	 usuario=ong@ong.com senha=1 
+[00:07:32 BRT] 	 [::1] 	 nusuario=ong@ong_com nsenha=1 
+[00:07:33 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[00:07:33 BRT] 	 [::1] 	 get_out_05 

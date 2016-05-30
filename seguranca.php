@@ -1,7 +1,6 @@
 <?php
 require_once 'assets/php/conexao.php';
 
-
 $_SG['conectaServidor'] = true;    // Abre uma conexÃ£o com o servidor MySQL?
 $_SG['abreSessao'] = true;         // Inicia a sessÃ£o com um session_start()?
 $_SG['caseSensitive'] = false;     // Usar case-sensitive? Onde 'thiago' Ã© diferente de 'THIAGO'
@@ -29,43 +28,45 @@ function validaUsuario($usuario, $senha){
 	 
     $cS = ($_SG['caseSensitive']) ? 'BINARY' : '';
      
-    // Usa a funÃ§Ã£o addslashes para escapar as aspas
-    $nusuario = addslashes($usuario);
+    // Usa a fun��o addslashes para escapar as aspas
+    $nusuario = str_replace(".", "_", addslashes($usuario));
     $nsenha   = addslashes($senha);
 	
-	if(empty($nusuario)){
+    Logger("nusuario=" . $nusuario . " nsenha=" . $nsenha);
+    
+    if(empty($nusuario)){
 		return "get_out_02";
 	}else if(empty($nsenha)){
 		return "get_out_04";
-	}else{
-		$sql = "select cod_usuario,nom_usuario,email,senha,perfil  from  tb_usuario where email = '".$nusuario."'  limit 1";
+	}else{		
+		$sql = "select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1";
 		$stm = $pdo->prepare($sql);
-		$stm-> bindValue(1 ,$nusuario);
-		$stm-> bindValue(2 ,$nsenha);
-		$stm-> execute();
-		$resultado = $stm->fetch(PDO::FETCH_ASSOC);
+		$stm->bindParam(1 ,$nusuario, PDO::PARAM_STR);
+		$stm->bindParam(2, $nsenha, PDO::PARAM_STR);
+		$executa = $stm->execute();
+		$row = $stm->fetch(PDO::FETCH_ASSOC);
 		
-		 
-		// Verifica se encontrou algum registro
-		if (empty($resultado)) {
-			// Nenhum registro foi encontrado => o usuÃ¡rio Ã© invÃ¡lido
-		   return "get_out_05";   
-		} else {
-			 
-			// Definimos dois valores na sessÃ£o com os dados do usuÃ¡rio
-			$_SESSION['usuarioID'] 		= $resultado['cod_usuario']; // Pega o valor da coluna 'id do registro encontrado no MySQL
-			$_SESSION['usuarioNome'] 	= $resultado['nom_usuario']; // Pega o valor da coluna 'nome' do registro encontrado no MySQL
-			$_SESSION['idPermissao'] 	= $resultado['perfil'];
-			
-			 
+		Logger("Executando SQL " . $sql . " Executa=" . $executa);
+		
+		if(!empty($row)) {
+			// Definimos dois valores na sessão com os dados do usuário
+			$_SESSION['usuarioID'] 	 = $row['cod_usuario']; // Pega o valor da coluna 'id do registro encontrado no MySQL
+			$_SESSION['usuarioNome'] = $row['nom_usuario']; // Pega o valor da coluna 'nome' do registro encontrado no MySQL
+			$_SESSION['idPermissao'] = $row['perfil'];
+				
 			if ($_SG['validaSempre'] == true) {
 				// Definimos dois valores na sessÃ£o com os dados do login
 				$_SESSION['usuarioLogin'] = $usuario;
 				$_SESSION['usuarioSenha'] = $senha;
 			}
-			return "OK" ;
+			
+			Logger("OK");
+			return "OK";
 		}
-	} 
+		
+		Logger("get_out_05");
+		return "get_out_05";
+	}
 }
      
 /**
