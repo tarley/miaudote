@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿??<!DOCTYPE html>
 <?php
 Error_reporting ( E_ALL );
 
@@ -40,7 +40,7 @@ from
 				inner join tb_cidade  c   on(a.cod_cidade  = c.cod_cidade)
 				inner join tb_estado  e   on(c.cod_estado  = e.cod_estado)
 where
-	f.id_foto_pri = 's' " );
+	f.id_foto_pri = 's' limit 2" );
 
 $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 												e.sg_uf,
@@ -100,8 +100,9 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 			</div>
 		</div>
 		<section id="galery-perfil" class="cd-gallery">
-			<ul class="filtros cs-style-3">
-				<?php
+			<div>Utilize o filtro ao lado para carregar mais resultados...</div><br /><br />
+			<ul id="cfiltro" class="filtros cs-style-3">
+				<!--php
 				if ($listaAnimal) {
 					while ( $row = $listaAnimal->fetch ( PDO::FETCH_ASSOC ) ) {
 						echo "<li class='mix " . $row ["nom_animal"] . " " . $row ["cor"] . " " . $row ["cod_especie"] . " " . $row ["idade"] . "a " . $row ["ind_porte"] . " " . $row ["ind_sexo"] . " " . $row ["sg_uf"] . " c" . ( $row ["cod_cidade"] ) . "'>
@@ -122,7 +123,7 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 						</li>";
 					}
 				}
-				?>
+				?-->
 				<li class="gap"></li>
 				<li class="gap"></li>
 				<li class="gap"></li>
@@ -136,18 +137,18 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 		<div class="cd-filter">
 			<form>
 				<div class="cd-filter-block">
-					<h4>Filtrar</h4>
+					<h4>Nome</h4>
 
-					<div class="cd-filter-content">
-						<input type="search" placeholder="Buscar por...">
+					<div class="">
+						<input id="fnome" type="search" placeholder="Buscar por...">
 					</div>
 				</div>
 				
 				<div class="cd-filter-block">
 					<h4>Estado</h4>
-					<div class="cd-filter-content">
+					<div class="">
 						<div id="cod_estado" class="cd-select cd-filters">
-							<select class="filter" name="selectThis" id="selectThis">
+							<select id="festado" class="" name="selectThis" id="selectThis">
 								<option value="">Selecione o estado ...</option>
 									<?php
 									//error_reporting ( E_ALL );
@@ -162,9 +163,9 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 
 				<div class="cd-filter-block">
 					<h4>Cidade</h4>
-					<div class="cd-filter-content">
+					<div class="">
 						<div class="cd-select cd-filters">
-							<select class="filter" name="selectThis" id="selectThis">
+							<select id="fcidade" class="" name="selectThis" id="selectThis">
 								<option value="">Selecione uma cidade...</option>
 								<?php
 								while ($rowCidade = $listaCidade->fetch ( PDO::FETCH_ASSOC ) ) {
@@ -183,50 +184,29 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 				<div class="cd-filter-block">
 					<h4>Porte</h4>
 					<ul class="cd-filter-content cd-filters list">
-						<li><input class="filter" data-filter=".pequeno" type="checkbox"
+						<li><input class="" data-filter=".pequeno" type="checkbox"
 							id="cbpequeno"> <label class="checkbox-label" for="checkbox1">Pequeno</label></li>
 
-						<li><input class="filter" data-filter=".medio" type="checkbox"
+						<li><input class="" data-filter=".medio" type="checkbox"
 							id="cbmedio"> <label class="checkbox-label" for="checkbox2">Medio</label></li>
 
-						<li><input class="filter" data-filter=".grande" type="checkbox"
+						<li><input class="" data-filter=".grande" type="checkbox"
 							id="cbgrande"> <label class="checkbox-label" for="checkbox3">Grande</label></li>
 					</ul>
 				</div>
 
-
-				<div class="cd-filter-block">
-					<h4>Raça</h4>
-					<div class="cd-filter-content">
-						<div class="cd-select cd-filters">
-							<select class="filter" name="selectThis" id="selectThis">
-								<option value="">Escolha uma raça</option>
-								<option value=".srd">Tomba-lata</option>
-								<option value=".bulldog">Bulldog</option>
-								<option value=".boxer">Boxer</option>
-								<option value=".rotweiller">Rotweiller</option>
-								<option value=".labrador">Labrador</option>
-								<option value=".yorkshire">Yorkshire</option>
-								<option value=".fold">Scottish Fold</option>
-								<option value=".bobtail">Bob Tail</option>
-							</select>
-						</div>
-					</div>
-				</div>
-
-
 				<div class="cd-filter-block">
 					<h4>Sexo</h4>
 					<ul class="cd-filter-content cd-filters list">
-						<li><input class="filter" data-filter="" type="radio"
+						<li><input class="" data-filter="" type="radio"
 							name="radioButton" id="radio1" checked> <label
 							class="radio-label" for="radio1">Todos</label></li>
 
-						<li><input class="filter" data-filter=".macho" type="radio"
+						<li><input id="fmacho" class="" data-filter=".macho" type="radio"
 							name="radioButton" id="radio2"> <label class="radio-label"
 							for="radio2">Macho</label></li>
 
-						<li><input class="filter" data-filter=".femea" type="radio"
+						<li><input id="ffemea" class="" data-filter=".femea" type="radio"
 							name="radioButton" id="radio3"> <label class="radio-label"
 							for="radio3">Fêmea</label></li>
 					</ul>
@@ -261,10 +241,12 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 							</select>
 						</div>
 					</div>
-				</div>				
+				</div>
+				
+				<input id='btnBusca' type='button' value='Buscar' />								
 			</form>
 
-			<a href="#0" class="cd-close">Fechar</a>
+			<a id="linkfechar" href="#0" class="cd-close">Fechar</a>
 		</div>
 		<a href="#0" id="filtro-menu" class="cd-filter-trigger">Filtros</a> </main>
 	</div>
@@ -354,7 +336,7 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 
 
 				<h4>
-					<a href="documents/TERMO_DE_RESPONSABILIDADE.pdf" download>Adoção
+					<a href="documents/TERMO_DE_RESPONSABILIDADE.pdf">Adoção
 						Legal</a>
 				</h4>
 
@@ -373,4 +355,94 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 	?>
 
 </body>
+<script>
+/* Carrega filtros primeira visita */
+$(document).ready(function(){
+	$.ajax({
+    	type: "POST",
+    	url: "./assets/php/filtro.php",
+    	data: "load=true",    		  
+    	dataType: 'html',    	 
+    	success: function(data){
+    		$("#cfiltro").html(data);  
+    		document.getElementById('linkfechar').click();    		  		   			    		
+    	},
+    	error: function(){			    	
+    	},
+    	complete: function(){			    	
+    	}
+    });
+});
+
+/* Carrega filtros clique Buscar */
+$(function() {
+    $('#btnBusca').click(function (){
+        // Nome Animal
+		var fnome = document.getElementById("fnome").value;
+
+        // Estado
+		var e = document.getElementById("festado");		
+		var festado = e.options[e.selectedIndex].value;
+
+        // Cidade
+		var c = document.getElementById("fcidade");		
+		var fcidade = c.options[c.selectedIndex].value;
+
+		// Porte
+		if (document.getElementById('cbpequeno').checked) {		
+			var fpequeno = 'X';
+		} else {
+			var fpequeno = '';
+		}
+
+		if (document.getElementById('cbmedio').checked) {
+			var fmedio = 'X';
+		} else {
+			var fmedio = '';
+		}
+
+		if (document.getElementById('cbgrande').checked) {
+			var fgrande = 'X';
+		} else {
+			var fgrande = '';
+		}
+
+		// Sexo
+		if (document.getElementById('fmacho').checked) {
+			var fmacho = 'X';
+		} else {
+			var fmacho = '';
+		}
+
+		if (document.getElementById('ffemea').checked) {
+			var ffemea = 'X';
+		} else {
+			var ffemea = '';
+		} 
+        
+    	$.ajax({
+	    	type: "POST",
+	    	url: "./assets/php/filtro.php",
+	    	data: {load: "false",
+	    		  fnome: fnome,
+	    		  festado: festado,
+	    		  fcidade: fcidade,
+	    		  fpequeno: fpequeno,
+	    		  fmedio: fmedio,
+	    		  fgrande: fgrande,
+	    		  fmacho: fmacho,
+	    		  ffemea: ffemea},	    		   	    	
+	    	dataType: 'html',	    	
+	    	success: function(data){
+	    		$("#cfiltro").html(data);
+	    		document.getElementById('linkfechar').click();	    			    		
+	    	},
+	    	error: function(){			    	
+	    	},
+	    	complete: function(){			    	
+	    	}
+	    });
+	});
+});
+</script>
 </html>
