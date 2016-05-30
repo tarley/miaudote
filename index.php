@@ -1,46 +1,10 @@
-﻿??<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <?php
 Error_reporting ( E_ALL );
 
 include ("assets/php/conexao.php");
 include ("assets/php/navigation.php");
 $pdo = conectar ();
-
-$listaAnimal = $pdo->query ( " select 	e.nom_estado,
-	e.sg_uf,
-	c.nom_cidade,
-	c.cod_cidade,
-	a.cod_usuario,
-	u.nom_usuario,
-	a.cod_animal,
-	a.nom_animal,
-	f.cod_foto,
-	f.nom_foto,
-	f.url,
-  case
-  when esp.cod_especie = 1 then 'cao'
-  when esp.cod_especie = 2 then 'gato'
-	end as cod_especie,
-	a.cor,
-	a.idade,									
-	case
-		when a.ind_porte = 1 then 'pequeno'
-		when a.ind_porte = 2 then 'medio'
-		when a.ind_porte = 3 then 'grande'
-		else 'indefinido'
-	end as ind_porte,									
-	case
-		when a.ind_sexo = 1 then 'macho'
-		when a.ind_sexo = 2 then 'femea'
-	end as ind_sexo										
-from 
-	tb_animal a inner join tb_especie esp on(a.cod_especie = esp.cod_especie) 
-				inner join tb_foto    f   on(a.cod_animal  = f.cod_animal)
-				inner join tb_usuario u   on(a.cod_usuario = u.cod_usuario)
-				inner join tb_cidade  c   on(a.cod_cidade  = c.cod_cidade)
-				inner join tb_estado  e   on(c.cod_estado  = e.cod_estado)
-where
-	f.id_foto_pri = 's' limit 2" );
 
 $listaEstado = $pdo->query ( "select  distinct	e.cod_estado,
 												e.sg_uf,
@@ -153,7 +117,7 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 									<?php
 									//error_reporting ( E_ALL );
 									while ( $rowEstado = $listaEstado->fetch ( PDO::FETCH_ASSOC ) ) {
-										echo "<option value='." . $rowEstado ["sg_uf"] . "'>" . utf8_encode ( $rowEstado ["nom_estado"] ) . "</option>";
+										echo "<option value='" . $rowEstado ["sg_uf"] . "'>" . utf8_encode ( $rowEstado ["nom_estado"] ) . "</option>";
 									}
 									?>
 									</select>
@@ -171,7 +135,7 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 								while ($rowCidade = $listaCidade->fetch ( PDO::FETCH_ASSOC ) ) {
 									if ($rowCidade["nom_cidade"] !== 'Belo Horizonte' )
 									{
-										echo "<option value='.c" . $rowCidade["cod_cidade"] . "'>" . utf8_encode ( $rowCidade["nom_cidade"] ) . "</option>";
+										echo "<option value='" . $rowCidade["cod_cidade"] . "'>" . utf8_encode ( $rowCidade["nom_cidade"] ) . "</option>";
 									}
 								}
 								?>
@@ -390,34 +354,34 @@ $(function() {
 
 		// Porte
 		if (document.getElementById('cbpequeno').checked) {		
-			var fpequeno = 'X';
+			var fpequeno = '0';
 		} else {
-			var fpequeno = '';
+			var fpequeno = null;
 		}
 
 		if (document.getElementById('cbmedio').checked) {
-			var fmedio = 'X';
+			var fmedio = '1';
 		} else {
-			var fmedio = '';
+			var fmedio = null;
 		}
 
 		if (document.getElementById('cbgrande').checked) {
-			var fgrande = 'X';
+			var fgrande = '2';
 		} else {
-			var fgrande = '';
+			var fgrande = null;
 		}
 
 		// Sexo
 		if (document.getElementById('fmacho').checked) {
-			var fmacho = 'X';
+			var fmacho = '1';
 		} else {
-			var fmacho = '';
+			var fmacho = null;
 		}
 
 		if (document.getElementById('ffemea').checked) {
-			var ffemea = 'X';
+			var ffemea = '2';
 		} else {
-			var ffemea = '';
+			var ffemea = null;
 		} 
         
     	$.ajax({
