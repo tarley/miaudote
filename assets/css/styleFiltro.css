@@ -275,6 +275,9 @@ xgallery
   display: none;
   text-align: center;
 }
+.cd-gallery .cd-success-message {  
+  text-align: center;
+}
 @media only screen and (min-width: 768px) {
   .cd-gallery {
     padding: 40px 3%;

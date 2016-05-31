@@ -244,6 +244,9 @@ xgallery
   display: none;
   text-align: center;
 }
+.cd-gallery .cd-success-message {  
+  text-align: center;
+}
 @media only screen and (min-width: 768px) {
   .cd-gallery {
     padding: 40px 3%;
@@ -753,4 +756,26 @@ xcustom form elements
 	position: absolute;
 	bottom: 10%;
 	right: 3%;
+}
+
+/* Botão de buscar no Filtro */
+.btn-pesquisa{
+	border : solid 1px #176477;
+	border-radius : 2px 1px 2px 1px ;
+	moz-border-radius : 2px 1px 2px 1px ;
+	-webkit-box-shadow : 0px 0px 5px rgba(0,0,0,1.0);
+	-moz-box-shadow : 0px 0px 5px rgba(0,0,0,1.0);
+	box-shadow : 0px 0px 5px rgba(0,0,0,1.0);
+	font-size : 15px;
+	color : #ffffff;
+	padding : 5px 10px;
+	background : #176477;
+	background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#176477), color-stop(100%,#4483b3));
+	background : -moz-linear-gradient(top, #176477 0%, #4483b3 100%);
+	background : -webkit-linear-gradient(top, #176477 0%, #4483b3 100%);
+	background : -o-linear-gradient(top, #176477 0%, #4483b3 100%);
+	background : -ms-linear-gradient(top, #176477 0%, #4483b3 100%);
+	background : linear-gradient(top, #176477 0%, #4483b3 100%);
+	filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#176477', endColorstr='#4483b3',GradientType=0 );
+	width: 50%;
 }

@@ -12,6 +12,7 @@ $query =	"select 	e.nom_estado,
 						u.nom_usuario,
 						a.cod_animal,
 						a.nom_animal,
+						a.dt_cadastro,
 						f.cod_foto,
 						f.nom_foto,
 						f.url,
@@ -55,11 +56,13 @@ if ($load == 'true') {
 	$fgrande = $_POST['fgrande'];
 	$fmacho = $_POST['fmacho'];
 	$ffemea = $_POST['ffemea'];
+	$fidade = $_POST['fidade'];
 	
 	// Nome
 	if (!empty($fnome)) {
 		$query .= " and a.nom_animal like '%" .$fnome. "%'";
 	}
+	
 	
 	// Cidade - Estado
 	if (!empty($festado) && empty($fcidade)) {
@@ -70,13 +73,58 @@ if ($load == 'true') {
 		$query .= " and (e.sg_uf = '" .$festado. "' or c.cod_cidade = '" .$fcidade. "')";
 	}
 	
-	// Porte
+	
+	// Porte	
+	$fporte = array();
+	
+	if (!empty($fpequeno)) {
+		array_push($fporte, '0');		
+	}
+	
+	if (!empty($fmedio)) {
+		array_push($fporte, '1');
+	}
+	
+	if (!empty($fgrande)) {
+		array_push($fporte, '2');
+	}
+	
+	if (!empty($fporte)) {
+		$in_porte = implode(",", $fporte);		
+		$query .= " and a.ind_porte IN(".$in_porte.")";
+	}
+
 	
 	// Sexo
+	if (!empty($fmacho)) {
+		$query .= " and a.ind_sexo = '1'";
+	} elseif (!empty($ffemea)) {
+		$query .= " and a.ind_sexo = '2'";
+	}
+	
+	// Idade
+	
+	if(!empty($fidade)) {
+		switch ($fidade) {
+			case 1:
+				$query .= " and a.idade <= 1";
+				break;
+			case 2:
+				$query .= " and a.idade > 1 and a.idade <= 2";
+				break;
+			case 3:
+				$query .= " and a.idade > 2 and a.idade <= 3";
+				break;
+			case 4:
+				$query .= " and a.idade > 3";
+				break;
+		}
+	}
 
 }
 
-$query .= " limit 20";	// Limite máximo de exibições
+$query .= " and a.dt_cadastro is not null and a.dt_adocao is null";
+$query .= " order by a.dt_cadastro desc limit 20 ";	// Limite máximo de exibições 20
 
 $listaAnimal = $pdo->query ($query);
 
@@ -100,6 +148,5 @@ if ($listaAnimal) {
 						</li>";
 	}
 }
-
 
 ?>

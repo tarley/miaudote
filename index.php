@@ -64,30 +64,9 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 			</div>
 		</div>
 		<section id="galery-perfil" class="cd-gallery">
-			<div>Utilize o filtro ao lado para carregar mais resultados...</div><br /><br />
+			<div class="cd-success-message">Apenas os 20 primeiros resultados serão exibidos, utilize o filtro para melhorar a busca...</div><br /><br />
 			<ul id="cfiltro" class="filtros cs-style-3">
-				<!--php
-				if ($listaAnimal) {
-					while ( $row = $listaAnimal->fetch ( PDO::FETCH_ASSOC ) ) {
-						echo "<li class='mix " . $row ["nom_animal"] . " " . $row ["cor"] . " " . $row ["cod_especie"] . " " . $row ["idade"] . "a " . $row ["ind_porte"] . " " . $row ["ind_sexo"] . " " . $row ["sg_uf"] . " c" . ( $row ["cod_cidade"] ) . "'>
-							<div class='imgHolder'>
-								<figure>										
-								<img id='animal-filtro' data-value='" . $row ['cod_animal'] . "'  src='".substr($row ['url'],3)."' >								
-								<hr>
-								<p>
-									" . $row ['nom_animal'] . " 
-								</p>
-								<figcaption>
-									<h3>" . utf8_encode ( $row ['nom_cidade'] ) . " - " . $row ['sg_uf'] . "</h3>
-									<span>" . $row ["ind_sexo"] . ", " . $row ["idade"] . " ano(s)</span> 
-									<a href='#conteudo' id='animal-filtro' data-value='" . $row ['cod_animal'] . "'>Perfil</a>
-								</figcaption>	
-								</figure>
-							</div> 
-						</li>";
-					}
-				}
-				?-->
+				<!--  Resultado do filtro vem aqui -->
 				<li class="gap"></li>
 				<li class="gap"></li>
 				<li class="gap"></li>
@@ -180,34 +159,18 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 					<h4>Idade</h4>
 					<div class="cd-filter-content">
 						<div class="cd-select cd-filters">
-							<select class="filter" name="selectThis" id="selectThis">
-								<option value="">Idade</option>
-								<option value=".0-1">0-1</option>
-								<option value=".1-3">1-3</option>
-								<option value=".3-7">3-7</option>
-								<option value="7-10">7-10</option>
-								<option value=".+10">+10</option>
+							<select id="fidade" class="" name="selectThis" id="selectThis">
+								<option value="">Selecione uma idade...</option>
+								<option value="1">até 1 ano</option>
+								<option value="2">de 1 a 2 anos</option>
+								<option value="3">de 2 a 3 anos</option>
+								<option value="4">maior que 3 anos</option>								
 							</select>
 						</div>
 					</div>
-				</div>
+				</div>			
 				
-				<div class="cd-filter-block">
-					<h4>Peso</h4>
-					<div class="cd-filter-content">
-						<div class="cd-select cd-filters">
-							<select class="filter" name="selectThis" id="selectThis">
-								<option value="">Peso</option>
-								<option value=".0-5kg">1 a 5kg</option>
-								<option value=".6-10kg">6 a 10kg</option>
-								<option value=".10-20kg">10 a 20 kg</option>
-								<option value=".99kg">mais de 20kg</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				
-				<input id='btnBusca' type='button' value='Buscar' />								
+				<input id="btnBusca" class="btn-pesquisa" type="button" value="Pesquisa" />								
 			</form>
 
 			<a id="linkfechar" href="#0" class="cd-close">Fechar</a>
@@ -354,35 +317,39 @@ $(function() {
 
 		// Porte
 		if (document.getElementById('cbpequeno').checked) {		
-			var fpequeno = '0';
+			var fpequeno = 'x';
 		} else {
 			var fpequeno = null;
 		}
 
 		if (document.getElementById('cbmedio').checked) {
-			var fmedio = '1';
+			var fmedio = 'x';
 		} else {
 			var fmedio = null;
 		}
 
 		if (document.getElementById('cbgrande').checked) {
-			var fgrande = '2';
+			var fgrande = 'x';
 		} else {
 			var fgrande = null;
 		}
 
 		// Sexo
 		if (document.getElementById('fmacho').checked) {
-			var fmacho = '1';
+			var fmacho = 'x';
 		} else {
 			var fmacho = null;
 		}
 
 		if (document.getElementById('ffemea').checked) {
-			var ffemea = '2';
+			var ffemea = 'x';
 		} else {
 			var ffemea = null;
-		} 
+		}
+
+		// Estado
+		var i = document.getElementById("fidade");		
+		var fidade = i.options[i.selectedIndex].value; 
         
     	$.ajax({
 	    	type: "POST",
@@ -395,7 +362,8 @@ $(function() {
 	    		  fmedio: fmedio,
 	    		  fgrande: fgrande,
 	    		  fmacho: fmacho,
-	    		  ffemea: ffemea},	    		   	    	
+	    		  ffemea: ffemea,
+	    		  fidade: fidade},	    		   	    	
 	    	dataType: 'html',	    	
 	    	success: function(data){
 	    		$("#cfiltro").html(data);

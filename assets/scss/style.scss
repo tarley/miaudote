@@ -305,6 +305,10 @@ xgallery
 		display: none;
 		text-align: center;
 	}
+	
+	.cd-success-message {		
+		text-align: center;
+	}
 
 	@include MQ(M) {
 		padding: 40px 3%;

@@ -79,9 +79,11 @@ jQuery(document).ready(function($){
 	    callbacks: {
 	    	onMixStart: function(){
 	    		$('.cd-fail-message').fadeOut(200);
+	    		$('.cd-success-message').fadeIn(200);
 	    	},
 	      	onMixFail: function(){
 	      		$('.cd-fail-message').fadeIn(200);
+	      		$('.cd-success-message').fadeOut(200);
 	    	}
 	    }
 	});
