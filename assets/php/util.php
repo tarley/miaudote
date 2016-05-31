@@ -17,7 +17,9 @@
 												
 									from 	tb_animal a , tb_foto f
 									where 	a.cod_animal = f.cod_animal
-									and   	f.id_foto_pri = 's'";
+									and   	f.id_foto_pri = 's'
+									and	a.dt_cadastro is not null
+									and	a.dt_adocao is null";
 		
 				$stmdestaque = $pdo->prepare($listar);
 				$stmdestaque-> execute();
