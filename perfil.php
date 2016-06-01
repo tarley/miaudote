@@ -9,7 +9,7 @@
 	$identificador = $_GET['id'];
 	try{	
 		$sql = "select 	a.cod_animal,
-				a.nom_animal,
+				concat(Upper(substr(a.nom_animal, 1,1)), lower(substr(a.nom_animal, 2,length(a.nom_animal)))) as nom_animal,
 				a.desc_perfil,
 				a.idade,
 				f.cod_foto,
@@ -19,17 +19,17 @@
 				u.email,
 				
 				case 
-				  when ind_porte = 1 then 'pequeno'
-				  when ind_porte = 2 then 'medio'
-				  when ind_porte = 3 then 'grade'
+				  when ind_porte = 0 then 'Pequeno'
+				  when ind_porte = 1 then 'Médio'
+				  when ind_porte = 2 then 'Grande'
 				  when ind_porte = 4 then 'gigante'
 				  else 'indefinido'
 
 
 				end as ind_porte,
 				case 
-				  when ind_sexo  = 1 then 'femea'
-				  when ind_sexo  = 2 then 'macho'
+				  when ind_sexo  = 1 then 'Macho'
+				  when ind_sexo  = 2 then 'Fêmea'
 				  else 'indefinido'
 
 				end as ind_sexo							
@@ -60,22 +60,23 @@
 								<img  class='img-responsive' alt='#' id='details-img' src='".substr($row ['url'],3)."'/>
 							</div>
 							<div id='content'>
-								<ul id='tabs' class='nav nav-tabs' data-tabs='tabs'>
-									<li class='active'><a href='#sobre-mim' data-toggle='tab'>Sobre Mim</a></li>
-									<li><a href='#caracteristicas' data-toggle='tab'>Características</a></li>
+								<ul id='tabs' class='nav nav-tabs' data-tabs='tabs'>							
+									<li class='active'><a href='#caracteristicas' data-toggle='tab'>Características</a></li>
 									<li><a href='#contato' data-toggle='tab'>Contato</a></li>
 								</ul>
 								<div id='my-tab-content' class='tab-content' style ='min-height:100px;'>
 									<br><br>
-									<div class='tab-pane active' id='sobre-mim'>
-										
-										<p>$row[desc_perfil]</p>
-									</div>
-									<div class='tab-pane' id='caracteristicas'>
+									
+									<div class='tab-pane active' id='caracteristicas'>
 										<ul>
-										<li>Idade: $row[idade]. ano(s) </li>
-										<li>Sexo : $row[ind_sexo] </li>
-										<li>Porte: $row[ind_porte]  </li>
+										<li><b>Nome:</b> $row[nom_animal] </li>
+										<br>
+										<li><b>Sobre mim:</b> <p>$row[desc_perfil]</p></li>
+										<li><b>Idade:</b> $row[idade] ano(s) </li>
+										<br>
+										<li><b>Sexo:</b> $row[ind_sexo] </li>
+										<br>
+										<li><b>Porte:</b> $row[ind_porte]  </li>
 										<br><br>
 										<li>*Todos os animais do Miaudote são castrados.  </li>
 										</ul>	
