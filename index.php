@@ -263,8 +263,7 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 
 
 				<h4>
-					<a href="documents/TERMO_DE_RESPONSABILIDADE.pdf">Adoção
-						Legal</a>
+					<a href="documents/termoResponsabilidadeInformacao.pdf">Termo de Responsabilidade</a>
 				</h4>
 
 				</br>
