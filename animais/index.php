@@ -191,7 +191,7 @@ var excluirItem = function(id_Item){
 						$ind_porte	=	'Pequeno';
 					break;
 				case 1:
-						$ind_porte	=	'M�dio';
+						$ind_porte	=	'Médio';
 					break;
 				case 2:
 						$ind_porte	=	'Grande';
