@@ -37,7 +37,7 @@ if(@$_POST && trim(@$_GET['a']) == 's'){
 	$pdo->query($qry);
 	$id = $pdo->lastInsertId();
 	
-	// Prepara a inclusão das fotos
+	// Prepara a inclusï¿½o das fotos
 	$qry_foto 	= 	"insert into tb_foto (COD_ANIMAL, URL, ID_FOTO_PRI) values ";
 	$up_fotos	=	0;
 	
@@ -80,7 +80,8 @@ if(@$_POST && trim(@$_GET['a']) == 's'){
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 <head>
 <title>Miaudote - Gestor Animais</title>
-<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="images/icons/favicon.ico">
@@ -117,12 +118,12 @@ $(function(){
 		var err =	0;
 		 
 		if($('#nome').val()==''){
-			msg	+=	'- informe um nome válido! \n';
+			msg	+=	'- informe um nome vï¿½lido! \n';
 			err	=	1;	
 		}	
 		
 		if($('#descricao').val()==''){
-			msg	+=	'- informe uma descrição válido! \n';
+			msg	+=	'- informe uma descriï¿½ï¿½o vï¿½lido! \n';
 			err	=	1;	
 		}
 		

@@ -7,13 +7,13 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 */
 /**/
-define('CONTEXT_NAME', '/miaudote/');
+define('CONTEXT_NAME', '/');
 define('LOG_DIR', $_SERVER['DOCUMENT_ROOT'] . CONTEXT_NAME . 'log/');
 define('DB_HOST', 'ns702.hostgator.com.br');
 define('DB_NAME', 'tarley_adote');
 define('DB_USER', 'tarley_adote');
 define('DB_PASS', 'Miaudote2016');
-
+define ( 'CHARSET', 'utf8' );
 
 include "logger.php";
 /*

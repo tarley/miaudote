@@ -28,7 +28,8 @@ $lista = $pdo->query ( "select a.cod_animal,
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 <head>
 <title>Miaudote</title>
-<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html;charset=uft-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="images/icons/favicon.ico">

@@ -14,7 +14,7 @@ $tipo_permissao	=	2;
 protectPage ($tipo_permissao);
 
 if(!filter_var(trim(@$_GET['n']),FILTER_VALIDATE_INT) || trim(@$_GET['n']) < 1){
-	// Se não vier um ID válido
+	// Se nï¿½o vier um ID vï¿½lido
 	header('Location: ./');
 	exit();
 }else{
@@ -80,7 +80,8 @@ if($_POST && trim($_GET['a']) == 's'){
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 <head>
 <title>Miaudote - Gestor Animais</title>
-<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="images/icons/favicon.ico">
@@ -133,12 +134,12 @@ $(function(){
 		var err =	0;
 		 
 		if($('#NOM_USUARIO').val()==''){
-			msg	+=	'- informe um nome válido! \n';
+			msg	+=	'- informe um nome vï¿½lido! \n';
 			err	=	1;	
 		}	
 		
 		if($('#EMAIL').val()==''){
-			msg	+=	'- informe um e-mail válido! \n';
+			msg	+=	'- informe um e-mail vï¿½lido! \n';
 			err	=	1;	
 		}
 		

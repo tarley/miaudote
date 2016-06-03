@@ -39,14 +39,14 @@ if(@$_POST && trim(@$_GET['a']) == 's'){
 		 $statement->bindParam(':telefone', $telefone);
 		 $statement->bindParam(':perfil', $perfil);
 		 
-		 // Executa a sentença já com os valores
+		 // Executa a sentenï¿½a jï¿½ com os valores
 		 if($statement->execute()){
 		  // Definimos a mensagem de sucesso
 		   @$_SESSION['messagem'] = 'dados-salvos';
 		   die('<script>window.location.href="./";</script>');
 		 }else{
 		   // Definimos a mensagem de erro
-		   @$_SESSION['messagem'] = 'Falha ao cadastrar usuário';
+		   @$_SESSION['messagem'] = 'Falha ao cadastrar usuï¿½rio';
 		 }
 		
 	}catch(PDOException $e) {
@@ -58,7 +58,8 @@ if(@$_POST && trim(@$_GET['a']) == 's'){
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
 <head>
 <title>Miaudote - Gestor ONGs</title>
-<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html;charset=uft-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="images/icons/favicon.ico">
@@ -111,12 +112,12 @@ $(function(){
 		var err =	0;
 		 
 		if($('#NOM_USUARIO').val()==''){
-			msg	+=	'- informe um nome válido! \n';
+			msg	+=	'- informe um nome vï¿½lido! \n';
 			err	=	1;	
 		}	
 		
 		if($('#EMAIL').val()==''){
-			msg	+=	'- informe um e-mail válido! \n';
+			msg	+=	'- informe um e-mail vï¿½lido! \n';
 			err	=	1;	
 		}
 		
