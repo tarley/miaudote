@@ -5,9 +5,9 @@
 		<div class="col-sm-offset-4">
 			<div id="opt-contact">
 				<div class="img-contact" style="float: left; margin-top: 30px">
-					<img src="images/icon-phone.png"><span>(31)2516-2305</span><br> <img
-						src="images/icon-whats.png"><span>(31)99358-6958</span><br> <img
-						src="images/icon-email.png" /><span>valhalla@ong.com</span>
+					<!--	<img src="images/icon-phone.png"><span>(00)0000-0000</span><br> 
+					<img src="images/icon-whats.png"><span>(00)00000-0000</span><br> -->
+					<img src="images/icon-email.png" /><span>tarley.lana@gmail.com</span>
 				</div>
 			</div>
 		</div>
