@@ -1,0 +1,241 @@
+
+/*Ong / perfil usuario*/
+
+hr{
+	padding:2px; !important
+	
+}
+
+#panel-body{
+	height:850px
+}
+
+#img-perfil{
+	min-width:190px;
+	min-height:170px;
+	border:1 solid;
+}
+#view-profile{
+	width:100%;	
+}
+
+.glyphicon.sucesso {
+    font-size:5em;
+	color:green;
+	margin:0 auto;
+	position:relative;
+}
+
+.glyphicon.alerta {
+
+    font-size:5em;
+	color:yellow;
+}
+.glyphicon.erro {
+
+    font-size:5em;
+	color:red;
+}
+
+
+.glyphicon.questao {
+    font-size:5em;
+	color:red;
+	margin:0 auto;
+	position:relative;
+}
+
+
+.msg_sucesso{
+	font-size:20px;
+	padding:10px;
+}
+
+.msg_alerta{
+	
+	
+}
+
+.msg_erro{
+	
+}
+
+
+#panel-foot-body{
+	height:auto;
+}
+
+
+/*Fim estilo ongs / perfil usuario*/
+
+/*Upload de imagens*/
+
+
+
+.bgColor {
+width: 440px;
+height:100px;
+background-color: #F9D735;
+}
+.bgColor label{
+font-weight: bold;
+color: #A0A0A0;
+}
+#targetLayer{
+float:left;
+width:100px;
+height:100px;
+text-align:center;
+line-height:100px;
+font-weight: bold;
+color: #C0C0C0;
+background-color: #F0E8E0;
+overflow:auto;
+}
+#uploadFormLayer{
+float:right;
+padding: 10px;
+}
+.btnSubmit {
+background-color: #3FA849;
+padding:4px;
+border: #3FA849 1px solid;
+color: #FFFFFF;
+}
+.inputFile {
+padding: 3px;
+background-color: #FFFFFF;
+}
+
+
+
+
+
+
+/**/
+
+#global-upload{
+	border:1px solid #ccc;
+	padding:10px;
+	margin :20px auto;
+	
+}
+
+div#global-upload div.porcentagem{
+	float:left;
+	width:100%;
+	padding:5px;
+	background:#fff;
+	border:1px solid #069;
+	
+}
+
+#global-upload div.porcentagem span.valor{
+	float:left;
+	display:block;
+	background:#069;
+	width:30%;
+	
+}
+div#global-upload div.porcentagem span.valor p{
+	float:left;
+	font:15px tahoma,arial, helvetica;
+	color:#fff;
+	text-shadow: #0000 0 1px 0;
+	margin:5px;
+
+}
+
+div.mensagens{
+	float:left;
+	width:100%;
+	padding:5px;
+	border:1px solid #036;
+	font:16px "Trebuchet MS",tahoma,arial,helvetica;
+	color:#fff;
+	margin-top:5px;
+	margin-bottom:10px;
+	background:#8F88FA;
+	
+}
+
+div#formulario{
+	float:left;
+	width:100%;
+	padding:10px;
+	border:1px solid #ccc;
+
+}
+
+div#formulario label spam{
+	float:left;
+	font:16px "Trebuchet MS",tahoma,arial,helvetica;
+	color:#666;
+	margin-right:25px;
+	margin-top:5px;
+	 
+}
+
+div#formulario label input{margin-top:5px}
+
+div#formulario #enviarFoto{
+	float:right;
+	padding:5px;
+	background:#069;
+	font:16px "Trebuchet MS",tahoma,arial,helvetica;
+	color:#fff;
+	border:1px solid #036;
+	
+}
+
+div#formulario #enviarFoto.hover{
+	cursor:pointer;
+	background:#036;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

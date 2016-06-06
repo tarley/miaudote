@@ -1,0 +1,83 @@
+
+$(function(){	
+	
+	$('#form').submit(function(){
+		
+		var msg =	'<b style="color:red">Erros encotrados :</b> \n\n';
+		var err =	0;
+		 
+		if($('#nome').val()==''){
+			msg	+=	'- informe um nome valida! \n';
+			err	=	1;	
+		}	
+		
+		if($('#descricao').val()==''){
+			msg	+=	'- informe uma descriçãoo válida! \n';
+			err	=	1;	
+		}
+		
+		if($('#idade').val()==''){
+			msg	+=	'- informe a idade! \n';
+			err	=	1;	
+		}
+		
+		if($('#cor').val()==''){
+			msg	+=	'- informe a cor! \n';
+			err	=	1;	
+		}
+		
+		if ($('#estado').val().trim() === '') {
+			msg	+=	'- informe o estado! \n';
+			err	=	1;	
+		}
+		
+		if($('#cidade').val()== 0){
+			msg	+=	'- informe a cidade! \n';
+			err	=	1;	
+		}
+		
+		if($('#perfil').val()=='' ){
+			msg	+=	'- Informe o perfil do animal! \n';
+			err	=	1;	
+		}
+		
+		var conta_foto	=	0; 
+		$('.foto-animal').each(function(){
+			
+			var vlw	= $(this).val();
+			if(vlw==''){
+				conta_foto++;
+			}
+		});
+		
+		if(conta_foto==5){
+			msg	+=	'- informe pelo menos uma foto! \n';
+			err	=	1;	
+		}
+
+		if(err==1){
+			
+			bootbox.dialog({
+			  message: msg,
+			  title: "<span class='glyphicon glyphicon-remove-sign erro'></span>",
+			  buttons: {
+				main: {
+				  label: "OK",
+				  className: "btn-primary",
+				  callback: function() {
+					close();
+				  }
+				}
+			  }
+			});
+			
+			return false;
+		}
+		
+	});
+		
+	
+	$('.btnExcluir_foto').click(function(){
+		excluirItem($(this).attr('id').split('_')[1],$(this).data("value"));
+	}).css('cursor','pointer');
+});

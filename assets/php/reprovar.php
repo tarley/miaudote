@@ -17,7 +17,7 @@ $sql = "SELECT url FROM tb_foto WHERE cod_animal = :id";
 $stm = $pdo->prepare($sql);	
 $stm->bindValue(':id', $id, PDO::PARAM_INT);
 if($stm->execute()){
-	while ($row = $stm->fetch(PDO::FETCH_ASSOC)) {		
+	while ($row = $stm->fetch(PDO::FETCH_ASSOC)){		
 		foreach($row as $value){
 			array_push($imagens, substr($value, 18));			
 		}		

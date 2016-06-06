@@ -202,99 +202,143 @@ $(function(){
 
 	<div style="clear:both;height:30px;"></div>
 	
-	<center>
-	<form method="post" action="?n=<?php echo trim(@$_GET['n']); ?>&a=s" name="form" id="form"  enctype="multipart/form-data" >
-			<div class="input-group">
+	<form method="post" action="?n=<?php echo trim(@$_GET['n']); ?>&a=s" name="form" id="form"  class='form-horizontal' enctype="multipart/form-data" >
+			
+				<h4>Informações do animal</h4>
+			
+				<div class='form-group'><label class='col-sm-3 control-label'>Nome</label>
+					<div class='col-sm-9 controls'>
+						<div class='row'>
+							<div class='col-md-9 col-xs-12'><input type='text' placeholder='digite o nome' class='form-control' name='nome'/></div>
+						</div>
+					</div>
+				</div>
+				
 
-				Nome:
-				<br>
-				<input type="text" 			id="nome" 		name="nome"  class="form-control" style="width:400px;"/>
-				<br/><br/>
-			</div>
-			<div class="input-group">
-				Descri&ccedil;&atilde;o:
-				<br>
-				<textarea type="text" 		id="descricao" 	name="descricao"  class="form-control"/		style="width:400px;height:100px;"/></textarea>
-				<br/><br/>
-			</div>
-			<div class="input-group">
-				Perfil:
-				<br>
-				<textarea type="text" 		id="perfil" 	name="perfil" class="form-control"/ 			style="width:400px;height:100px;"/></textarea>
-				<br><br>
-			</div>
-			<div class="input-group">
-				Idade:
-				<br>
-				<input type="number" 			id="idade" 		name="idade" min="1" max="20" class="form-control" style="width:400px;"/>
-				<br/><br/>
-			</div>
-			<div class="input-group">
-				Cor:
-				<br>
-				<input type="text" 			id="cor" 		name="cor" class="form-control" style="width:400px;"/>
-				<br/><br/>
-			</div>
-			<div class="input-group">
-				Porte:
-				<br>
-				<select name="porte" id="porte" class="form-control" style="width:400px;"/>
-					<option value='0' selected>Pequeno</option>
-					<option value='1' >m&eacute;dio</option>
-					<option value='2' >Grande</option>
-				</select>
-				<br/><br/>
-			</div>
+				<div class='form-group'><label class='col-sm-3 control-label'>Espécie</label>
+
+					<div class='col-sm-9 controls'>
+						<div class='row'>
+							<div class='col-md-5 col-xs-12'>
+								<select class='form-control' name='especie'>
+									<option selected >Selecione ...</option>
+									<option value = "1"> Cão  </option>
+									<option value = "2">Gato  </option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			
-			<div class="input-group">
-				Sexo:
-				<br>
-				<select name="sexo" id="sexo" class="form-control" style="width:400px;"/>
-					<option value='1'>Macho</option>
-					<option value='2'>F&ecirc;mea</option>
-				</select>
-				<br/><br/>
-			</div>
-			<div class="input-group">
-				Esp&eacute;cie:	
-				<br>
-				<select name="especie" id="especie" class="form-control" style="width:400px;"/>
-					<?php
-					$qry_ 		= "select * from tb_especie order by NOM_ESPECIE asc";
-					$ls 		= $pdo->query ($qry_);
-					
-					while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
-						echo "<option value='".$lin[COD_ESPECIE]."'>".$lin[NOM_ESPECIE]."</option>";
-					endwhile; 
-					?>
-				</select>
-				<br/><br/>
-			</div>
-			
-			<div class="input-group">
-				Estado:
-				<br>
-				<select name="estado" id="estado" class="form-control" style="width:400px;"/>
-					<option value=""> Informe o estado</option>
-					<?php
-					$qry_ 		= "select * from tb_estado order by SG_UF asc";
-					$ls 		= $pdo->query ($qry_);
-					
-					while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
-						echo "<option value='".$lin['COD_ESTADO']."'>".$lin['SG_UF']."</option>";
-					endwhile; 
-					?>
-				</select>
-				<br/><br/>
-			</div>
-			<div class="input-group">
-				Cidade:	
-				<br>
-				<select name="cidade" id="cidade" class="form-control" style="width:400px;"/>
-					<option value=""> Informe o estado</option>
-				</select>
-				<br/><br/>
-			</div>
+				<div class='form-group'><label class='col-sm-3 control-label'>Frase de apresentação</label>
+
+					<div class='col-sm-9 controls'>
+						<div class='row'>
+							<div class='col-md-9 col-xs-12'><input type='text' placeholder='defina seu animal em  no maximo 4 palavras' class='form-control'name='descricao'/></div>
+						</div>
+					</div>
+				</div>
+				
+				<div class='form-group'><label class='col-sm-3 control-label'>cor</label>
+					<div class='col-sm-9 controls'>
+						<div class='row'>
+							<div class='col-md-9 col-xs-12'><input type='text' placeholder='digite a cor do animal' class='form-control' name='cor'/></div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'><label class='col-sm-3 control-label'>Idade</label>
+
+					<div class='col-sm-9 controls'>
+						<div class='row'>
+							<div class='col-md-9 col-xs-12'><input type='number' placeholder='' class='form-control'name='idade'/></div>
+						</div>
+					</div>	
+				</div>
+				
+				<div class='form-group'><label class='col-sm-3 control-label'>Porte</label>
+
+					<div class='col-sm-9 controls'>
+						<div class='row'>
+							<div class='col-md-5 col-xs-12'>
+								<select class='form-control' name='porte'>
+									<option selected >Selecione ...   </option>
+									<option value ='1'> Pequeno  </option>
+									<option value ='2'  >Médio  </option>
+									<option value ='3' >Grande  </option>
+								</select>
+							</div>
+						</div>
+					</div>	
+				</div>
+
+				<div class='form-group'><label class='col-sm-3 control-label'>Sexo</label>
+
+					<div class='col-sm-9 controls'>
+						<div class='row'>
+							<div class='col-md-5 col-xs-12'>
+								<select class='form-control' name='sexo'>
+									<option selected >Selecione ...</option>
+									<option value='1'>Fêmea     </option>
+									<option value='2'>Macho     </option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class='form-group'><label class='col-sm-3 control-label'>Estado</label>
+
+					<div class='col-sm-9 controls'>
+						<div class='row'>
+							<div class='col-md-5 col-xs-12'>
+								<select class='form-control' id="estado" name='estado'>
+									<option selected >Selecione ...</option>
+									
+									<?php
+									$pdo = conectar();
+									$qry_ 	= "select cod_estado,sg_uf from tb_estado order by SG_UF asc";
+									$ls 	= $pdo->query ($qry_);
+									
+									while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
+										echo "<option value='".$lin['cod_estado']."'>".$lin['sg_uf']."</option>";
+									endwhile; 
+									?>	
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class='form-group'><label class='col-sm-3 control-label'>cidade</label>
+
+					<div class='col-sm-9 controls'>
+						<div class='row'>
+							<div class='col-md-5 col-xs-12'>
+								<select class='form-control' id="cidade" name='cidade'>
+									<option selected >Selecione ...</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class='form-group'><label class='col-sm-3 control-label'>Perfil</label>
+
+					<div class='col-sm-9 controls'>
+						<div class='row'>
+							<div class='col-md-9 col-xs-12'>
+								<textarea type="text"  id="perfil" 	name="perfil" placeholder="Descreva seu animal.Apresentação,caracteristicas ou qualquer informação relevante" class="form-group" style="width:100%;height:100px;"/></textarea>
+							</div>
+						</div>
+					</div>	
+				</div>
+				
+				<hr/>
+				<span id='cadastrarAnimal' class='btn btn-green btn-block'>Cadastrar Animal</span>
+
 			<div class="input-group">			
 				<h1 style="font-size:15pt;">Foto: Tamanho e formato 800x600 px JPG
 				<br><span style="color:red;">(A primeira foto selecionada ser&aacute; a foto de capa)</span>
@@ -348,7 +392,6 @@ $(function(){
 		
 		
 		</form>
-		</center>
 		
 
 </body>

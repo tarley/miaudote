@@ -1,7 +1,7 @@
 <?php
 
 define('PATH', '../');
-define('IMG_ADM_PATH', '../images/');
+define('IMG_ADM_PATH', '/images/');
 
 Error_reporting ( 0 );
 require_once PATH.'assets/php/conexao.php';
@@ -28,7 +28,7 @@ if(@trim($_GET['a'])=='exc' && filter_var(@trim($_GET['n']),FILTER_VALIDATE_INT)
 
 	};
 	$_SESSION['mensagem']	=	'dado-removido';
-	die('<script>window.location.href="editar.php?n='.trim($_GET['n']).'";</script>');
+	die('<script>window.location.href="index.php?page=editar&n='.trim($_GET['n']).'";</script>');
 }
 
 if($_POST && trim($_GET['a']) == 's'){

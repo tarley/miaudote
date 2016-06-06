@@ -18,20 +18,11 @@
 			Logger("Autenticado. idPermissao=" . $_SESSION ['idPermissao']);
 			$page = "403.php";
 			
-			switch ($_SESSION ['idPermissao']) {				
-				case '1' :
-					$page = "animais/";
-					break;				
-				case '2' :
-					$page = "aprovacao.php";
-					break;
-				case '3' :
-					$page = "ongs/";
-					break;
-				default :
-					Logger("Perfil inválido. ");
-					break;
+			if ($_SESSION ['idPermissao']) {	
+				
+				$page ="../painel/";
 			}
+
 			Logger("Location:" . CONTEXT_NAME . $page);
 			header("Location:" . CONTEXT_NAME . $page);
 		} else {
