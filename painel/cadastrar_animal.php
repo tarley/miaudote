@@ -167,7 +167,7 @@ $(function(){
 
 </head>
 	<div id="conteudo" style="text-align: justify;" >
-	<a href='index.php?page=animal' id='aprovarAnimal'><span  class="btn btn-success">Voltar</span></a>
+	<a href='index.php?page=animal' id=''><span  class="btn btn-success">Voltar</span></a>
 	<center>
 	<form method="post" action="#" name="form" id="form"  class='form-horizontal' enctype="multipart/form-data" >
 			

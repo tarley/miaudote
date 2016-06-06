@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
-	include("../../assets/php/conexao.php");
+	include("../assets/php/conexao.php");
+	
 	$pdo = conectar();
 		
 	$acao = (isset($_GET['acao']))? $_GET['acao'] : 'acao_indefinida';

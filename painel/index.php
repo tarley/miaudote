@@ -19,7 +19,7 @@
     <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
     <link type="text/css" rel="stylesheet" href="styles/jquery-ui-1.10.4.custom.min.css">
     <link type="text/css" rel="stylesheet" href="styles/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="styles/animate.css">
     <link type="text/css" rel="stylesheet" href="styles/all.css">
     <link type="text/css" rel="stylesheet" href="styles/main.css">
@@ -27,6 +27,8 @@
     <link type="text/css" rel="stylesheet" href="styles/zabuto_calendar.min.css">
     <link type="text/css" rel="stylesheet" href="styles/pace.css">
     <link type="text/css" rel="stylesheet" href="styles/jquery.news-ticker.css">
+	<link type="text/css" rel="stylesheet" href="assets/css/adicionais.css">
+	<script src="assets/js/adicionais.css"></script>
 </head>
 <body>
     <div>
@@ -112,7 +114,7 @@
                             <?php echo ucwords($page = (isset($_GET['page']))? $_GET['page'] : 'Home')?></div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
-                        <li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+                        <li><i class="fa fa-home"></i>&nbsp;<a href="#">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
                         <li class="hidden"><a href="#"><?php echo $page = (isset($_GET['page']))? $_GET['page'] : 'Home'; ?></a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
                         <li class="active"><?php echo ucwords($page = (isset($_GET['page']))? $_GET['page'] : 'Home') ?></li>
                     </ol>
@@ -145,7 +147,7 @@
 	<script src="assets/js/jquery-1.11.js"></script>
     <script src="script/jquery-migrate-1.2.1.min.js"></script>
     <script src="script/jquery-ui.js"></script>
-    <script src="script/bootstrap.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.js"></script>
     <script src="script/bootstrap-hover-dropdown.js"></script>
 	<script src="assets/js/script.js"></script>
 	<script src="assets/js/bootbox.min.js"></script>
@@ -156,6 +158,8 @@
 	<script src="assets/js/ong.js"></script>
 	<script src="assets/js/adocao.js"></script>
 	<script src="assets/js/aprovar.js"></script>
+	<script src="assets/js/adicionais.css"></script>
+
 	
 	<!--upload-->
 	

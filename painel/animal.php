@@ -1,7 +1,7 @@
 <?php
 	error_reporting(E_ALL);
 	include("server/painel_animal.php");
-	include("assets/php/public.php");
+	//include("server/public_server.php");
 
 ?>
 	<a href='index.php?page=cadastrar_animal' id='#'><span  class="btn btn-success">Adicionar</span></a>

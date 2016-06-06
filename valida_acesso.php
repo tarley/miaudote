@@ -20,11 +20,11 @@
 			
 			if ($_SESSION ['idPermissao']) {	
 				
-				$page ="../painel/";
+				$page ="painel";
 			}
 
 			Logger("Location:" . CONTEXT_NAME . $page);
-			header("Location:" . CONTEXT_NAME . $page);
+			header("Location: painel/index.php");
 		} else {
 			kick_out ( $resultado );
 		}
