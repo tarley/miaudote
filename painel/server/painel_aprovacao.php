@@ -80,12 +80,12 @@
 					}
 					
 				}else{
-					//echo "reprovacao_n_ok";
+					echo "reprovacao_n_ok";
 				}
 
 				
 			}else{
-				//echo ($acao=="reprovar")?"reprovacao_ok":"aprovacao_ok";	
+				echo ($acao=="reprovar")?"reprovacao_ok":"aprovacao_ok";	
 			}
 
 			}catch(PDOException $e){

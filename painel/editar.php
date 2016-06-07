@@ -1,11 +1,9 @@
 <?php
+	error_reporting(E_ALL);
 
-//	require('../assets/php/conexao.php');
-	//if(isset($_GET['usuario'])){
-		if(!isset($pdo)){
-			$pdo = conectar ();
-		}
-	//}
+	require_once('../assets/php/conexao.php');
+
+	$pdo = conectar ();
 
 	include("upload.php");
 	

@@ -3,6 +3,7 @@
 	include('navigation_painel.php');
 	include('../seguranca.php');
 	protectPage($_SESSION['idPermissao']);
+	error_reporting(E_ALL);
 ?>
 <html lang="en">
 <head>
@@ -57,9 +58,8 @@
 				<div class="sidebar-collapse menu-scroll">
 					<ul id="side-menu" class="nav">
 					<div class="clearfix"></div>
-				
-					<?php if($_SESSION['idPermissao']=="moderador"){ 
-							echo"	
+
+					
 							<li class='active'><a href='#' data-href='central' id='link' data-value='0'><i class='fa fa-tachometer fa-fw'><div class='icon-bg bg-orange'></div></i>
 									<span class='menu-title'>Dashboard</span></a>
 							</li>
@@ -76,10 +76,9 @@
 									<div class='icon-bg bg-blue'></div>
 								</i><span class='menu-title'>Aprovacao</span></a>
 									  
-							</li>";						
+							</li>					
 						
-						}else{
-							echo"
+
 							<li class='active'><a href='#' data-href='central' id='link' data-value='0'><i class='fa fa-tachometer fa-fw'><div class='icon-bg bg-orange'></div></i>
 									<span class='menu-title'>Dashboard</span></a>
 							</li>
@@ -100,9 +99,7 @@
 							</i><span class='menu-title'>Animais para adoção</span></a>
 						</li>";
 					
-						
-						
-						}?>
+
 					
 					</ul>
 				</div>

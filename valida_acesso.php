@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include "seguranca.php";	
 	
 	global $usuario;

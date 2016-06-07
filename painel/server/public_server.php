@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-	include("../assets/php/conexao.php");
+	include("../../assets/php/conexao.php");
 	
 	$pdo = conectar();
 		
@@ -23,7 +23,7 @@ error_reporting(E_ALL);
 		echo 	"<select class='filter' name='selectThis' id='selectThis'>
 					<option value=''>Selecione uma cidade ...</option>";
 					while ( $rowEstado = $consulta->fetch ( PDO::FETCH_ASSOC ) ) {
-							echo "<option value='" . $rowEstado ["cod_cidade"] . "'>" . utf8_encode ( $rowEstado ["nom_cidade"] ) . "</option>";
+							echo "<option value='" . $rowEstado ["cod_cidade"] . "'>" . $rowEstado ["nom_cidade"] . "</option>";
 						}"
 				</select>";
 	}
