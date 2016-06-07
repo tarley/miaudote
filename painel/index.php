@@ -43,7 +43,7 @@
 					<ul class="nav navbar navbar-top-links navbar-right mbn">
 						<li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle"><img src="images/avatar/48.jpg" alt="" class="img-responsive img-circle"/>&nbsp;<span class="hidden-xs"><?php echo $_SESSION['usuarioNome']?></span>&nbsp;<span class="caret"></span></a>
 							<ul class="dropdown-menu dropdown-user pull-right">
-								<li><a href="index.php?page=sair"><i class="fa fa-key"></i>Log Out</a></li>
+								<li><a href="index.php?page=sair"><i class="fa fa-key"></i>Sair </a></li>
 							</ul>
 						</li>
 					</ul>
@@ -58,50 +58,43 @@
 				<div class="sidebar-collapse menu-scroll">
 					<ul id="side-menu" class="nav">
 					<div class="clearfix"></div>
-
-					
-							<li class='active'><a href='#' data-href='central' id='link' data-value='0'><i class='fa fa-tachometer fa-fw'><div class='icon-bg bg-orange'></div></i>
-									<span class='menu-title'>Dashboard</span></a>
-							</li>
-							
-							<li><a href='index.php?page=perfil_usuario' data-href='perfil_usuario' id='link' data-value='1'><i class='fa fa-desktop fa-fw'><!-- No data value, adicionar o ID do usuario logado-->
-								<div class='icon-bg bg-pink'></div>
-							</i><span class='menu-title'>Perfil</span></a>	
-
-							<li><a href='index.php?page=ong' data-href='ongs' id='link' data-value='0'><i class='fa fa-send-o fa-fw'>
-								<div class='icon-bg bg-green'></div>
-							</i><span class='menu-title'>Ongs</span></a>  
-							</li>
-							<li><a href='index.php?page=aprovacao' data-href='aprovacao' id='link' data-value='0'><i class='fa fa-th-list fa-fw'>
-									<div class='icon-bg bg-blue'></div>
-								</i><span class='menu-title'>Aprovacao</span></a>
-									  
-							</li>					
-						
-
-							<li class='active'><a href='#' data-href='central' id='link' data-value='0'><i class='fa fa-tachometer fa-fw'><div class='icon-bg bg-orange'></div></i>
-									<span class='menu-title'>Dashboard</span></a>
-							</li>
-							
-							<li><a href='index.php?page=perfil_usuario' data-href='perfil_usuario' id='link' data-value='1'><i class='fa fa-desktop fa-fw'><!-- No data value, adicionar o ID do usuario logado-->
-								<div class='icon-bg bg-pink'></div>
-							</i><span class='menu-title'>Perfil</span></a>	
-							
-							
-							
-							<li><a href='index.php?page=animal' data-href='animais' id='link' data-value='0'><i class='fa fa-edit fa-fw'>
-							<div class='icon-bg bg-violet'></div>
-							</i><span class='menu-title'>Animais</span></a>
-							</li>
-
-							<li><a href='index.php?page=lista_adocao' data-href='lista_adocao' id='link' data-value='0'><i class='fa fa-edit fa-fw'>
+					<?php
+					switch ($_SESSION['idPermissao']){
+						case "usuario":	
+					?>
+						<li><a href='index.php?page=perfil_usuario' data-href='perfil_usuario' id='link' data-value='1'><i class='fa fa-desktop fa-fw'><!-- No data value, adicionar o ID do usuario logado-->
+						<div class='icon-bg bg-pink'></div>
+						</i><span class='menu-title'>Perfil</span></a>
+						<li><a href='index.php?page=animal' data-href='animais' id='link' data-value='0'><i class='fa fa-edit fa-fw'>
+						<div class='icon-bg bg-violet'></div>
+						</i><span class='menu-title'>Animais</span></a>
+						</li>
+						<li><a href='index.php?page=lista_adocao' data-href='lista_adocao' id='link' data-value='0'><i class='fa fa-edit fa-fw'>
 							<div class='icon-bg bg-violet'></div>
 							</i><span class='menu-title'>Animais para adoção</span></a>
-						</li>";
-					
+						</li>						
+					<?php
+						break;
+						case "moderador":
+					?>
+						<li><a href='index.php?page=perfil_usuario' data-href='perfil_usuario' id='link' data-value='1'><i class='fa fa-desktop fa-fw'><!-- No data value, adicionar o ID do usuario logado-->
+						<div class='icon-bg bg-pink'></div>
+						</i><span class='menu-title'>Perfil</span></a>
+						<li><a href='index.php?page=ong' data-href='ongs' id='link' data-value='0'><i class='fa fa-send-o fa-fw'>
+						<div class='icon-bg bg-green'></div>
+						</i><span class='menu-title'>Ongs</span></a>  
+						<li><a href='index.php?page=aprovacao' data-href='aprovacao' id='link' data-value='0'><i class='fa fa-th-list fa-fw'>
+						<div class='icon-bg bg-blue'></div>
+						</i><span class='menu-title'>Aprovacao</span></a>
+									  
+						</li>	
 
-					
-					</ul>
+					<?php
+					break;
+			
+					}
+					?>
+				</ul>
 				</div>
 			</nav>
 			 <div id="page-wrapper">
