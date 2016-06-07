@@ -53,6 +53,7 @@ $(function(){
 									}
 								  }
 								});
+								location.reload();
 								break;
 								
 							case "cancelamento_ok": 
@@ -70,6 +71,7 @@ $(function(){
 									}
 								  }
 								});
+								location.reload();
 								break;
 							
 							case "confirmacao_n_ok":

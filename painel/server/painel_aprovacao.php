@@ -6,6 +6,7 @@
 	$id   		 = (isset($_GET['id']))? $_GET['id'] : 'id_indefinido';
 	$cod_usuario = (isset($_GET['usuario']))? $_GET['usuario'] : 'usuario_indefinido';
 	
+	
 	if(($acao =="aprovar") or($acao=="reprovar")){	
 
 		$pdo = conectar();
@@ -14,6 +15,8 @@
 				$dt_cadastro = $date = date("Y-m-d");
 				
 				$statement   = $pdo->prepare( 'update tb_animal set dt_cadastro  = :dtcadastro where cod_animal = :id and cod_usuario = :usuario');
+				
+				
 				
 			}else if($acao =="reprovar"){
 				
@@ -85,7 +88,13 @@
 
 				
 			}else{
-				echo ($acao=="reprovar")?"reprovacao_ok":"aprovacao_ok";	
+				if($statement->execute()){
+					echo "aprovacao_ok";
+					
+				}else{
+					echo"aprovacao_n_ok";
+				}
+		
 			}
 
 			}catch(PDOException $e){

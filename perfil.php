@@ -28,8 +28,8 @@
 
 				end as ind_porte,
 				case 
-				  when ind_sexo  = 1 then 'Macho'
-				  when ind_sexo  = 2 then 'Fêmea'
+				  when ind_sexo  = 1 then 'Fêmea'
+				  when ind_sexo  = 2 then 'Macho'
 				  else 'indefinido'
 
 				end as ind_sexo							
@@ -56,39 +56,80 @@
 			<?php
 				if($resultado){
 					while($row = $resultado->fetch()) {
-						echo"<div class='drop-shadow lifted' style='position:relative;margin:0 auto;width:800px;min-height:500px;border:0px solid';>
-								<img  class='img-responsive' alt='#' id='details-img' src='".substr($row ['url'],3)."'/>
+						?><div class=' lifted' style='position:relative;margin:0 auto;width:800px;min-height:500px;border:0px solid';>
+							
+							<div class="row">
+										<div class='col-md-12' style=''>
+											<div style='height:400px;background-color:'>
+												<section id='sliderhome'>
+													<div id='meuSlider' class='carousel slide' data-ride='carousel'>
+														<ol class='carousel-indicators'>
+															<li data-target='#meuSlider' data-slide-to='0' class='active'></li>
+															<li data-target='#meuSlider' data-slide-to='1'></li>
+															<li data-target='#meuSlider' data-slide-to='2'></li>
+														</ol>
+														<div class='carousel-inner'>
+														
+															<?php
+														   $qry_ 		= "select url,id_foto_pri from tb_foto where cod_animal ='".$row['cod_animal']."' order by id_foto_pri";
+															$ls 		= $pdo->query ($qry_);
+															
+																while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
+																if($lin['id_foto_pri']=='S'){
+																	$active ='active';
+																}else{
+																	$active ='';
+																}
+																
+																echo "<div class='item $active'><img src='".substr($lin['url'],3)."' alt='Slider 1' /></div>"	;											
+
+																endwhile; 
+															?>
+
+															
+														</div>
+
+														<a class='left carousel-control ignoresc' href='#meuSlider' data-toggle ="ignoreScroll" data-slide='prev'>
+														<span class='glyphicon glyphicon-chevron-left'></span></a>
+														<a class='right carousel-control' href='#meuSlider' data-toggle ="ignoreScroll" data-slide='next'>
+														<span class='glyphicon glyphicon-chevron-right'></span></a>
+													</div>
+												</section>
+											</div>
+										</div>
+									</div>
+
 							</div>
 							<div id='content'>
 								<ul id='tabs' class='nav nav-tabs' data-tabs='tabs'>							
 									<li class='active'><a href='#caracteristicas' data-toggle='tab'>Características</a></li>
 									<li><a href='#contato' data-toggle='tab'>Contato</a></li>
 								</ul>
-								<div id='my-tab-content' class='tab-content' style ='min-height:100px;'>
+								<div id='my-tab-content' class='tab-content' style ='min-height:180px;'>
 									<br><br>
 									
 									<div class='tab-pane active' id='caracteristicas'>
 										<ul>
-										<li><b>Nome:</b> $row[nom_animal] </li>
+										<li><b>Nome:</b> <?php echo$row['nom_animal']?> </li>
 										<br>
-										<li><b>Sobre mim:</b> <p>$row[desc_perfil]</p></li>
-										<li><b>Idade:</b> $row[idade] ano(s) </li>
+										<li><b>Sobre mim:</b> <p><?php echo utf8_encode($row['desc_perfil'])?></p></li>
+										<li><b>Idade:</b><?php echo $row['idade']." ano(s)"?> </li>
 										<br>
-										<li><b>Sexo:</b> $row[ind_sexo] </li>
+										<li><b>Sexo:</b> <?php echo $row['ind_sexo'] ?> </li>
 										<br>
-										<li><b>Porte:</b> $row[ind_porte]  </li>
+										<li><b>Porte:</b><?php echo $row['ind_porte']?>  </li>
 										<br><br>
 										<li>*Todos os animais do Miaudote são castrados.  </li>
 										</ul>	
 									</div>
 									<div class='tab-pane' id='contato'>
 										<ul>
-											<li>Telefone:$row[telefone]</li>
-											<li>E-mail : $row[email]  </li>
+											<li>Telefone:<?php echo$row['telefone']?></li>
+											<li>E-mail :<?php echo $row['email']?>  </li>
 										</ul>		
 									</div>
 								</div>
-							</div>";
+							</div><?php
 					}
 					// Desconecta
 				$pdo = null;

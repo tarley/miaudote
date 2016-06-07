@@ -226,7 +226,7 @@
 										 inner join tb_cidade  c  on(a.cod_cidade  = c.cod_cidade)
 										 inner join tb_estado  uf on (c.cod_estado = uf.cod_estado)
 										 inner join tb_usuario u  on (a.cod_usuario = u.cod_usuario)
-						where a.cod_usuario =?
+						where a.animal =?
 						GROUP BY a.cod_animal";
 			}
 			
@@ -246,6 +246,11 @@
 					$resultado = $pdo->prepare($qry);
 					$resultado->execute(array($id_ong,$cod_animal));
 				break;
+				default:
+					$resultado = $pdo->prepare($qry);
+					$resultado->execute(array($id_ong));
+				
+			
 				
 				
 				
@@ -317,7 +322,7 @@
 																		$active ='';
 																	}
 																	
-																	echo "<div class='item $active'><img src='".$lin['url']."'  alt='Slider 1' /></div>"	;											
+																	echo "<div class='item $active'><img src='".$lin['url']."' alt='Slider 1' /></div>"	;											
 
 																	endwhile; 
 																?>
@@ -368,7 +373,6 @@
 								<div class='panel-body' id='panel-foot-body'>
 								<?php
 								if($acao =="adocao"){
-							 
 										if($dt_adocao =="n_adotado"){
 	
 											echo"<div class='col-md-5'>
@@ -378,7 +382,7 @@
 											</div>";
 								
 										}else{
-		
+											echo
 											"<div class='col-md-5'>
 												<a href='#' id='cancelarAdocao' data-animal ='".$cod_animal."' data-usuario ='".$cod_usuario."'>
 													<span  class='btn btn-danger'>Cancelar Adoção</span>

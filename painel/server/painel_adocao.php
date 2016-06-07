@@ -1,5 +1,5 @@
 <?php
-	include("conexao.php");
+	include("../../assets/php/conexao.php");
 	
 	$acao        = (isset($_GET['acao']))? $_GET['acao'] : 'acao_indefinida';
 	$id   		 = (isset($_GET['id']))? $_GET['id'] : 'id_indefinido';

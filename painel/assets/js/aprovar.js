@@ -53,6 +53,8 @@ $(function(){
 									}
 								  }
 								});
+								
+								location.reload();
 								break;
 								
 							case "reprovacao_ok": 
@@ -70,7 +72,10 @@ $(function(){
 									}
 								  }
 								});
+								
+								location.reload();
 								break;
+								
 							
 							case "aprovacao_n_ok":
 								
