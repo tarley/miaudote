@@ -1144,3 +1144,7 @@ figure.effect-chico:hover p {
 @media (max-width: 639px) {
 	.grid figure {width: 100%;}
 }
+
+#destaques p{
+	font-size: 100%;	
+}
