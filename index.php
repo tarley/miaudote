@@ -1,4 +1,3 @@
-﻿<!DOCTYPE html>
 <?php
 Error_reporting ( E_ALL );
 
@@ -21,6 +20,7 @@ $listaCidade = $pdo->query ( "select distinct c.cod_cidade,
 													(a.cod_cidade = c.cod_cidade)" );
 ?>
 <html lang="en">
+
 <head>
 <?php include 'shared/_header.php';?>
 </head>
