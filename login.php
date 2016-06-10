@@ -1,7 +1,7 @@
-
-<title>Miaudote | Login</title>
 <?php global $usuario;
 	  global $senha ?>
+
+<title>Miaudote | Login</title>
 <div id="remove">
 	<div id="acesso">
 		<form name="login-form" class="login-form" id="formulario-login" action="valida_acesso.php" method="POST">
