@@ -1,10 +1,10 @@
-<!DOCTYPE html>
 <?php
+    include('../seguranca.php');
 	include('navigation_painel.php');
-	include('../seguranca.php');
 	protectPage($_SESSION['idPermissao']);
 	error_reporting(E_ALL);
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Miaudote | ♥_♥ </title>

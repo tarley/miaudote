@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'assets/php/conexao.php';
 
 $_SG['conectaServidor'] = true;    // Abre uma conexÃ£o com o servidor MySQL?
@@ -8,10 +9,6 @@ $_SG['validaSempre'] = true;       // Deseja validar o usuÃ¡rio e a senha a ca
 $_SG['tabela'] = 'tb_usuario'; 
   
 // Verifica se precisa iniciar a sessÃ£o
-if ($_SG['abreSessao'] == true) {
-  session_start();
-}
-
  /*Possiveis valores para a funcao kick_out()
 	get_out_01 = "Por favor realize o login para acessar este recurso";
 	get_out_02 = "Usuario deve ser informado";
