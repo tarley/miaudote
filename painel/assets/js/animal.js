@@ -124,7 +124,7 @@ $(document).on('click','#cadastrarAnimal , #editarAnimal', function(){
 		
 		
 		
-		bootbox.confirm("<div><div><span class='glyphicon glyphicon-question-sign questao'></span><br><br><label class='msg_erro'>Deseja excluir este animal?</label></div></div>", function(result) {
+		bootbox.confirm("<div><div><span class='glyphicon glyphicon-question-sign questao'></span><br><br><label class='msg_erro'>Deseja excluir esta foto ?</label></div></div>", function(result) {
 			
 			if(result ==true){					
 				$.ajax({		  

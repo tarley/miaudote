@@ -63,8 +63,26 @@ hr{
 
 #panel-foot-body{
 	height:auto;
+	padding:5px; !important;
 }
 
+
+.panel-group {
+    margin-bottom: 10px; !important;
+}
+
+.panel-body {
+   padding: 1px; !important;
+}
+
+#my-tab-content{
+	font-size: 17px; !important
+	
+}
+
+#dados-animal{
+	list-style: none; !important
+}
 
 /*Fim estilo ongs / perfil usuario*/
 

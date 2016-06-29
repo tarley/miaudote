@@ -15,9 +15,9 @@
     <link rel="apple-touch-icon" href="images/icons/favicon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/icons/favicon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/icons/favicon-114x114.png">
-    <!--Loading bootstrap css-->
+    <!--Loading bootstrap css
     <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700">
-    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">-->
     <link type="text/css" rel="stylesheet" href="styles/jquery-ui-1.10.4.custom.min.css">
     <link type="text/css" rel="stylesheet" href="styles/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -58,43 +58,43 @@
 				<div class="sidebar-collapse menu-scroll">
 					<ul id="side-menu" class="nav">
 					<div class="clearfix"></div>
-					<?php
-					switch ($_SESSION['idPermissao']){
-						case "usuario":	
-					?>
-						<li><a href='index.php?page=perfil_usuario' data-href='perfil_usuario' id='link' data-value='1'><i class='fa fa-desktop fa-fw'><!-- No data value, adicionar o ID do usuario logado-->
-						<div class='icon-bg bg-pink'></div>
-						</i><span class='menu-title'>Perfil</span></a>
-						<li><a href='index.php?page=animal' data-href='animais' id='link' data-value='0'><i class='fa fa-edit fa-fw'>
-						<div class='icon-bg bg-violet'></div>
-						</i><span class='menu-title'>Animais</span></a>
-						</li>
-						<li><a href='index.php?page=lista_adocao' data-href='lista_adocao' id='link' data-value='0'><i class='fa fa-edit fa-fw'>
+						<?php
+						switch ($_SESSION['idPermissao']){
+							case "usuario":	
+						?>
+							<li><a href='index.php?page=perfil_usuario' data-href='perfil_usuario' id='link' data-value='1'><i class='fa fa-desktop fa-fw'><!-- No data value, adicionar o ID do usuario logado-->
+							<div class='icon-bg bg-pink'></div>
+							</i><span class='menu-title'>Perfil</span></a>
+							<li><a href='index.php?page=animal' data-href='animais' id='link' data-value='0'><i class='fa fa-edit fa-fw'>
 							<div class='icon-bg bg-violet'></div>
-							</i><span class='menu-title'>Animais para adoção</span></a>
-						</li>						
-					<?php
-						break;
-						case "moderador":
-					?>
-						<li><a href='index.php?page=perfil_usuario' data-href='perfil_usuario' id='link' data-value='1'><i class='fa fa-desktop fa-fw'><!-- No data value, adicionar o ID do usuario logado-->
-						<div class='icon-bg bg-pink'></div>
-						</i><span class='menu-title'>Perfil</span></a>
-						<li><a href='index.php?page=ong' data-href='ongs' id='link' data-value='0'><i class='fa fa-send-o fa-fw'>
-						<div class='icon-bg bg-green'></div>
-						</i><span class='menu-title'>Ongs</span></a>  
-						<li><a href='index.php?page=aprovacao' data-href='aprovacao' id='link' data-value='0'><i class='fa fa-th-list fa-fw'>
-						<div class='icon-bg bg-blue'></div>
-						</i><span class='menu-title'>Aprovacao</span></a>
-									  
-						</li>	
+							</i><span class='menu-title'>Animais</span></a>
+							</li>
+							<li><a href='index.php?page=lista_adocao' data-href='lista_adocao' id='link' data-value='0'><i class='fa fa-edit fa-fw'>
+								<div class='icon-bg bg-violet'></div>
+								</i><span class='menu-title'>Animais para adoção</span></a>
+							</li>						
+						<?php
+							break;
+							case "moderador":
+						?>
+							<li><a href='index.php?page=perfil_usuario' data-href='perfil_usuario' id='link' data-value='1'><i class='fa fa-desktop fa-fw'><!-- No data value, adicionar o ID do usuario logado-->
+							<div class='icon-bg bg-pink'></div>
+							</i><span class='menu-title'>Perfil</span></a>
+							<li><a href='index.php?page=ong' data-href='ongs' id='link' data-value='0'><i class='fa fa-th-list fa-fw'>
+							<div class='icon-bg bg-green'></div>
+							</i><span class='menu-title'>Ongs</span></a>  
+							<li><a href='index.php?page=aprovacao' data-href='aprovacao' id='link' data-value='0'><i class='fa fa-th-list fa-fw'>
+							<div class='icon-bg bg-blue'></div>
+							</i><span class='menu-title'>Aprovacao</span></a>
+										  
+							</li>	
 
-					<?php
-					break;
-			
-					}
-					?>
-				</ul>
+						<?php
+						break;
+				
+						}
+						?>
+					</ul>
 				</div>
 			</nav>
 			 <div id="page-wrapper">
@@ -115,10 +115,14 @@
                 <div class="page-content">
                     <div id="tab-general">
 						<div class="container-fluid" style="">
-							<div class="row" style="; min-height:800px">
-								<div class="col-md-8 col-md-offset-2" id="conteudo_painel" style="min-height:600px;">
-									<?php navigation() ?> 
-								</div>
+							<div class="row " style="min-height:800px">
+
+									<div class="col-md-10 col-md-offset-1 panel panel-default " id="conteudo_painel" style="min-height:800px">
+										<div class="col-md-8 col-md-offset-2 panel panel-default " id="conteudo_painel" style="margin-top:50px">
+											<?php navigation() ?> 
+										</div>
+									</div>
+
 							</div>
 						</div>
                     </div>
@@ -126,11 +130,10 @@
 
                 <div id="footer">
                     <div class="copyright">
-                        <a href="#"><?php echo date('Y');?> © Miaudote</a></div>
+                        <a href="#"><?php echo date('Y');?> © Miaudote</a>
+					</div>
                 </div>
-
             </div>
-
 		</div>
 	</div>
 		
@@ -148,8 +151,6 @@
 	<script src="assets/js/ong.js"></script>
 	<script src="assets/js/adocao.js"></script>
 	<script src="assets/js/aprovar.js"></script>
-	<script src="assets/js/adicionais.css"></script>
-
 	
 	<!--upload-->
 	
@@ -175,7 +176,6 @@
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-145464-12', 'auto');
         ga('send', 'pageview');
-
 </script>
 
 </body>

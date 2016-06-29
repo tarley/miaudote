@@ -58,48 +58,64 @@
 					while($row = $resultado->fetch()) {
 						?><div class=' lifted' style='position:relative;margin:0 auto;width:800px;min-height:500px;border:0px solid';>
 							
-							<div class="row">
-										<div class='col-md-12' style=''>
-											<div style='height:400px;background-color:'>
-												<section id='sliderhome'>
-													<div id='meuSlider' class='carousel slide' data-ride='carousel'>
-														<ol class='carousel-indicators'>
-															<li data-target='#meuSlider' data-slide-to='0' class='active'></li>
-															<li data-target='#meuSlider' data-slide-to='1'></li>
-															<li data-target='#meuSlider' data-slide-to='2'></li>
-														</ol>
-														<div class='carousel-inner'>
-														
-															<?php
-														   $qry_ 		= "select url,id_foto_pri from tb_foto where cod_animal ='".$row['cod_animal']."' order by id_foto_pri";
-															$ls 		= $pdo->query ($qry_);
+								<div class="row">
+									<div class='col-md-12' style=''>
+										<div style='height:350px;background-color:'>
+									
+											<section id='sliderhome'>
+												<div id='meuSlider' class='carousel slide' data-ride='carousel'>
+													<?php
+														$ls = $pdo->prepare("select url,id_foto_pri from tb_foto where cod_animal ='".$row['cod_animal']."' order by id_foto_pri");
+														$ls->execute();
+														$colcount = $ls->rowCount();													
+														$numBolinha = 0;
+													?>
+												
+												
+													<ol class='carousel-indicators'>
+														<?php
+															while($numBolinha < $colcount ):
+															  if($numBolinha == 0){
+																$active = 'class="active"';
+															  }else {
+																  $active ='';
+															  }
+															  echo "<li data-target='#meuSlider' data-slide-to='".$numBolinha."' $active></li>";
+															  $numBolinha++;															
+															endwhile;
+														?>
+
+													</ol>
+													<div class='carousel-inner'>
+													
+														<?php
+															while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
+															if($lin['id_foto_pri']=='S'){
+																$active ='active';
+															}else{
+																$active ='';
+															}
 															
-																while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
-																if($lin['id_foto_pri']=='S'){
-																	$active ='active';
-																}else{
-																	$active ='';
-																}
-																
-																echo "<div class='item $active'><img src='".substr($lin['url'],3)."' alt='Slider 1' /></div>"	;											
+															echo "<div class='item $active'><img src='".substr($lin['url'],3)."'  alt='Slider ".$row['cod_animal']."' /></div>";											
 
-																endwhile; 
-															?>
-
-															
-														</div>
-
-														<a class='left carousel-control ignoresc' href='#meuSlider' data-toggle ="ignoreScroll" data-slide='prev'>
-														<span class='glyphicon glyphicon-chevron-left'></span></a>
-														<a class='right carousel-control' href='#meuSlider' data-toggle ="ignoreScroll" data-slide='next'>
-														<span class='glyphicon glyphicon-chevron-right'></span></a>
+															endwhile; 
+														?>	
 													</div>
-												</section>
-											</div>
+
+													<a class='left carousel-control ignoreScroll' href='#meuSlider' data-slide='prev'>
+													<span class='glyphicon glyphicon-chevron-left'></span></a>
+													<a class='right carousel-control ignoreScroll' href='#meuSlider' data-slide='next'>
+													<span class='glyphicon glyphicon-chevron-right'></span></a>
+												</div>
+											</section>
+												
 										</div>
 									</div>
-
+								</div>
 							</div>
+														<br>
+							<br>
+							<hr>
 							<div id='content'>
 								<ul id='tabs' class='nav nav-tabs' data-tabs='tabs'>							
 									<li class='active'><a href='#caracteristicas' data-toggle='tab'>Características</a></li>

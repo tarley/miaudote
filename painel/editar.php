@@ -31,10 +31,10 @@ if(@trim($_GET['a'])=='exc' && filter_var(@trim($_GET['n']),FILTER_VALIDATE_INT)
 if($_POST){
 	
 	// Altera os dados
-	$id				    = (int)trim($_GET['animal']);;//(int)trim($_GET['n']);
-	$nome	 			= utf8_decode($_POST['nome']);
-	$descricao			= utf8_decode($_POST['descricao']);
-	$perfil				= utf8_decode($_POST['perfil']);
+	$id				    = (int)trim($_GET['animal']);//(int)trim($_GET['n']);
+	$nome	 			= $_POST['nome'];
+	$descricao			= $_POST['descricao'];
+	$perfil				= $_POST['perfil'];
 	$sexo				= $_POST['sexo'];
 	$especie			= $_POST['especie'];
 	$porte	 			= $_POST['porte'];
@@ -42,7 +42,7 @@ if($_POST){
 	$idade	 			= $_POST['idade'];
 	$cidade	 			= $_POST['cidade'];
 	
-	echo 	$id	,$nome ,$descricao,$perfil	,$sexo ,$especie ,$porte ,$cor,$idade,$cidade;
+	//echo 	$id	,$nome ,$descricao,$perfil	,$sexo ,$especie ,$porte ,$cor,$idade,$cidade;
 	
 	$tem_fotos_capa		= $_POST['tem_fotos_capa'];	
 	
@@ -57,11 +57,13 @@ if($_POST){
 				IND_PORTE='{$especie}',
 				COD_CIDADE='{$cidade}'						  	
 			where COD_ANIMAL='".$id."'";
+			
+	//echo $qry;
 	
 	$pdo->query ($qry);
 	
 	// Altera as fotos
-	// Prepara a inclus�o das fotos
+	//Prepara a inclus�o das fotos
 	$qry_foto 			= 	"insert into tb_foto (COD_ANIMAL, URL, ID_FOTO_PRI) values ";
 	$up_fotos		=	0;
 	
@@ -132,31 +134,31 @@ if($_POST){
 	$id	 	 = (int)trim($_GET['animal']);
 	$usuario = (int)trim($_GET['usuario']);
 	$qry 	= "select 
-					A.*,
-					E.NOM_ESPECIE,
-					US.NOM_USUARIO,
-					F.URL,
-					F.ID_FOTO_PRI,
-					CI.COD_CIDADE,
-					CI.NOM_CIDADE,
-					ES.COD_ESTADO,
-					ES.NOM_ESTADO
+					a.*,
+					e.nom_especie,
+					us.nom_usuario,
+					f.url,
+					f.id_foto_pri,
+					ci.cod_cidade,
+					ci.nom_cidade,
+					es.cod_estado,
+					es.nom_estado
 					
-				FROM TB_ANIMAL AS A
-					INNER JOIN TB_ESPECIE AS E
-					ON E.COD_ESPECIE = A.COD_ESPECIE
+				from tb_animal as a
+					inner join tb_especie as e
+					on e.cod_especie = a.cod_especie
 					
-					INNER JOIN TB_USUARIO AS US
-					ON US.COD_USUARIO = A.COD_USUARIO
+					inner join tb_usuario as us
+					on us.cod_usuario = a.cod_usuario
 					
-					LEFT JOIN TB_FOTO AS F
-					ON F.COD_ANIMAL = A.COD_ANIMAL
+					left join tb_foto as f
+					on f.cod_animal = a.cod_animal
 					
-					INNER JOIN TB_CIDADE AS CI
-					ON CI.COD_CIDADE = A.COD_CIDADE
+					inner join tb_cidade as ci
+					on ci.cod_cidade = a.cod_cidade
 					
-					INNER JOIN TB_ESTADO AS ES
-					ON ES.COD_ESTADO = CI.COD_ESTADO
+					inner join tb_estado as es
+					on es.cod_estado = ci.cod_estado
 					
 				 where a.cod_animal = " .$id. " and a.cod_usuario = ".$usuario."";
 	
@@ -164,7 +166,7 @@ if($_POST){
 	$num 	= $pdo->query ($qry)->rowCount();
 	
 	if(!$num){
-		//die('<script>window.location.href="editar.php?n='.trim($_GET['n']).'";</script>');
+		die('<script>window.location.href="editar.php?n='.trim($_GET['n']).'";</script>');
 		exit();		
 	}else{
 		
@@ -182,10 +184,11 @@ if($_POST){
 		$dt_cadastro		= 		$row['DT_CADASTRO'];			
 		$dt_adocao			= 		$row['DT_ADOCAO'];			
 		$cod_especie		= 		$row['COD_ESPECIE'];			
-		$cod_estado			= 		$row['COD_ESTADO'];			
-		$cod_cidade			= 		$row['COD_CIDADE'];	
+		$cod_estado			= 		$row['cod_estado'];			
+		$cod_cidade			= 		$row['cod_cidade'];	
 		$nom_estado			= 		$row['NOM_ESTADO'];			
 		$nom_cidade			= 		$row['NOM_CIDADE'];	
+		
 		
 		// Busca as fotos do animal e monta o layout das fotos
 		
@@ -253,11 +256,14 @@ if($_POST){
 
 ?>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="assets/js/jquery-1.11.js"></script>
 <script src="script/bootstrap.min.js"></script>
 <script src="assets/js/animal.js"></script>
 <script src="assets/js/bootbox.min.js"></script>
+<script src="assets/js/script.js"></script>
+<link type="text/css" rel="stylesheet" href="assets/css/adicionais.css">
 <script type="text/javascript" >
+
 $(function(){
 	
 	$('#form').submit(function(){
@@ -348,162 +354,192 @@ var excluirItem = function(id_Item,foto){
 </script>
 </head>
 <body>
-	<div id="conteudo" style="text-align: justify;" >
-	<br/><br/>
-	<a href='index.php?page=animal' id='aprovarAnimal'><span  class="btn btn-success">Voltar</span></a>
+	<div style='margin-top:30px;margin-bottom:30px'>
+		<a href='index.php?page=animal' id='aprovarAnimal' ><span  class="btn btn-success">Voltar </span></a>
+	</div>
+	<hr>
 	
-	<div style="clear:both;height:30px;"></div>
-	
-	<center>
-		<form method="post" action="index.php?page=editar&usuario=<?php echo $cod_usuario?>&animal=<?php echo $cod_animal?>" name="form" id="form"  enctype="multipart/form-data" >
-			<div class="input-group">
-				Nome:
-				<br>
-				<input type="text" 			id="nome" 		name="nome"  class="form-control" value="<?=$nom_animal?>" style="width:400px;"/>
-				<br/><br/>
+	<form method="post" action="index.php?page=editar&usuario=<?php echo $cod_usuario?>&animal=<?php echo $cod_animal?>" name="form" id="form" class='form-horizontal' enctype="multipart/form-data" >
+			
+			
+			<div class='form-group'><label class='col-sm-3 control-label'>Nome</label>
+				<div class='col-sm-9 controls'>
+					<div class='row'>
+						<div class='col-md-9 col-xs-12'><input type='text' placeholder='digite o nome' class='form-control' name='nome' value="<?=$nom_animal?>" /></div>
+					</div>
+				</div>
 			</div>
-			<div class="input-group">
-				Descri&ccedil;&atilde;o:
-				<br>
-				<textarea type="text" 		id="descricao" 	name="descricao"  class="form-control"/		style="width:400px;height:100px;"/><?=$desc_animal?></textarea>
-				<br/><br/>
-			</div>
-			<div class="input-group">
-				Perfil:
-				<br>
-				<textarea type="text" 		id="perfil" 	name="perfil" class="form-control"/ 			style="width:400px;height:100px;"/><?=$desc_perfil?></textarea>
-				<br><br>
-			</div>
-			<div class="input-group">
-				Idade:
-				<br>
-				<input type="number" 			id="idade" 		name="idade" min="1" max="20" class="form-control" value="<?=$idade?>" style="width:400px;"/>
-				<br/><br/>
-			</div>
-			<div class="input-group">
-				Cor:
-				<br>
-				<input type="text" 			id="cor" 		name="cor" class="form-control" value="<?=$cor?>" style="width:400px;"/>
-				<br/><br/>
-			</div>
-			<div class="input-group">
-				Porte:
-				<br>
-				<select name="porte" id="porte" class="form-control" style="width:400px;"/>
-					<?php
-					$porte==0?
-						print "<option value='0' selected>Pequeno</option>":
-						print "<option value='0' >Pequeno</option>";
+			
+			
+			
+			<div class='form-group'><label class='col-sm-3 control-label'>Espécie</label>
+
+				<div class='col-sm-9 controls'>
+					<div class='row'>
+						<div class='col-md-5 col-xs-12'>
 						
-					$porte==1?
-						print "<option value='1' selected>m&eacute;dio</option>":
-						print "<option value='1' >m&eacute;dio</option>";	
-					
-					$porte==2?
-						print "<option value='2' selected>Grande</option>":
-						print "<option value='2' >Grande</option>";	
-					
-					?>
-				</select>
-				<br/><br/>
-			</div>
-			<div class="input-group">
-				Sexo:
-				<br>
-				<select name="sexo" id="sexo" class="form-control" style="width:400px;"/>
-					<?php
-					$ind_sexo==1?
-						print "<option value='1' selected>Macho</option>":
-						print "<option value='1' >Macho</option>";
+							<select name="especie" id="especie" class="form-control"/>
+								<?php
+								$qry_ 		= "select * from tb_especie order by NOM_ESPECIE desc";
+								$ls 		= $pdo->query ($qry_);
+								
+								while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
+									$cod_especie==$lin['COD_ESPECIE']?
+										$selected	=	'selected':
+										$selected	=	'';
+									echo "<option value='".$lin['COD_ESPECIE']."' ".$selected.">".$lin['NOM_ESPECIE']."</option>";
+								endwhile; 
+								?>
+							</select>
 						
-					$ind_sexo==2?
-						print "<option value='2' selected>F&ecirc;mea</option>":
-						print "<option value='2' >F&ecirc;mea</option>";	
-					
-					?>
-				</select>
-				<br/><br/>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="input-group">
-				Esp&eacute;cie:	
-				<br>
-				<select name="especie" id="especie" class="form-control" style="width:400px;"/>
-					<?php
-					$qry_ 		= "select * from tb_especie order by NOM_ESPECIE asc";
-					$ls 		= $pdo->query ($qry_);
-					
-					while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
-						$cod_especie==$lin['COD_ESPECIE']?
-							$selected	=	'selected':
-							$selected	=	'';
-						echo "<option value='".$lin[COD_ESPECIE]."' ".$selected.">".$lin[NOM_ESPECIE]."</option>";
-					endwhile; 
-					?>
-				</select>
-				<br/><br/>
+			
+			<div class='form-group'><label class='col-sm-3 control-label'>Frase de apresentação</label>
+				<div class='col-sm-9 controls'>
+					<div class='row'>
+						<div class='col-md-9 col-xs-12'><input type='text' id="descricao" placeholder='defina seu animal em  no maximo 4 palavras'  value="<?=$desc_animal?>"class='form-control'name='descricao'/></div>
+					</div>
+				</div>
 			</div>
-			<div class="input-group">
-				Estado:
-				<br>
-				<select name="estado" id="estado" class="form-control" style="width:400px;"/>
-					<option value=""> Informe o estado</option>
-					<?php
-					$qry_ 		= "select * from tb_estado order by SG_UF asc";
-					$ls 		= $pdo->query ($qry_);
-					
-					while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
-						$cod_estado==$lin['COD_ESTADO']?
-							$selected	=	'selected':
-							$selected	=	'';
-							
-						echo "<option value='".$lin['COD_ESTADO']."' ".$selected.">".$lin['SG_UF']."</option>";
-					endwhile; 
-					?>
-				</select>
-				<br/><br/>
+			
+			
+			<div class='form-group'><label class='col-sm-3 control-label'>cor</label>
+				<div class='col-sm-9 controls'>
+					<div class='row'>
+						<div class='col-md-9 col-xs-12'><input type='text' placeholder='digite a cor do animal' class='form-control' id="cor"  value="<?=$cor?>"name='cor'/></div>
+					</div>
+				</div>
 			</div>
-			<div class="input-group">
-				Cidade:	
-				<br>
-				<select name="cidade" id="cidade" class="form-control" style="width:400px;"/>
-					<option value=""> Informe o estado</option>
-					<?php
-					$qry_ 		= "select * from tb_cidade WHERE COD_ESTADO='".$cod_estado."' ORDER BY NOM_CIDADE";
-					$ls 		= $pdo->query ($qry_);
-					
-					while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
-						$cod_cidade==$lin['COD_CIDADE']?
-							$selected	=	'selected':
-							$selected	=	'';
-						echo "<option value='".$lin['COD_CIDADE']."' ".$selected.">".utf8_encode($lin['NOM_CIDADE'])."</option>";
-					endwhile; 
-					?>
-				</select>
-				<br/><br/>
+			
+			<div class='form-group'><label class='col-sm-3 control-label'>Idade</label>
+				<div class='col-sm-9 controls'>
+					<div class='row'>
+						<div class='col-md-9 col-xs-12'><input type='number' placeholder='' class='form-control' id="cor" value="<?=$idade?>" name='idade'/></div>
+					</div>
+				</div>	
 			</div>
-						
+			
+			<div class='form-group'><label class='col-sm-3 control-label'>Porte</label>
+				<div class='col-sm-9 controls'>
+					<div class='row'>
+						<div class='col-md-5 col-xs-12'>
+							<select class='form-control' id="porte" name='porte'>					
+								<?php
+								$porte==0?
+									print "<option value='0' selected>Pequeno</option>":
+									print "<option value='0' >Pequeno</option>";
+									
+								$porte==1?
+									print "<option value='1' selected>m&eacute;dio</option>":
+									print "<option value='1' >m&eacute;dio</option>";	
+								
+								$porte==2?
+									print "<option value='2' selected>Grande</option>":
+									print "<option value='2' >Grande</option>";	
+								
+								?>
+							</select>
+						</div>
+					</div>
+				</div>	
+			</div>
+			
+			<div class='form-group'><label class='col-sm-3 control-label'>Sexo</label>
+				<div class='col-sm-9 controls'>
+					<div class='row'>
+						<div class='col-md-5 col-xs-12'>
+							<select name="sexo" id="sexo" class="form-control"/>
+								<?php
+								$ind_sexo==1?
+									print "<option value='1' selected>Macho</option>":
+									print "<option value='1' >Macho</option>";
+									
+								$ind_sexo==2?
+									print "<option value='2' selected>F&ecirc;mea</option>":
+									print "<option value='2' >F&ecirc;mea</option>";	
+								
+								?>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class='form-group'><label class='col-sm-3 control-label'>Estado</label>
+				<div class='col-sm-9 controls'>
+					<div class='row'>
+						<div class='col-md-5 col-xs-12'>
+							<select class='form-control' id="estado" name='estado'>
+								<option selected value =''>Selecione ...</option>
+								
+									<?php
+									$qry_ 		= "select * from tb_estado order by sg_uf asc";
+									$ls 		= $pdo->query ($qry_);
+									
+									while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
+										$cod_estado==$lin['COD_ESTADO']?
+											$selected	=	'selected':
+											$selected	=	'';
+											
+										echo "<option value='".$lin['COD_ESTADO']."' ".$selected.">".$lin['NOM_ESTADO']."</option>";
+									endwhile; ?>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class='form-group'><label class='col-sm-3 control-label'>Cidade</label>
+
+				<div class='col-sm-9 controls'>
+					<div class='row'>
+						<div class='col-md-5 col-xs-12'>
+							<select name="cidade" id="cidade" class="form-control"/>
+								<option value=""> Informe o estado</option>
+								<?php
+								$qry_ 		= "select * from tb_cidade where cod_estado ='".$cod_estado."' order by nom_cidade desc ";
+								$ls 		= $pdo->query ($qry_);
+								
+								while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
+									$cod_cidade == $lin['COD_CIDADE']?$selected	=	'selected':$selected	=	'';
+									echo "<option value='".$lin['COD_CIDADE']."' ".$selected.">".$lin['NOM_CIDADE']."</option>";
+								endwhile; 
+								?>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class='form-group'><label class='col-sm-3 control-label'>Perfil</label>
+
+				<div class='col-sm-9 controls'>
+					<div class='row'>
+						<div class='col-md-9 col-xs-12'>
+							<textarea type="text"  id="perfil" 	name="perfil" placeholder="Descreva seu animal. Apresentação, caracteristicas ou qualquer informação relevante" class="form-group form-control" style="width:100%;height:100px;"/><?=$desc_perfil?></textarea>
+						</div>
+					</div>
+				</div>	
+
+			</div>
+								
 			
 			Foto: 	
 			<br><br>
 			<?=$htlm_fotos?>
 			<?=$titulo_capa?>
 			<?=$opcoes_fotos?>
-			
-			
-			<br/><br/>
-			
-			<br/>
-			<table align="center" border="0" >
-				<tr>
-					<td  ><input type="button" value="Cancelar" onclick="javascript: window.location.href='index.php?';" name="btnCancel" id="btnCancel" style="width:69px; height: 27px;" /></td>
-					<input type="hidden" value="<?=$id?>" name="id_dado" id="id_dado" />
-					<td  ><input type="submit" value="Salvar" name="btnSalvar" id="btnSalvar" /></td>
-				</tr>
-			</table>
+
+			<hr>
+			<div id="botaoConfirmar" style="margin-top:40px;margin-bottom:40px">
+				<button class="btn btn-green btn-block" type="submit" name="btnSalvar" id="btnSalvar">Salvar Alterações</button>
+			</div>
 		</div>
 	</form>
-	</center>
-
 </body>
 </html>
 <?php

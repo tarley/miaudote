@@ -6,7 +6,8 @@ define('DB_NAME', 'adote');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 */
-/**/
+
+
 define('CONTEXT_NAME', '/');
 define('LOG_DIR', $_SERVER['DOCUMENT_ROOT'] . CONTEXT_NAME . 'log/');
 define('DB_HOST', 'ns702.hostgator.com.br');

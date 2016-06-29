@@ -250,10 +250,6 @@
 					$resultado = $pdo->prepare($qry);
 					$resultado->execute(array($id_ong));
 				
-			
-				
-				
-				
 			}
 			
 			$resultado = $pdo->prepare($qry);
@@ -283,11 +279,10 @@
 					$sg_uf			    = 		$row['sg_uf'];
 					$email				=       $row['email'];	
 					$telefone           =       $row['telefone'];
-					$dt_adocao			=       $row['dt_adocao'];
-					
+					$dt_adocao			=       $row['dt_adocao'];			
 					$nom_especie		= 		$row['nom_especie'];
 
-					 ?>
+					?>
 					 
 					<div class='panel-group'>
 						<div class='panel panel-default'>
@@ -303,18 +298,32 @@
 											<div class='col-md-8 col-md-offset-2' style=''>
 												<div style='height:400px;background-color:'>
 													<section id='sliderhome'>
-														<div id='meuSlider' class='carousel slide' data-ride='carousel'>
+														<div id='meuSlider<?php echo $cod_animal?>' class='carousel slide' data-ride='carousel'>
+															<?php
+																$ls = $pdo->prepare("select url,id_foto_pri from tb_foto where cod_animal ='".$cod_animal."' order by id_foto_pri");
+																$ls->execute();
+																$colcount = $ls->rowCount();													
+																$numBolinha = 0;
+															?>
+														
+														
 															<ol class='carousel-indicators'>
-																<li data-target='#meuSlider' data-slide-to='0' class='active'></li>
-																<li data-target='#meuSlider' data-slide-to='1'></li>
-																<li data-target='#meuSlider' data-slide-to='2'></li>
+																<?php
+																	while($numBolinha < $colcount ):
+																	  if($numBolinha == 0){
+																		$active = 'class="active"';
+																	  }else {
+																		  $active ='';
+																	  }
+																	  echo "<li data-target='#meuSlider".$cod_animal."' data-slide-to='".$numBolinha."' $active></li>";
+																	  $numBolinha++;															
+																	endwhile;
+																?>
+
 															</ol>
 															<div class='carousel-inner'>
 															
 																<?php
-															   $qry_ 		= "select url,id_foto_pri from tb_foto where cod_animal ='".$cod_animal."' order by id_foto_pri";
-																$ls 		= $pdo->query ($qry_);
-																
 																	while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
 																	if($lin['id_foto_pri']=='S'){
 																		$active ='active';
@@ -322,48 +331,46 @@
 																		$active ='';
 																	}
 																	
-																	echo "<div class='item $active'><img src='".$lin['url']."' alt='Slider 1' /></div>"	;											
+																	echo "<div class='item $active'><img src='".$lin['url']."'  alt='Slider ".$cod_animal."' /></div>"	;											
 
 																	endwhile; 
-																?>
-
-																
+																?>	
 															</div>
 
-															<a class='left carousel-control' href='#meuSlider' data-slide='prev'>
+															<a class='left carousel-control' href='#meuSlider<?php echo $cod_animal?>' data-slide='prev'>
 															<span class='glyphicon glyphicon-chevron-left'></span></a>
-															<a class='right carousel-control' href='#meuSlider' data-slide='next'>
+															<a class='right carousel-control' href='#meuSlider<?php echo $cod_animal?>' data-slide='next'>
 															<span class='glyphicon glyphicon-chevron-right'></span></a>
 														</div>
 													</section>
 												</div>
 											</div>
 										</div>
-										<div id='content'>
+										<div id='content' >
 											<ul id='tabs' class='nav nav-tabs' data-tabs='tabs'>							
-												<li class='active'><a href='#caracteristicas' data-toggle='tab'>Características</a></li>
-												<li><a href='#contato' data-toggle='tab'>Contato</a></li>
+												<li class='active'><a href='#caracteristicas<?php echo $cod_animal?>' data-toggle='tab'>Características</a></li>
+												<li><a href='#contato<?php echo $cod_animal?>' data-toggle='tab'>Contato</a></li>
 											</ul>
-											<div id='my-tab-content' class='tab-content' style ='min-height:100px;'>
+											<div id='my-tab-content' class='tab-content'style ='min-height:240px;'>
 											
-												<div class='tab-pane active' id='caracteristicas'>
-													<ul>
-													<li><b>Nome:</b><?php echo $nom_animal?></li>
+												<div class='tab-pane active' id='caracteristicas<?php echo $cod_animal?>'>
+													<ul id="dados-animal">
+													<li><b>Nome:</b>&nbsp;<?php echo $nom_animal?></li>
 
-													<li><b>Sobre mim:</b> <p><?php echo $desc_perfil?></p></li>
-													<li><b>Idade:</b><?php  echo $idade." anos(s)"?></li>
+													<li><b>Sobre mim:&nbsp;</b> <p><?php echo $desc_perfil?></p></li>
+													<li><b>Idade:</b>&nbsp;<?php  echo $idade." anos(s)"?></li>
 											
-													<li><b>Sexo:</b><?php echo $ind_sexo?></li>
+													<li><b>Sexo:</b>&nbsp;<?php echo $ind_sexo?></li>
 					
-													<li><b>Porte:</b> <?php echo $ind_porte?> </li>
+													<li><b>Porte:</b>&nbsp;<?php echo $ind_porte?> </li>
 	
 													<li>*Todos os animais do Miaudote são castrados.  </li>
 													</ul>	
 												</div>
-												<div class='tab-pane' id='contato'>
-													<ul>
-														<li>Telefone:<?php echo $telefone ?></li>
-														<li>E-mail : <?php echo $email ?>  </li>
+												<div class='tab-pane' id='contato<?php echo $cod_animal?>'>
+													<ul id="dados-animal">
+														<li>Telefone:&nbsp;<?php echo $telefone ?></li>
+														<li>E-mail : &nbsp;<?php echo $email ?>  </li>
 													</ul>		
 												</div>
 											</div>

@@ -4,7 +4,9 @@
 	//include("server/public_server.php");
 
 ?>
-	<a href='index.php?page=cadastrar_animal' id='#'><span  class="btn btn-success">Adicionar</span></a>
+	<div style='margin-top:30px;margin-bottom:30px'>
+		<a href='index.php?page=cadastrar_animal' id='#'><span  class="btn btn-success">Adicionar</span></a>
+	</div>
 	<hr>
 
 	<!--#####edição#####-->
@@ -97,7 +99,7 @@
 						  <li class='active'><a  href='#' data-target='#dados<?php echo $cod_animal ?>' id='tab-user' data-toggle='tab'>Dados Perfil</a></li>
 						  <li>				<a 	 href='#' data-target='#fotos-animal<?php echo $cod_animal ?>' id='tab-user' data-toggle='tab'>Fotos</a></li>
 						</ul>
-						<div class='tab-content'>
+						<div class='tab-content'style ='height:400px'>
 							<div class='tab-pane active' id='dados<?php echo $cod_animal?>'>
 								<div class='row'>
 									<div class='col-md-9' style=''>
@@ -141,11 +143,11 @@
 															</tr>
 															<tr>
 																<td>Localização</td>
-																<td><?php echo ucwords(utf8_encode($nom_cidade))." - ".$sg_uf ?></td>
+																<td><?php echo ucwords($nom_cidade)." - ".$sg_uf ?></td>
 															</tr>
 															<tr>
 																<td>Perfil</td>
-																<td><span class='label label-success'><?php echo utf8_encode(ucFirst($desc_perfil))?></span></td>
+																<td><span class='label label-success'><?php echo ucFirst($desc_perfil)?></span></td>
 															</tr>
 															
 															</tbody>
@@ -163,18 +165,32 @@
 									<div class='col-md-8 col-md-offset-2' style=''>
 										<div style='height:400px;background-color:'>
 											<section id='sliderhome'>
-												<div id='meuSlider' class='carousel slide' data-ride='carousel'>
+												<div id='meuSlider<?php echo $cod_animal?>' class='carousel slide' data-ride='carousel'>
+													<?php
+														$ls = $pdo->prepare("select url,id_foto_pri from tb_foto where cod_animal ='".$cod_animal."' order by id_foto_pri");
+														$ls->execute();
+														$colcount = $ls->rowCount();													
+														$numBolinha = 0;
+													?>
+												
+												
 													<ol class='carousel-indicators'>
-														<li data-target='#meuSlider' data-slide-to='0' class='active'></li>
-														<li data-target='#meuSlider' data-slide-to='1'></li>
-														<li data-target='#meuSlider' data-slide-to='2'></li>
+														<?php
+															while($numBolinha < $colcount ):
+															  if($numBolinha == 0){
+																$active = 'class="active"';
+															  }else {
+																  $active ='';
+															  }
+															  echo "<li data-target='#meuSlider".$cod_animal."' data-slide-to='".$numBolinha."' $active></li>";
+															  $numBolinha++;															
+															endwhile;
+														?>
+
 													</ol>
 													<div class='carousel-inner'>
 													
 														<?php
-													   $qry_ 		= "select url,id_foto_pri from tb_foto where cod_animal ='".$cod_animal."' order by id_foto_pri";
-														$ls 		= $pdo->query ($qry_);
-														
 															while ( $lin = $ls->fetch ( PDO::FETCH_ASSOC ) ):
 															if($lin['id_foto_pri']=='S'){
 																$active ='active';
@@ -182,17 +198,15 @@
 																$active ='';
 															}
 															
-															echo "<div class='item $active'><img src='".$lin['url']."'  alt='Slider 1' /></div>"	;											
+															echo "<div class='item $active'><img src='".$lin['url']."'  alt='Slider ".$cod_animal."' /></div>"	;											
 
 															endwhile; 
-														?>
-
-														
+														?>	
 													</div>
 
-													<a class='left carousel-control' href='#meuSlider' data-slide='prev'>
+													<a class='left carousel-control' href='#meuSlider<?php echo $cod_animal?>' data-slide='prev'>
 													<span class='glyphicon glyphicon-chevron-left'></span></a>
-													<a class='right carousel-control' href='#meuSlider' data-slide='next'>
+													<a class='right carousel-control' href='#meuSlider<?php echo $cod_animal?>' data-slide='next'>
 													<span class='glyphicon glyphicon-chevron-right'></span></a>
 												</div>
 											</section>
@@ -202,7 +216,7 @@
 							</div>	
 						</div>
 					</div>
-					<div class='panel-body' id='panel-foot-body'>
+					<div class='panel-body'>
 						<div class='row'>
 							<div class='col-md-5'>
 							

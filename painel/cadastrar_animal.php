@@ -1,8 +1,9 @@
 <?php
+error_reporting(E_ALL);
 $pdo = conectar ();
 include("upload.php");
 
-error_reporting(E_ALL);
+
 
 if(@$_POST){
 	
@@ -167,7 +168,10 @@ $(function(){
 
 </head>
 	<div id="conteudo" style="text-align: justify;" >
-	<a href='index.php?page=animal' id=''><span  class="btn btn-success">Voltar</span></a>
+	<div style='margin-top:30px;margin-bottom:30px'>
+		<a href='index.php?page=animal' ><span  class="btn btn-success">Voltar </span></a>
+	</div>
+	<hr>
 	<center>
 	<form method="post" action="#" name="form" id="form"  class='form-horizontal' enctype="multipart/form-data" >
 			

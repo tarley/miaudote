@@ -30,8 +30,8 @@
 					echo "<figure id ='perfil' class='effect-oscar wowload fadein'>
 							<img src='".substr($rowdestaque['url'],3)."'/>
 							<figcaption>
-							<h2>".$rowdestaque['nom_animal']."</h2>
-							<p>".$rowdestaque['desc_animal']."</br>
+							<h2>".utf8_encode($rowdestaque['nom_animal'])."</h2>
+							<p>".utf8_encode($rowdestaque['desc_animal'])."</br>
 							<a href='#conteudo' id='animal-filtro' data-value='".$rowdestaque['cod_animal']."'>Perfil</a>
 							</figcaption>
 							</figure>";					
@@ -64,7 +64,7 @@
 							<img src='".substr($rowdestaque['url'],3)."'/>
 							<figcaption>
 							<h2>".$rowdestaque['nom_animal']."</h2>
-							<p>".$rowdestaque['desc_animal']."</br>
+							<p>".utf8_encode($rowdestaque['desc_animal'])."</br>
 							<a href='#conteudo' id='animal-filtro' data-value='".$rowdestaque['cod_animal']."'>Perfil</a>
 							</figcaption>
 							</figure>";					

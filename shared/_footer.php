@@ -2,12 +2,14 @@
 <div id="contact" class="spacer">
 	<div class="container contactform center">
 		<h2 class="text-center  wowload fadeInUp">Fale conosco</h2>
+		<h4 class="text-center  wowload fadeInUp"> <img src="images/icon-email.png">&nbsptarley.lana@gmail.com</h4>
+		
 		<div class="col-sm-offset-4">
 			<div id="opt-contact">
 				<div class="img-contact" style="float: left; margin-top: 30px">
 					<!--	<img src="images/icon-phone.png"><span>(00)0000-0000</span><br> 
-					<img src="images/icon-whats.png"><span>(00)00000-0000</span><br> -->
-					<img src="images/icon-email.png" /><span>tarley.lana@gmail.com</span>
+					<img src="images/icon-whats.png"><span>(00)00000-0000</span><br> 
+					<img src="images/icon-email.png" /><span>tarley.lana@gmail.com</span>-->
 				</div>
 			</div>
 		</div>

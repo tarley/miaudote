@@ -1,0 +1,124 @@
+[19:15:13 BRT] 	 [::1] 	 usuario=ong@email.com senha=3 
+[19:15:13 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=3 
+[19:15:13 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[19:15:13 BRT] 	 [::1] 	 OK 
+[19:15:13 BRT] 	 [::1] 	 Autenticado. idPermissao=usuario 
+[19:15:13 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[19:18:31 BRT] 	 [::1] 	 usuario=ong@email.com senha=1 
+[19:18:31 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=1 
+[19:18:31 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[19:18:31 BRT] 	 [::1] 	 get_out_05 
+[19:18:37 BRT] 	 [::1] 	 usuario=ong@email.com senha=2 
+[19:18:37 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=2 
+[19:18:37 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[19:18:37 BRT] 	 [::1] 	 get_out_05 
+[19:18:45 BRT] 	 [::1] 	 usuario=ong1@ong.com senha=1 
+[19:18:45 BRT] 	 [::1] 	 nusuario=ong1@ong_com nsenha=1 
+[19:18:45 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[19:18:45 BRT] 	 [::1] 	 get_out_05 
+[19:19:48 BRT] 	 [::1] 	 usuario=anna.carolina@newtonpaiva.br senha=1 
+[19:19:48 BRT] 	 [::1] 	 nusuario=anna_carolina@newtonpaiva_br nsenha=1 
+[19:19:48 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[19:19:48 BRT] 	 [::1] 	 OK 
+[19:19:48 BRT] 	 [::1] 	 Autenticado. idPermissao=moderador 
+[19:19:48 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[19:32:01 BRT] 	 [::1] 	 usuario=ong@email.com senha=3 
+[19:32:01 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=3 
+[19:32:01 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[19:32:01 BRT] 	 [::1] 	 OK 
+[19:32:01 BRT] 	 [::1] 	 Autenticado. idPermissao=usuario 
+[19:32:01 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[19:44:30 BRT] 	 [::1] 	 usuario=anna.carolina@newtonpaiva.br senha=1 
+[19:44:30 BRT] 	 [::1] 	 nusuario=anna_carolina@newtonpaiva_br nsenha=1 
+[19:44:30 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[19:44:30 BRT] 	 [::1] 	 OK 
+[19:44:30 BRT] 	 [::1] 	 Autenticado. idPermissao=moderador 
+[19:44:30 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[19:46:39 BRT] 	 [::1] 	 usuario=ong@email.com senha=3 
+[19:46:39 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=3 
+[19:46:39 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[19:46:39 BRT] 	 [::1] 	 OK 
+[19:46:39 BRT] 	 [::1] 	 Autenticado. idPermissao=usuario 
+[19:46:39 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[20:02:48 BRT] 	 [::1] 	 usuario=ong@email.com senha=3 
+[20:02:48 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=3 
+[20:02:48 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:02:48 BRT] 	 [::1] 	 OK 
+[20:02:48 BRT] 	 [::1] 	 Autenticado. idPermissao=usuario 
+[20:02:48 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[20:19:14 BRT] 	 [::1] 	 usuario=ong@email.com senha=3 
+[20:19:14 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=3 
+[20:19:14 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:19:14 BRT] 	 [::1] 	 OK 
+[20:19:14 BRT] 	 [::1] 	 Autenticado. idPermissao=usuario 
+[20:19:14 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[20:20:51 BRT] 	 [::1] 	 usuario=anna.carolina@newtonpaiva.br senha=1 
+[20:20:51 BRT] 	 [::1] 	 nusuario=anna_carolina@newtonpaiva_br nsenha=1 
+[20:20:51 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:20:51 BRT] 	 [::1] 	 OK 
+[20:20:51 BRT] 	 [::1] 	 Autenticado. idPermissao=moderador 
+[20:20:51 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[20:22:30 BRT] 	 [::1] 	 usuario=ong@email.com senha=3 
+[20:22:31 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=3 
+[20:22:31 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:22:31 BRT] 	 [::1] 	 OK 
+[20:22:31 BRT] 	 [::1] 	 Autenticado. idPermissao=usuario 
+[20:22:31 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[20:27:25 BRT] 	 [::1] 	 usuario=ong@email.com senha=3 
+[20:27:25 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=3 
+[20:27:25 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:27:25 BRT] 	 [::1] 	 OK 
+[20:27:25 BRT] 	 [::1] 	 Autenticado. idPermissao=usuario 
+[20:27:25 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[20:28:18 BRT] 	 [::1] 	 usuario=ong@email.com senha=3 
+[20:28:18 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=3 
+[20:28:18 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:28:18 BRT] 	 [::1] 	 OK 
+[20:28:18 BRT] 	 [::1] 	 Autenticado. idPermissao=usuario 
+[20:28:18 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[20:44:34 BRT] 	 [::1] 	 usuario=ong@email.com senha=1 
+[20:44:34 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=1 
+[20:44:34 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:44:34 BRT] 	 [::1] 	 get_out_05 
+[20:44:45 BRT] 	 [::1] 	 usuario=ong@email.com senha=3 
+[20:44:45 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=3 
+[20:44:45 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:44:45 BRT] 	 [::1] 	 OK 
+[20:44:45 BRT] 	 [::1] 	 Autenticado. idPermissao=usuario 
+[20:44:45 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[20:47:03 BRT] 	 [::1] 	 usuario=ong@email.com senha=3 
+[20:47:03 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=3 
+[20:47:03 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:47:03 BRT] 	 [::1] 	 OK 
+[20:47:03 BRT] 	 [::1] 	 Autenticado. idPermissao=usuario 
+[20:47:03 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[20:49:07 BRT] 	 [::1] 	 usuario=ong@email.com senha=3 
+[20:49:07 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=3 
+[20:49:07 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:49:07 BRT] 	 [::1] 	 OK 
+[20:49:07 BRT] 	 [::1] 	 Autenticado. idPermissao=usuario 
+[20:49:07 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[20:54:52 BRT] 	 [::1] 	 usuario=ong@email.com senha=1 
+[20:54:52 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=1 
+[20:54:52 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:54:52 BRT] 	 [::1] 	 get_out_05 
+[20:55:03 BRT] 	 [::1] 	 usuario=ong@email.com senha=3 
+[20:55:03 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=3 
+[20:55:03 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:55:03 BRT] 	 [::1] 	 OK 
+[20:55:03 BRT] 	 [::1] 	 Autenticado. idPermissao=usuario 
+[20:55:03 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
+[20:56:36 BRT] 	 [::1] 	 usuario=ong@email.com senha=2 
+[20:56:36 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=2 
+[20:56:36 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:56:36 BRT] 	 [::1] 	 get_out_05 
+[20:56:47 BRT] 	 [::1] 	 usuario=ong@email.com senha=1 
+[20:56:47 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=1 
+[20:56:47 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:56:47 BRT] 	 [::1] 	 get_out_05 
+[20:57:04 BRT] 	 [::1] 	 usuario=ong@email.com senha=3 
+[20:57:04 BRT] 	 [::1] 	 nusuario=ong@email_com nsenha=3 
+[20:57:04 BRT] 	 [::1] 	 Executando SQL select cod_usuario,nom_usuario,email,senha,perfil from tb_usuario where email LIKE ? AND senha = ? limit 1 Executa=1 
+[20:57:04 BRT] 	 [::1] 	 OK 
+[20:57:04 BRT] 	 [::1] 	 Autenticado. idPermissao=usuario 
+[20:57:04 BRT] 	 [::1] 	 Location:CONTEXT_NAMEpainel 
